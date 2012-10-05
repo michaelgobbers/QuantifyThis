@@ -21,7 +21,7 @@
 
   <div data-role="header" data-position="inline">
   	<h1>Mark My Mood</h1>
-		<a href="settings.html" data-role="button" data-icon="gear" data-ajax="false" class="ui-btn-right">Settings</a>
+		<a href="settings.html" data-role="button" data-icon="gear" data-ajax="false" data-transition="slidedown" class="ui-btn-right">Settings</a>
   </div>
 
 	<div data-role="navbar">
@@ -33,15 +33,26 @@
 	
   <div data-role="content"> 
    <p>Hier komen de sliders om de mood in te geven.</p> 
-<input type="range" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  />
-<input type="range" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  />
-<input type="range" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  />
-<input type="range" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  />
-<input type="range" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  />
+<table>
+<tr>
+<td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider2" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider3" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider4" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider5" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+</tr>
+<tr>
+<td style="padding-left:10px">Angry</td>
+<td style="padding-left:10px">Stress</td>
+<td style="padding-left:10px">Mellow</td>
+<td style="padding-left:10px">Happy</td>
+<td style="padding-left:10px">Energized</td>
+</tr>
+</table>
 <br/>
 <div data-role="controlgroup" data-type="horizontal">
 	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a>
-	<a href="#MarkMoodHeartRate" data-role="button" data-icon="arrow-r" data-inline="true">Next Step</a>   
+	<a href="#MarkMoodHeartRate" data-role="button" data-icon="arrow-r" data-inline="true" data-transition="slide">Next Step</a>   
 	</div>
   </div>
 
@@ -54,7 +65,7 @@
 
   <div data-role="header">
 	  <h1>Mood Statistics</h1>
-				<a href="settings.html" data-icon="gear" class="ui-btn-right">Settings</a>
+				<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
   </div>
 	<div data-role="navbar">
 		<ul>
@@ -77,7 +88,7 @@
 
   <div data-role="header" data-position="inline">
   	<h1>Mark My Mood - Heart Rate</h1>
-		<a href="settings.html" data-icon="gear" class="ui-btn-right">Settings</a>
+		<a href="settings.html" data-icon="gear" class="ui-btn-right"  data-transition="slidedown">Settings</a>
   </div>
 
 	<div data-role="navbar">
@@ -103,7 +114,7 @@
 
   <div data-role="header" data-position="inline">
   	<h1>Mark My Mood - Thanks</h1>
-		<a href="settings.html" data-icon="gear" class="ui-btn-right">Settings</a>
+		<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
   </div>
 
 	<div data-role="navbar">
