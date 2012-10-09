@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">QuantifyThis</string>
+    <string name="tab_title_statistics">Statistics</string>
+    <string name="tab_title_mark_mood">Mark Mood</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Quantify This</string>
+    <string name="button_mark_mood_label">Mark Mood</string>
+
+</resources>
