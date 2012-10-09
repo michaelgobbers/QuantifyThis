@@ -7,40 +7,38 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.widget.FrameLayout;
 
 /**
  * A {@link QuantifyPagerAdapter} that returns a fragment corresponding to one of the primary
  * sections of the app.
  */
-public class QuantifyPagerAdapter extends FragmentStatePagerAdapter {
+public class QuantifyPagerAdapter extends FragmentPagerAdapter {
 
-	private Fragment[] fragments = new Fragment[2];
-	private String[] fragmentTitles = new String[2];
+	private List<Fragment> fragments;
+	private List<String> fragmentTitles;
 	
     public QuantifyPagerAdapter(FragmentManager fm) {
         super(fm);
-    }
-
-    @Override
-    public int getItemPosition(Object fragment){
-    	return POSITION_NONE;
+        fragments = new ArrayList<Fragment>();
+        fragmentTitles = new ArrayList<String>();
     }
     
     @Override
     public Fragment getItem(int i) {
-        return fragments[i];
+        return fragments.get(i);
     }
-    public void setFragment(Fragment fragment, String title, int index){
-    	this.fragments[index] = fragment;
-    	this.fragmentTitles[index] = title;
+    public void addFragment(Fragment fragment, String title){
+    	this.fragments.add(fragment);
+    	this.fragmentTitles.add(title);
     }
     @Override
     public int getCount() {
-        return 2;
+        return fragments.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return fragmentTitles[position];
+        return fragmentTitles.get(position);
     } 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import be.mume.quantifythis.fragments.HeartRateFragment;
 import be.mume.quantifythis.fragments.MarkMoodFragment;
 import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
+import be.mume.quantifythis.fragments.SleepFragment;
 import be.mume.quantifythis.fragments.StatisticsFragment;
 
 import android.app.ActionBar;
@@ -26,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+public class MarkActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -44,12 +45,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mark);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
         pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
-        pagerAdapter.setFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood),0);
-        pagerAdapter.setFragment(new StatisticsFragment(), getResources().getString(R.string.tab_title_statistics),1);
+        pagerAdapter.addFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood));
+        pagerAdapter.addFragment(new HeartRateFragment(), getResources().getString(R.string.tab_title_heart));
+        pagerAdapter.addFragment(new SleepFragment(), getResources().getString(R.string.tab_title_sleep));
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -86,16 +88,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
-    }
-    
-    public void nextMarkMoodFragment(View view){
-    	if(view.getId() == R.id.button_next_mark_mood){
-    		pagerAdapter.setFragment(new HeartRateFragment(), getResources().getString(R.string.tab_title_mark_mood),0);
-    		pagerAdapter.notifyDataSetChanged();
-    	}
-    }
-
-    
+    }    
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {

@@ -1,18 +1,19 @@
 <resources>
 
     <string name="app_name">QuantifyThis</string>
-    <string name="tab_title_statistics">Statistics</string>
-    <string name="tab_title_mark_mood">Mark Mood</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="tab_title_mark_mood">Mood</string>
+    <string name="tab_title_heart">Heart Rate</string>
+    <string name="tab_title_sleep">Sleep</string>
+    <string name="tab_title_sleepmargin_bottom_mark_button">Sleep</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Quantify This</string>
-    <string name="button_mark_mood_label">Mark Mood</string>
-    <string name="button_next_step_label">Next</string>
-    <string name="button_prev_label">Previous</string>
+    <string name="button_mark_mood_label">Mark</string>
     <string name="mood_label_1">mood 1</string>
 	<string name="mood_label_2">mood 2</string>
 	<string name="mood_label_3">mood 3</string>
 	<string name="mood_label_4">mood 4</string>
 	<string name="mood_label_5">mood 5</string>
+	<string name="sleep_hours_label">Hours Slept?</string>
+	<string name="sleep_efficiency_label">Rested?</string>
 
 </resources>
