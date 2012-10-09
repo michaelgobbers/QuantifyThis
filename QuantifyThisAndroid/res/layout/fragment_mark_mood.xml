@@ -100,9 +100,10 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_next_mark_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="nextMarkMoodFragment"
                 android:text="@string/button_next_step_label" />
 
         </LinearLayout>

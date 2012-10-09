@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class StatisticsFragment extends Fragment {
-	public static final String ARG_SECTION_NUMBER = "1";
 	public StatisticsFragment() {
 	}
     @Override

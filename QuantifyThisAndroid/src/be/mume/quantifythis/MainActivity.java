@@ -3,6 +3,7 @@ package be.mume.quantifythis;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.mume.quantifythis.fragments.HeartRateFragment;
 import be.mume.quantifythis.fragments.MarkMoodFragment;
 import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
 import be.mume.quantifythis.fragments.StatisticsFragment;
@@ -33,7 +34,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
      * keep every loaded fragment in memory. If this becomes too memory intensive, it may be best
      * to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    QuantifyPagerAdapter mSectionsPagerAdapter;
+    QuantifyPagerAdapter pagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -46,9 +47,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setContentView(R.layout.activity_main);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
-        mSectionsPagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
-        mSectionsPagerAdapter.addFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood));
-        mSectionsPagerAdapter.addFragment(new StatisticsFragment(), getResources().getString(R.string.tab_title_statistics));
+        pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.setFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood),0);
+        pagerAdapter.setFragment(new StatisticsFragment(), getResources().getString(R.string.tab_title_statistics),1);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -56,7 +57,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(pagerAdapter);
         
 
         // When swiping between different sections, select the corresponding tab.
@@ -70,13 +71,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         });
 
         // For each of the sections in the app, add a tab to the action bar.
-        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+        for (int i = 0; i < pagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by the adapter.
             // Also specify this Activity object, which implements the TabListener interface, as the
             // listener for when this tab is selected.
             actionBar.addTab(
                     actionBar.newTab()
-                            .setText(mSectionsPagerAdapter.getPageTitle(i))
+                            .setText(pagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
     }
@@ -85,6 +86,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
+    }
+    
+    public void nextMarkMoodFragment(View view){
+    	if(view.getId() == R.id.button_next_mark_mood){
+    		pagerAdapter.setFragment(new HeartRateFragment(), getResources().getString(R.string.tab_title_mark_mood),0);
+    		pagerAdapter.notifyDataSetChanged();
+    	}
     }
 
     

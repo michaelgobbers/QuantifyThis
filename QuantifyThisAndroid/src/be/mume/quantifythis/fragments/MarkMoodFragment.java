@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class MarkMoodFragment extends Fragment {
-	public static final String ARG_SECTION_NUMBER = "1";
 	public MarkMoodFragment() {
 	}
     @Override
