@@ -1,4 +1,4 @@
-package be.mume.quatifythis.fragments;
+package be.mume.quantifythis.fragments;
 
 import be.mume.quantifythis.R;
 import android.os.Bundle;

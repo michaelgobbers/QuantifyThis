@@ -3,9 +3,9 @@ package be.mume.quantifythis;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.mume.quatifythis.fragments.MarkMoodFragment;
-import be.mume.quatifythis.fragments.QuantifyPagerAdapter;
-import be.mume.quatifythis.fragments.StatisticsFragment;
+import be.mume.quantifythis.fragments.MarkMoodFragment;
+import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
+import be.mume.quantifythis.fragments.StatisticsFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;

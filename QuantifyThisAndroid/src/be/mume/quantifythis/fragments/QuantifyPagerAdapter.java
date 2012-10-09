@@ -1,4 +1,4 @@
-package be.mume.quatifythis.fragments;
+package be.mume.quantifythis.fragments;
 
 import java.util.ArrayList;
 import java.util.List;
