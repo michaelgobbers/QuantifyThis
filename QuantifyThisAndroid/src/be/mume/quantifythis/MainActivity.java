@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.mume.quatifythis.fragments.MarkMoodFragment;
+import be.mume.quatifythis.fragments.QuantifyPagerAdapter;
 import be.mume.quatifythis.fragments.StatisticsFragment;
 
 import android.app.ActionBar;
@@ -32,7 +33,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
      * keep every loaded fragment in memory. If this becomes too memory intensive, it may be best
      * to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    SectionsPagerAdapter mSectionsPagerAdapter;
+    QuantifyPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -45,9 +46,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         setContentView(R.layout.activity_main);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mSectionsPagerAdapter.addFragment(new MarkMoodFragment());
-        mSectionsPagerAdapter.addFragment(new StatisticsFragment());
+        mSectionsPagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter.addFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood));
+        mSectionsPagerAdapter.addFragment(new StatisticsFragment(), getResources().getString(R.string.tab_title_statistics));
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -102,39 +103,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
-     * sections of the app.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-    	private List<Fragment> fragments;
-    	
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-            fragments = new ArrayList<Fragment>();
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            return fragments.get(i);
-        }
-        public void addFragment(Fragment fragment){
-        	this.fragments.add(fragment);
-        }
-        @Override
-        public int getCount() {
-            return fragments.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0: return getString(R.string.tab_title_mark_mood).toUpperCase();
-                case 1: return getString(R.string.tab_title_statistics).toUpperCase();
-                default: return Integer.toString(position);
-            }
-        }
-    }
+    
  
 }
