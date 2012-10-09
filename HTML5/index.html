@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Quantify This!</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<link href="verticalSlider.css" rel="stylesheet" type="text/css" />
+<script src="verticalSlider.js"></script>
+<style type="text/css">
+.img {
+	padding-left: 70px;
+}
+</style>
+</head>
+
+<body>
+
+<div data-role="page" data-theme="b" id="MarkMood">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Mark My Mood</h1>
+		<a href="settings.html" data-role="button" data-icon="gear" data-ajax="false" data-transition="slidedown" class="ui-btn-right">Settings</a>
+  </div>
+
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
+			<li><a href="#MoodStatistics">Mood Statistics</a></li>
+		</ul>
+	</div>
+	
+  <div data-role="content"> 
+   <p>Hier komen de sliders om de mood in te geven.</p> 
+<table>
+<tr>
+<td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider2" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider3" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider4" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+<td style="padding-right:20px"><input type="range" id="slider5" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
+</tr>
+<tr>
+<td style="padding-left:10px">Angry</td>
+<td style="padding-left:10px">Stress</td>
+<td style="padding-left:10px">Mellow</td>
+<td style="padding-left:10px">Happy</td>
+<td style="padding-left:10px">Energized</td>
+</tr>
+</table>
+<br/>
+<div data-role="controlgroup" data-type="horizontal">
+	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a>
+	<a href="#MarkMoodHeartRate" data-role="button" data-icon="arrow-r" data-inline="true" data-transition="slide">Next Step</a>   
+	</div>
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+<div data-role="page" data-theme="b" id="MoodStatistics">
+
+  <div data-role="header">
+	  <h1>Mood Statistics</h1>
+				<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
+  </div>
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#MarkMood">Mark my mood</a></li>
+			<li><a href="#MoodStatistics" class="ui-btn-active ui-state-persist">Mood Statistics</a></li>
+		</ul>
+	</div>
+
+	
+  <div data-role="content"> 
+    <p>Hier komen de statistieken.</p>
+  </div>
+
+  <div data-role="footer">
+    <h4>&copy;  Quantify This! Designers</h4>
+  </div>
+</div>
+
+<div data-role="page" data-theme="b" id="MarkMoodHeartRate">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Mark My Mood - Heart Rate</h1>
+		<a href="settings.html" data-icon="gear" class="ui-btn-right"  data-transition="slidedown">Settings</a>
+  </div>
+
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
+			<li><a href="#MoodStatistics">Mood Statistics</a></li>
+		</ul>
+	</div>
+	
+  <div data-role="content"> 
+   <p>Hier komt iets om het hart ritme te meten en opslaan.</p>   
+	 <a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a> 
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+
+
+<div data-role="page" data-theme="b" id="MarkMoodThanks">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Mark My Mood - Thanks</h1>
+		<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
+  </div>
+
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
+			<li><a href="#MoodStatistics">Mood Statistics</a></li>
+		</ul>
+	</div>
+	
+  <div data-role="content"> 
+   <p>Hier komt een bedankje omdat de gebruiker zijn mood heeft ingevuld.</p>    
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+
+
+
+</body>
+</html>
