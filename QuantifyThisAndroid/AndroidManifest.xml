@@ -21,6 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MarkActivity"></activity>
+        <activity android:name=".StatisticsActivity"></activity>
+        <activity android:name="AgendaActivity"></activity>
+        <activity android:name="SettingsActivity"></activity>
     </application>
 
 </manifest>

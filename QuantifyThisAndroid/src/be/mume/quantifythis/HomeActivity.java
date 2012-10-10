@@ -14,10 +14,20 @@ public class HomeActivity extends FragmentActivity{
 		setContentView(R.layout.activity_home);
 	}
 	public void launchActivity(View view){
+		Intent intent = new Intent();
 		if(view.getId()==R.id.button_launch_mark){
-			Intent intent = new Intent();
 			intent.setClass(this, MarkActivity.class);
-			startActivity(intent);
 		}
+		else if(view.getId()==R.id.button_launch_agenda){
+			intent.setClass(this, AgendaActivity.class);
+		}
+		else if(view.getId()==R.id.button_launch_statistics){
+			intent.setClass(this, StatisticsActivity.class);
+		}
+		else if(view.getId()==R.id.button_launch_settings){
+			intent.setClass(this, SettingsActivity.class);
+		}
+		if(intent!=null)
+			startActivity(intent);
 	}
 }
