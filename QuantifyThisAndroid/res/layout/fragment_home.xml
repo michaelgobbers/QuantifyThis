@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="launchActivity"
-            android:text="Button" />
+            android:text="@string/button_mark_mood_label" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/button_agenda_mood_label" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,14 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/button_statistics_label" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="@string/button_settings_label" />
     </LinearLayout>
 
 </LinearLayout>

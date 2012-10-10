@@ -7,7 +7,12 @@
     <string name="tab_title_sleepmargin_bottom_mark_button">Sleep</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Quantify This</string>
-    <string name="button_mark_mood_label">Mark</string>
+    <string name="button_input_mood_label">Mark</string>
+    <string name="button_mark_mood_label">Mark mood</string>
+    <string name="button_agenda_mood_label">Appointments mood</string>
+    <string name="button_statistics_label">Statistics</string>
+    <string name="button_settings_label">Settings</string>
+    
     <string name="mood_label_1">mood 1</string>
 	<string name="mood_label_2">mood 2</string>
 	<string name="mood_label_3">mood 3</string>
