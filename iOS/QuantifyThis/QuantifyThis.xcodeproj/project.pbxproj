@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240F8F7E16287D7E00B03805 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 240F8F7D16287D7E00B03805 /* Settings.bundle */; };
 		2447FD6F1626D0D9004F6F66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447FD6E1626D0D9004F6F66 /* UIKit.framework */; };
 		2447FD711626D0D9004F6F66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447FD701626D0D9004F6F66 /* Foundation.framework */; };
 		2447FD731626D0D9004F6F66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447FD721626D0D9004F6F66 /* CoreGraphics.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240F8F7D16287D7E00B03805 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2447FD6A1626D0D9004F6F66 /* QuantifyThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantifyThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2447FD6E1626D0D9004F6F66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2447FD701626D0D9004F6F66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 				2447FD891626D0DA004F6F66 /* ViewController.h */,
 				2447FD8A1626D0DA004F6F66 /* ViewController.m */,
 				2447FD751626D0DA004F6F66 /* Supporting Files */,
+				240F8F7D16287D7E00B03805 /* Settings.bundle */,
 			);
 			path = QuantifyThis;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				2447FD831626D0DA004F6F66 /* Default@2x.png in Resources */,
 				2447FD851626D0DA004F6F66 /* Default-568h@2x.png in Resources */,
 				2447FD881626D0DA004F6F66 /* MainStoryboard.storyboard in Resources */,
+				240F8F7E16287D7E00B03805 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +451,7 @@
 				2447FDA51626D0DA004F6F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2447FDA61626D0DA004F6F66 /* Build configuration list for PBXNativeTarget "QuantifyThisTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +460,7 @@
 				2447FDA81626D0DA004F6F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
