@@ -1,15 +1,17 @@
 package be.mume.quantifythis;
 
-import be.mume.quantifythis.R;
-import android.os.Bundle;
+import java.util.List;
+
 import android.preference.PreferenceActivity;
 
 public class SettingsActivity extends PreferenceActivity {
-
+	public SettingsActivity(){
+		
+	}
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
+    public void onBuildHeaders(List<Header> target){
+        // Display the fragment as the main content.
+        loadHeadersFromResource(R.xml.preferences, target);
     }
 	
 }
