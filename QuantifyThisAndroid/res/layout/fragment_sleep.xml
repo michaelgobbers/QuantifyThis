@@ -22,7 +22,15 @@
         <SeekBar
             android:id="@+id/hours_seek_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:max="@integer/sleep_max_hours" />
+
+        <TextView
+            android:id="@+id/hours_amount_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/sleep_efficiency_label"
@@ -35,6 +43,13 @@
             android:id="@+id/sleep_efficiency_seek_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        
+        <TextView
+            android:id="@+id/sleep_efficiency_amount_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
     <LinearLayout
