@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center_horizontal"
         android:text="@string/mood_label_1"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <SeekBar
         android:id="@+id/seekBar1"
@@ -21,16 +21,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1" />
+     <TextView
+            android:id="@+id/seekbar1_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_below="@id/seekBar1"
+             android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/seekBar1"
+        android:layout_below="@+id/seekbar1_label"
         android:gravity="center_horizontal"
         android:text="@string/mood_label_2"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -38,16 +47,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2" />
+    <TextView
+            android:id="@+id/seekbar2_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_below="@id/seekBar2"
+             android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/seekBar2"
+        android:layout_below="@+id/seekbar2_label"
         android:gravity="center_horizontal"
         android:text="@string/mood_label_3"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <SeekBar
         android:id="@+id/seekBar3"
@@ -55,16 +72,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3" />
+    <TextView
+            android:id="@+id/seekbar3_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_below="@id/seekBar3"
+             android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/seekBar3"
+        android:layout_below="@+id/seekbar3_label"
         android:gravity="center_horizontal"
         android:text="@string/mood_label_4"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <SeekBar
         android:id="@+id/seekBar4"
@@ -72,16 +97,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView4" />
+    <TextView
+            android:id="@+id/seekbar4_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_below="@id/seekBar4"
+             android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/seekBar4"
+        android:layout_below="@+id/seekbar4_label"
         android:gravity="center_horizontal"
         android:text="@string/mood_label_5"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <SeekBar
         android:id="@+id/seekBar5"
@@ -89,6 +122,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView5" />
+    <TextView
+            android:id="@+id/seekbar5_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_below="@id/seekBar5"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
         android:id="@+id/button1"

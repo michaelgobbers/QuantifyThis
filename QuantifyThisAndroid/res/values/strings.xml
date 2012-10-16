@@ -13,11 +13,11 @@
     <string name="button_statistics_label">Statistics</string>
     <string name="button_settings_label">Settings</string>
     
-    <string name="mood_label_1">mood 1</string>
-	<string name="mood_label_2">mood 2</string>
-	<string name="mood_label_3">mood 3</string>
-	<string name="mood_label_4">mood 4</string>
-	<string name="mood_label_5">mood 5</string>
+    <string name="mood_label_1">Happy</string>
+	<string name="mood_label_2">Sad</string>
+	<string name="mood_label_3">Angry</string>
+	<string name="mood_label_4">Energized</string>
+	<string name="mood_label_5">Tired</string>
 	<string name="sleep_hours_label">Hours Slept?</string>
 	<string name="sleep_efficiency_label">Rested?</string>
 	<string name="label_statistics">Statistics</string>
