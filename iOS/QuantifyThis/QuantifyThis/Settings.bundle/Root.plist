@@ -12,37 +12,45 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
+			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
-			<string></string>
+			<string>Google Account</string>
 			<key>Key</key>
-			<string></string>
+			<string>account</string>
+			<key>File</key>
+			<string>account.plist</string>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<true/>
-			<key>Key</key>
-			<string>enabled_preference</string>
-			<key>Title</key>
-			<string>Enabled</string>
 			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Notifications</string>
+			<key>Key</key>
+			<string>notifications</string>
+			<key>File</key>
+			<string>notifications.plist</string>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<real>0.5</real>
-			<key>Key</key>
-			<string>slider_preference</string>
-			<key>MaximumValue</key>
-			<integer>1</integer>
-			<key>MaximumValueImage</key>
-			<string></string>
-			<key>MinimumValue</key>
-			<integer>0</integer>
-			<key>MinimumValueImage</key>
-			<string></string>
 			<key>Type</key>
-			<string>PSSliderSpecifier</string>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Calendar</string>
+			<key>Key</key>
+			<string>calendar</string>
+			<key>File</key>
+			<string>calendar.plist</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Music</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Heart rate monitor</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
