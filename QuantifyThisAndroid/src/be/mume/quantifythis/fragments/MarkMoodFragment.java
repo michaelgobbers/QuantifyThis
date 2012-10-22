@@ -69,6 +69,9 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
 	public void onStopTrackingTouch(SeekBar seekBar) {
 	}
 	
+	/*
+	 * This algorithm still contains a few bugs.
+	 */
 	private void checkAndAdjustMoodTotal(SeekBar seekBar) {
 		View seekBarParent = (View) seekBar.getParent();
 		SeekBar bar1 = (SeekBar) seekBarParent.findViewById(R.id.seekBar1);
