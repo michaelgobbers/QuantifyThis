@@ -43,7 +43,7 @@ $.widget( "mobile.slider", $.mobile.widget, {
 
 			control = this.element,
 
-			parentTheme = $.mobile.getInheritedTheme( control, "c" ),
+			parentTheme = $.mobile.getInheritedTheme( control, "e" ),
 
 			theme = this.options.theme || parentTheme,
 

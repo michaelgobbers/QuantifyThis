@@ -8,32 +8,60 @@
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <link href="verticalSlider.css" rel="stylesheet" type="text/css" />
 <script src="verticalSlider.js"></script>
+
 <style type="text/css">
-.img {
-	padding-left: 70px;
-}
+a {text-decoration:none;}
+
 </style>
 </head>
 
 <body>
 
-<div data-role="page" data-theme="b" id="MarkMood">
+<div data-role="page" data-theme="b" id="Home">
 
   <div data-role="header" data-position="inline">
-  	<h1>Mark My Mood</h1>
-		<a href="settings.html" data-role="button" data-icon="gear" data-ajax="false" data-transition="slidedown" class="ui-btn-right">Settings</a>
+  	<h1>Quantify This!</h1>
+		</div>
+	
+  <div data-role="content">  
+<table>
+<tr>
+<td><a href="#MarkMyMood"><center><img src="images/mood.png" alt="Mark my mood" width="100px"></center></a></td>
+<td><a href="#CalendarView"><center><img src="images/calendar_view.png" alt="Calendar View" width="100px"></center></a></td>
+</tr>
+<tr>
+<td><center><a href="#MarkMyMood"> Mark my mood</a></center></td>
+<td><center><a href="#CalendarView">Calendar view</a></center></td>
+</tr>
+<tr>
+<td><a href="#Statistics"><center><img src="images/statistics.png" alt="Statistics" width="100px"></center></a></td>
+<td><a href="settings.html" data-ajax="false"><center><img src="images/settings.png" alt="Settings" width="100px"></center></a></td>
+</tr>
+<tr>
+<td><center><a href="#Statistics">Statistics</a></center></td>
+<td><center><a href="settings.html" data-ajax="false">Settings</a></center></td>
+</tr>
+</table>
+<br/>
+<hr />
+<p>Tip of the day</p>
+<br/><br/><br/><br/><br/><br/><br/><br/>
   </div>
 
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
-			<li><a href="#MoodStatistics">Mood Statistics</a></li>
-		</ul>
-	</div>
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+<div data-role="page" data-theme="b" id="MarkMyMood">
+
+  <div data-role="header">
+	  <h1>Mark My Mood</h1>
+				<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
+  </div>
 	
   <div data-role="content"> 
-   <p>Hier komen de sliders om de mood in te geven.</p> 
-<table>
+    <table>
 <tr>
 <td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
 <td style="padding-right:20px"><input type="range" id="slider2" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
@@ -50,62 +78,24 @@
 </tr>
 </table>
 <br/>
+<table>
+<tr>
+<td><a href="#HeartRate"><center><img src="images/heartrate.png" alt="Heart Rate" width="150px"></center></a></td>
+<td><a href="#SleepTime"><center><img src="images/sleeptime.png" alt="Amount of Sleep" width="150px"></center></a></td>
+</tr>
+<tr>
+<td style="padding-left:30px"><a href="#HeartRate">Heart Rate</a> </td>
+<td style="padding-left:55px"><a href="#SleepTime">Sleep</a> </td>
+</tr>
+</table>
+
 <div data-role="controlgroup" data-type="horizontal">
 	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a>
-	<a href="#MarkMoodHeartRate" data-role="button" data-icon="arrow-r" data-inline="true" data-transition="slide">Next Step</a>   
 	</div>
-  </div>
-
-	
-  <div data-role="footer">
-    <h4>&copy; Quantify This! Designers</h4>
-  </div>
-</div>
-<div data-role="page" data-theme="b" id="MoodStatistics">
-
-  <div data-role="header">
-	  <h1>Mood Statistics</h1>
-				<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
-  </div>
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#MarkMood">Mark my mood</a></li>
-			<li><a href="#MoodStatistics" class="ui-btn-active ui-state-persist">Mood Statistics</a></li>
-		</ul>
-	</div>
-
-	
-  <div data-role="content"> 
-    <p>Hier komen de statistieken.</p>
   </div>
 
   <div data-role="footer">
     <h4>&copy;  Quantify This! Designers</h4>
-  </div>
-</div>
-
-<div data-role="page" data-theme="b" id="MarkMoodHeartRate">
-
-  <div data-role="header" data-position="inline">
-  	<h1>Mark My Mood - Heart Rate</h1>
-		<a href="settings.html" data-icon="gear" class="ui-btn-right"  data-transition="slidedown">Settings</a>
-  </div>
-
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
-			<li><a href="#MoodStatistics">Mood Statistics</a></li>
-		</ul>
-	</div>
-	
-  <div data-role="content"> 
-   <p>Hier komt iets om het hart ritme te meten en opslaan.</p>   
-	 <a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a> 
-  </div>
-
-	
-  <div data-role="footer">
-    <h4>&copy; Quantify This! Designers</h4>
   </div>
 </div>
 
@@ -114,15 +104,9 @@
 
   <div data-role="header" data-position="inline">
   	<h1>Mark My Mood - Thanks</h1>
-		<a href="settings.html" data-icon="gear" class="ui-btn-right" data-transition="slidedown">Settings</a>
+		<a href="#MarkMyMood" rel="external" data-icon="arrow-l" class="ui-btn-left"  data-transition="slidedown">Back</a>
   </div>
 
-	<div data-role="navbar">
-		<ul>
-			<li><a href="#MarkMood" class="ui-btn-active ui-state-persist">Mark my mood</a></li>
-			<li><a href="#MoodStatistics">Mood Statistics</a></li>
-		</ul>
-	</div>
 	
   <div data-role="content"> 
    <p>Hier komt een bedankje omdat de gebruiker zijn mood heeft ingevuld.</p>    
@@ -134,7 +118,87 @@
   </div>
 </div>
 
+<div data-role="page" data-theme="b" id="CalendarView">
 
+  <div data-role="header" data-position="inline">
+  	<h1>Mark My Mood - Calendar View</h1>
+		<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
+  </div>
 
+	
+  <div data-role="content"> 
+   <p>Hier komt de calendar view.</p>    
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+
+<div data-role="page" data-theme="b" id="Statistics">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Quantify this! - Statistics</h1>
+		<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
+  </div>
+
+	
+  <div data-role="content"> 
+   <p>Hier komen de statistieken.</p>    
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+
+<div data-role="page" data-theme="b" id="HeartRate">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Quantify this! - Heart Rate</h1>
+<a href="#MarkMyMood" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
+  </div>
+
+	
+  <div data-role="content"> 
+   <p>Hier komen heart rate toestanden.</p>  
+	 <div data-role="controlgroup" data-type="horizontal">
+	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood!</a>
+	</div>  
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
+
+<div data-role="page" data-theme="b" id="SleepTime">
+
+  <div data-role="header" data-position="inline">
+  	<h1>Quantify this! - Amount of Sleep</h1>
+<a href="#MarkMyMood" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
+  </div>
+
+	
+  <div data-role="content"> 
+   <p>How many hours did you sleep?</p>
+	 <input type="range" name="slider-many-hours" id="slider-many-hours" value="8" min="1" max="22" data-highlight="true" />   
+	 <p>How well did you sleep?</p>
+	 <input type="range" name="slider-many-hours" id="slider-many-hours" value="7" min="1" max="10" data-highlight="true" />    
+	 <br/><br/><br/>
+	 <div data-role="controlgroup" data-type="horizontal">
+	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a>
+	</div>
+	<br/><br/><br/>
+  </div>
+
+	
+  <div data-role="footer">
+    <h4>&copy; Quantify This! Designers</h4>
+  </div>
+</div>
 </body>
 </html>
