@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HeartBeatController.h"
+#import "SleepController.h"
 
-@interface RegisterMoodController : UIViewController
+@interface RegisterMoodController : UIViewController <HeartBeatCallback, SleepCallback>
 
 - (IBAction)registerMood:(id)sender;
 

@@ -4,17 +4,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
-        <!--Register Mood Controller - Heart Rate-->
+        <!--Heart Beat Controller - Heart Rate-->
         <scene sceneID="eZz-CQ-BkK">
             <objects>
-                <viewController id="TvT-A7-Dvb" customClass="RegisterMoodController" sceneMemberID="viewController">
+                <viewController id="TvT-A7-Dvb" customClass="HeartBeatController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q3L-Jc-cLB">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Du8-KP-7Hd">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="120" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-sm-lVV">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="bpmLabel" text="90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-sm-lVV">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="139" id="3VG-iz-bow"/>
                                             <constraint firstAttribute="width" constant="236" id="RsE-e0-FRc"/>
@@ -52,15 +52,19 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Heartrate" id="Riy-2o-i60"/>
                     <navigationItem key="navigationItem" title="Heart Rate" id="kg4-KJ-lUa"/>
+                    <connections>
+                        <outlet property="beatsPerMinute" destination="Zzt-sm-lVV" id="tGC-ke-Eyc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJc-DV-zOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="kRG-Mt-4f6"/>
             </objects>
             <point key="canvasLocation" x="-1614" y="-643"/>
         </scene>
-        <!--Register Mood Controller - Sleep-->
+        <!--Sleep Controller - Sleep-->
         <scene sceneID="jDK-4K-2zV">
             <objects>
-                <viewController id="u7I-MV-ke0" customClass="RegisterMoodController" sceneMemberID="viewController">
+                <viewController id="u7I-MV-ke0" customClass="SleepController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UN-UG-ufN">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -203,7 +207,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TvT-A7-Dvb" kind="push" id="atF-Hp-CWB"/>
+                                    <segue destination="TvT-A7-Dvb" kind="push" identifier="heartbeatSegue" id="atF-Hp-CWB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaA-PT-jBF">
@@ -219,7 +223,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="u7I-MV-ke0" kind="push" id="c4b-Tb-oof"/>
+                                    <segue destination="u7I-MV-ke0" kind="push" identifier="sleepSegue" id="c4b-Tb-oof"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -499,6 +503,12 @@
         </scene>
     </scenes>
     <classes>
+        <class className="HeartBeatController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HeartBeatController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="beatsPerMinute" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="IASKAppSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/IASKAppSettingsViewController.h"/>
             <relationships>
@@ -513,6 +523,9 @@
             <relationships>
                 <relationship kind="action" name="registerMood:"/>
             </relationships>
+        </class>
+        <class className="SleepController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

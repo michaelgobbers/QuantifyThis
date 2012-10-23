@@ -15,20 +15,16 @@
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
 			<string>Google Account</string>
-			<key>Key</key>
-			<string>account</string>
 			<key>File</key>
-			<string>account.plist</string>
+			<string>Account</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
 			<string>Notifications</string>
-			<key>Key</key>
-			<string>notifications</string>
 			<key>File</key>
-			<string>notifications.plist</string>
+			<string>Notifications</string>
 		</dict>
 		<dict>
 			<key>Type</key>
