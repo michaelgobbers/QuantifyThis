@@ -14,5 +14,11 @@
 @end
 
 @interface SleepController : UIViewController
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *qualitySlider;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (retain) id delegate;
+
+
+- (IBAction)timeChanged:(UISlider *)sender;
 @end

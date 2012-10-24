@@ -13,12 +13,19 @@
 -(void) viewWillDisappear:(BOOL)animated{
     // check if backbutton is pressed
     if([self.navigationController.viewControllers indexOfObject:self]==NSNotFound){
-        NSUInteger time = 2;
-        NSUInteger q = 5;
+        NSUInteger time = (int)[[self timeSlider] value];
+        NSUInteger q = (int)[[self qualitySlider] value];
         [[self delegate] registerSleepTime:&time quality:&q];
     }
     [super viewWillDisappear:animated];
 }
 
-
+- (IBAction)timeChanged:(UISlider *)sender {
+    NSInteger val = (int)[sender value];
+    if(val == 1){
+        [[self timeLabel] setText: [NSString stringWithFormat:@"%d hour",val]];
+    }else{
+        [[self timeLabel] setText: [NSString stringWithFormat:@"%d hours",val]];
+    }
+}
 @end

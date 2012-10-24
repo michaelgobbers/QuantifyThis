@@ -74,7 +74,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fF8-dt-wCe"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="9" minValue="0.0" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="fF8-dt-wCe">
+                                <connections>
+                                    <action selector="timeChanged:" destination="u7I-MV-ke0" eventType="valueChanged" id="T5Q-Mn-l9m"/>
+                                </connections>
+                            </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How well did you sleep?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v8-9f-5TE">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -91,7 +95,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10 hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob0-wh-9Mf">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="9 hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob0-wh-9Mf">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="h87-gs-JD4"/>
                                 </constraints>
@@ -124,6 +128,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Sleep" id="5ej-bV-qhH"/>
                     <navigationItem key="navigationItem" title="Sleep" id="ahn-mz-X2t"/>
+                    <connections>
+                        <outlet property="qualitySlider" destination="8wZ-9C-k0b" id="6YQ-2L-Rnt"/>
+                        <outlet property="timeLabel" destination="ob0-wh-9Mf" id="NHa-8V-Ky5"/>
+                        <outlet property="timeSlider" destination="fF8-dt-wCe" id="NOy-IF-UKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rak-5K-FyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -526,6 +535,12 @@
         </class>
         <class className="SleepController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepController.h"/>
+            <relationships>
+                <relationship kind="action" name="timeChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="qualitySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
