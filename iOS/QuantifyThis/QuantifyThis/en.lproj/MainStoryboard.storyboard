@@ -33,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Zzt-sm-lVV" firstAttribute="top" secondItem="Du8-KP-7Hd" secondAttribute="top" type="default" id="Hd0-Xq-hzc"/>
                                     <constraint firstItem="REc-86-hH8" firstAttribute="trailing" secondItem="Du8-KP-7Hd" secondAttribute="trailing" type="default" id="NZ8-1s-qEn"/>
@@ -41,13 +41,24 @@
                                     <constraint firstItem="REc-86-hH8" firstAttribute="top" secondItem="Du8-KP-7Hd" secondAttribute="top" constant="19" id="rjX-Hc-dse"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Hold your fingers to your neck and shake your phone to the rythm of your heartbeat. The phone will vibrate when you can stop." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-6M-4ty">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="156" id="ECa-I8-agB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Du8-KP-7Hd" firstAttribute="top" secondItem="q3L-Jc-cLB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="OAD-U3-PyQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Du8-KP-7Hd" secondAttribute="bottom" constant="348" id="cwU-na-MyU"/>
+                            <constraint firstItem="Du8-KP-7Hd" firstAttribute="centerY" secondItem="q3L-Jc-cLB" secondAttribute="centerY" type="default" id="HIO-Gl-xn3"/>
+                            <constraint firstItem="Du8-KP-7Hd" firstAttribute="top" secondItem="xOy-6M-4ty" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hdl-I8-R3c"/>
+                            <constraint firstItem="xOy-6M-4ty" firstAttribute="leading" secondItem="q3L-Jc-cLB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="diW-up-5Us"/>
+                            <constraint firstItem="xOy-6M-4ty" firstAttribute="top" secondItem="q3L-Jc-cLB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gfy-6I-UvY"/>
                             <constraint firstItem="Du8-KP-7Hd" firstAttribute="leading" secondItem="q3L-Jc-cLB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="h6B-1n-hwQ"/>
                             <constraint firstAttribute="trailing" secondItem="Du8-KP-7Hd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ieh-vV-jHt"/>
+                            <constraint firstAttribute="trailing" secondItem="xOy-6M-4ty" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zg1-9r-faU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Heartrate" id="Riy-2o-i60"/>
@@ -104,7 +115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aDg-iL-oEh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0Cq-ks-prE"/>
                             <constraint firstItem="9v8-9f-5TE" firstAttribute="leading" secondItem="6UN-UG-ufN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0GK-iN-EbT"/>
@@ -159,15 +170,34 @@
                                     <action selector="registerMood:" destination="gLS-tA-r1o" eventType="touchUpInside" id="jMm-dB-Scu"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ubF-Jh-JGh"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="psh-Tf-2C9"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fil-jb-yPt"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ubF-Jh-JGh">
+                                <color key="minimumTrackTintColor" red="0.053112882459999997" green="0.3281595168" blue="0.84900927540000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="psh-Tf-2C9">
+                                <color key="minimumTrackTintColor" red="0.053112882457344586" green="0.32815951684860406" blue="0.84900927540000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fil-jb-yPt">
+                                <color key="minimumTrackTintColor" red="0.053112882459999997" green="0.3281595168" blue="0.84900927540000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-pb-sqA">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="VHC-UA-4vV"/>
                                 </constraints>
+                                <color key="minimumTrackTintColor" red="0.053112882459999997" green="0.3281595168" blue="0.84900927540000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-o5-ai3"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="BgB-o5-ai3">
+                                <color key="minimumTrackTintColor" red="0.053112882459999997" green="0.3281595168" blue="0.84900927540000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Happy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2N-05-dhh">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="e06-9V-bDa"/>
@@ -236,7 +266,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3b7-D4-DCx" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="44" id="3CY-Jp-nxO"/>
                             <constraint firstAttribute="bottom" secondItem="3b7-D4-DCx" secondAttribute="bottom" constant="85" id="5O0-94-8Jf"/>
@@ -245,26 +275,27 @@
                             <constraint firstAttribute="trailing" secondItem="Pgu-zP-jfg" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="6pS-30-v2g"/>
                             <constraint firstItem="BgB-o5-ai3" firstAttribute="trailing" secondItem="gFF-pb-sqA" secondAttribute="trailing" type="default" id="7Xb-Xd-6HI"/>
                             <constraint firstItem="Pgu-zP-jfg" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7e7-Yn-dI1"/>
-                            <constraint firstItem="fil-jb-yPt" firstAttribute="leading" secondItem="psh-Tf-2C9" secondAttribute="leading" type="default" id="7nv-GH-nz4"/>
                             <constraint firstItem="b2N-05-dhh" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="92e-9u-KQX"/>
                             <constraint firstItem="BgB-o5-ai3" firstAttribute="leading" secondItem="Y81-gA-TO2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="B91-7R-koI"/>
                             <constraint firstAttribute="bottom" secondItem="Pgu-zP-jfg" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="JBN-g0-nd6"/>
                             <constraint firstItem="ifB-7C-nbm" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="M2p-dV-s1V"/>
                             <constraint firstAttribute="trailing" secondItem="eaA-PT-jBF" secondAttribute="trailing" constant="44" id="NK1-x8-JSZ"/>
-                            <constraint firstItem="gFF-pb-sqA" firstAttribute="leading" secondItem="ubF-Jh-JGh" secondAttribute="leading" type="default" id="O2d-kb-k2h"/>
                             <constraint firstItem="gFF-pb-sqA" firstAttribute="leading" secondItem="Mge-bu-ND3" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="O4y-uU-K4L"/>
                             <constraint firstItem="BgB-o5-ai3" firstAttribute="top" secondItem="gFF-pb-sqA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Pmi-94-S64"/>
                             <constraint firstItem="BgB-o5-ai3" firstAttribute="leading" secondItem="gFF-pb-sqA" secondAttribute="leading" type="default" id="UNH-6n-GEs"/>
                             <constraint firstAttribute="trailing" secondItem="psh-Tf-2C9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VIx-yG-UoZ"/>
                             <constraint firstAttribute="trailing" secondItem="fil-jb-yPt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VQ3-w9-koN"/>
                             <constraint firstItem="ubF-Jh-JGh" firstAttribute="leading" secondItem="b2N-05-dhh" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Vjs-QI-1Om"/>
-                            <constraint firstItem="fil-jb-yPt" firstAttribute="leading" secondItem="Hxv-Pz-jeJ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WpS-xu-NLN"/>
                             <constraint firstItem="eaA-PT-jBF" firstAttribute="bottom" secondItem="3b7-D4-DCx" secondAttribute="bottom" type="default" id="YpF-CN-IEe"/>
+                            <constraint firstItem="gFF-pb-sqA" firstAttribute="leading" secondItem="fil-jb-yPt" secondAttribute="leading" type="default" id="Yx9-ui-ZG1"/>
+                            <constraint firstItem="Hxv-Pz-jeJ" firstAttribute="trailing" secondItem="ifB-7C-nbm" secondAttribute="trailing" type="default" id="b40-T8-NdD"/>
                             <constraint firstItem="Mge-bu-ND3" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eNu-4e-Y4Y"/>
                             <constraint firstItem="b2N-05-dhh" firstAttribute="top" secondItem="2SE-yE-Apo" secondAttribute="top" constant="20" symbolic="YES" type="default" id="faQ-n2-bYu"/>
                             <constraint firstItem="Hxv-Pz-jeJ" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fb0-mP-UAe"/>
                             <constraint firstItem="ifB-7C-nbm" firstAttribute="top" secondItem="psh-Tf-2C9" secondAttribute="top" type="default" id="iH8-ey-6Hc"/>
+                            <constraint firstItem="psh-Tf-2C9" firstAttribute="leading" secondItem="fil-jb-yPt" secondAttribute="leading" type="default" id="isH-wH-OSI"/>
                             <constraint firstItem="Hxv-Pz-jeJ" firstAttribute="top" secondItem="fil-jb-yPt" secondAttribute="top" type="default" id="k2Q-YR-FZt"/>
+                            <constraint firstItem="ubF-Jh-JGh" firstAttribute="leading" secondItem="psh-Tf-2C9" secondAttribute="leading" type="default" id="kOz-rt-96v"/>
                             <constraint firstItem="ubF-Jh-JGh" firstAttribute="top" secondItem="2SE-yE-Apo" secondAttribute="top" constant="20" symbolic="YES" type="default" id="kaF-Ej-fWE"/>
                             <constraint firstItem="psh-Tf-2C9" firstAttribute="top" secondItem="ubF-Jh-JGh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mb7-fc-dmm"/>
                             <constraint firstItem="3b7-D4-DCx" firstAttribute="top" secondItem="eaA-PT-jBF" secondAttribute="top" type="default" id="pyy-IB-9gw"/>
@@ -272,7 +303,6 @@
                             <constraint firstItem="Mge-bu-ND3" firstAttribute="top" secondItem="gFF-pb-sqA" secondAttribute="top" type="default" id="vEw-ng-F26"/>
                             <constraint firstItem="Y81-gA-TO2" firstAttribute="leading" secondItem="2SE-yE-Apo" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vN1-4g-nZf"/>
                             <constraint firstItem="fil-jb-yPt" firstAttribute="top" secondItem="psh-Tf-2C9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vj5-8g-mtW"/>
-                            <constraint firstItem="psh-Tf-2C9" firstAttribute="leading" secondItem="ifB-7C-nbm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zgj-DG-ugS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Enter mood" id="g6D-Nr-vYJ">
@@ -342,20 +372,17 @@
                                     <constraint firstAttribute="width" constant="130" id="DeS-Oz-2gk"/>
                                     <constraint firstAttribute="height" constant="130" id="zT5-vT-Dne"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="Enter mood">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="gLS-tA-r1o" kind="push" id="Se5-t8-6OI"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Lcm-cw-HWp" firstAttribute="leading" secondItem="VaX-Zm-4QV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Ms-TO-Nto"/>
                             <constraint firstItem="Lcm-cw-HWp" firstAttribute="top" secondItem="VaX-Zm-4QV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="9QK-2l-if3"/>
