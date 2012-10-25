@@ -10,6 +10,11 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
 
+/**
+ * This is the fragment containing the sleep details to mark. It implements the OnSeekBarChangeListener to display the value of the seekbar in the corresponding textview.
+ * @author michaelgobbers
+ *
+ */
 public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
 	public SleepFragment() {
 	}
@@ -23,6 +28,9 @@ public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
     	efficiencyBar.setOnSeekBarChangeListener(this);
         return view;
     }
+    /**
+     * When a seekbar changes the corresponding textView will be updated with the updated value.
+     */
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {

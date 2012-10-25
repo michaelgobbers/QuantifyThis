@@ -9,7 +9,10 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-
+/**
+ * The Settings Fragment for the notifictions. This contains some  behavioural code to grey out certain items when an option is selected.
+ * @author michaelgobbers
+ */
 public class PreferenceNotificationsFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener{
 	
 	public PreferenceNotificationsFragment(){
@@ -26,6 +29,9 @@ public class PreferenceNotificationsFragment extends PreferenceFragment implemen
 	    settings.registerOnSharedPreferenceChangeListener(this);
     }
 	
+	/**
+	 * When a preference is changed this method will be called to check if a preference needs to be enabled/disabled and checked/unchecked.
+	 */
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		//Preference Keys defined in pref_notifications.xml

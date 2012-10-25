@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+
+/**
+ * This is the launch activity containing 4 buttons to the settings, mark mood, agenda and statistics view.
+ * This activity contains 2 fragments. A fragment containing the buttons (HomeFragment) and a fragment containing a list of hints or something else(HintFragment).
+ * @author michaelgobbers
+ *
+ */
 public class HomeActivity extends FragmentActivity{
 	
 	@Override

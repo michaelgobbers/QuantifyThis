@@ -9,6 +9,9 @@ import android.preference.PreferenceFragment;
 
 public class PreferenceAccountFragment extends PreferenceFragment {
 
+	/**
+	 * The Settings Fragment for the accounts to be used. This preference is not in use at the moment but could become usefull when the underlying mood data is moved to App Engine.
+	 */
 	public PreferenceAccountFragment(){
 		
 	}

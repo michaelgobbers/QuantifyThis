@@ -12,6 +12,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * Data Adapter for the list in the AgendaFragment it is responsible for creating each item view with the correct data in it. This is done with the getView() method.
+ * Each Item in the ListView contains 4 TextViews, 1 for the event title, 1 for the event description, 1 for the event start time and 1 for the event end time.
+ * 
+ * @author michaelgobbers
+ *
+ */
 public class AgendaAdapter extends BaseAdapter {
 	
 	private ArrayList<CalendarEvent> events;
@@ -32,12 +39,17 @@ public class AgendaAdapter extends BaseAdapter {
 	public Object getItem(int position) {
 		return events.get(position);
 	}
-
+	/**
+	 * Method not being used at the moment.
+	 */
 	@Override
 	public long getItemId(int position) {
 		return 0;
 	}
 
+	/**
+	 * To make a list efficient this list makes use of recycling. See http://developer.android.com/training/improving-layouts/smooth-scrolling.html for more info on list recycling.
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		AgendaViewHolder holder;
@@ -60,6 +72,11 @@ public class AgendaAdapter extends BaseAdapter {
 		holder.endDateView.setText(events.get(position).end.toString());
 		return convertView;
 	}
+	/**
+	 * This is a holder class needed for list recycling. Because inflating a layout is expensive it is best to keep these inflated layouts in memory. See http://developer.android.com/training/improving-layouts/smooth-scrolling.html for more info on the topic.
+	 * @author michaelgobbers
+	 *
+	 */
 	private class AgendaViewHolder{
 		public TextView titleView;
 		public TextView descriptionView;

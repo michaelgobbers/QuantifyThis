@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Fragment displaying the users heart rate. still needs to be implemented.
+ * @author michaelgobbers
+ *
+ */
 public class HeartRateFragment extends Fragment {
 	public HeartRateFragment() {
 	}

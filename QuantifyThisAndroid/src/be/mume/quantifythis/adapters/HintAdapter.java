@@ -5,6 +5,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * Data Adapter for the list in the HintsFragment it is responsible for creating each item view with the correct data in it. This is done with the getView() method.
+ * Recycling not yet implemented as there is no data for the list available yet. See AgendaAdapter for an example on Adapters.
+ * @author michaelgobbers
+ *
+ */
 public class HintAdapter extends BaseAdapter {
 
 	@Override

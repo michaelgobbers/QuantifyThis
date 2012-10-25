@@ -32,7 +32,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+/**
+ * This activity contains 3 fragments, the MarkMoodFragment, the HeartRateFragment and the Sleep Fragment. This is implemented using tabs in portrait and without tabs in landscape.
+ * @author michaelgobbers
+ *
+ */
 public class MarkActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /**
@@ -54,6 +58,7 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
         int orientation = getResources().getConfiguration().orientation;
         setContentView(R.layout.activity_mark);
+        //use tabs in portrait mode
         if(orientation == Configuration.ORIENTATION_PORTRAIT){
 	        
 	        // Create the adapter that will return a fragment for each of the three primary sections

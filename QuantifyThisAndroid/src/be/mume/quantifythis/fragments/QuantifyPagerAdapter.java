@@ -10,8 +10,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.widget.FrameLayout;
 
 /**
- * A {@link QuantifyPagerAdapter} that returns a fragment corresponding to one of the primary
- * sections of the app.
+ * This data Adapter keeps the fragments and titles behind the tabs in the MarkActivity.
  */
 public class QuantifyPagerAdapter extends FragmentPagerAdapter {
 

@@ -11,9 +11,17 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+/**
+ * The Fragment cotaining 5 mood sliders that max up to a total of 100%
+ * @author michaelgobbers
+ *
+ */
 public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListener{
 	public MarkMoodFragment() {
 	}
+	/**
+	 * inflates the layout for this fragment and registers this class as the listener for every change that happens to a seekbar.
+	 */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -31,6 +39,11 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
     	bar5.setOnSeekBarChangeListener(this);
         return view;
     }
+    /**
+     * When the pprogress is changed the corresponding label that displays the seek bars percentage is adjusted. 
+     * Before this is done the checkAndAdjustMoodTotal() method is called to check that the total amount does not exceed 100%, if so the other bars are adjusted to represent 100%. 
+     * This algorithm still needs some work but works roughly at the moment.
+     */
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
@@ -69,8 +82,9 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
 	public void onStopTrackingTouch(SeekBar seekBar) {
 	}
 	
-	/*
-	 * This algorithm still contains a few bugs.
+	/**
+	 * This method checks and adjusts the seek bars when the total exceeds 100%
+	 * This algorithm still contains a few bugs. but works roughly. 
 	 */
 	private void checkAndAdjustMoodTotal(SeekBar seekBar) {
 		View seekBarParent = (View) seekBar.getParent();

@@ -1,7 +1,11 @@
 package be.mume.quantifythis.adapters.calendarevent;
 
 import java.util.Date;
-
+/**
+ * Data Class for a Calander Event.
+ * @author michaelgobbers
+ *
+ */
 public class CalendarEvent {
 	
 	public String title;

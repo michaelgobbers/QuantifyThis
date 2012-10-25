@@ -7,6 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+/**
+ * This is the StatisticsFragment that still needs to be implemented.
+ * @author michaelgobbers
+ *
+ */
 public class StatisticsFragment extends Fragment {
 	public StatisticsFragment() {
 	}

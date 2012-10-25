@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * The fragment containing the 4 buttons on the home screen. Is used in combination with the HintsFragment.
+ * @author michaelgobbers
+ *
+ */
 public class HomeFragment extends Fragment {
 
 	public HomeFragment(){

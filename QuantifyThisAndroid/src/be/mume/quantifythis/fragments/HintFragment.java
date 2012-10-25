@@ -11,6 +11,11 @@ import android.widget.ListView;
 import be.mume.quantifythis.R;
 import be.mume.quantifythis.adapters.HintAdapter;
 
+/**
+ * Fragment containing a list with data that still needs to be created. Still needs to be implemented.
+ * @author michaelgobbers
+ *
+ */
 public class HintFragment extends Fragment{
 	private ListView listView;
 	public HintFragment(){
