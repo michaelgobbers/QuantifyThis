@@ -12,45 +12,47 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-			<key>Title</key>
-			<string>Google Account</string>
-			<key>Key</key>
-			<string>account</string>
-			<key>File</key>
-			<string>account.plist</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Notifications</string>
-			<key>Key</key>
-			<string>notifications</string>
-			<key>File</key>
-			<string>notifications.plist</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
+			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Calendar</string>
+			<string>Use notifications</string>
 			<key>Key</key>
-			<string>calendar</string>
-			<key>File</key>
-			<string>calendar.plist</string>
+			<string></string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Notification frequency</string>
+			<key>Key</key>
+			<string></string>
+			<key>DefaultValue</key>
+			<string>1 notification a day</string>
+			<key>Titles</key>
+			<array>
+				<string>1 notification a day</string>
+				<string>2 notifications a day</string>
+				<string>3 notifications a day</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>1</string>
+				<string>2</string>
+				<string>3</string>
+			</array>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Music</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Heart rate monitor</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

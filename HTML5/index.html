@@ -13,6 +13,7 @@
 a {text-decoration:none;}
 
 </style>
+ 
 </head>
 
 <body>
@@ -24,6 +25,8 @@ a {text-decoration:none;}
 		</div>
 	
   <div data-role="content">  
+	
+	<div id="weatherElement"></div>
 <table>
 <tr>
 <td><a href="#MarkMyMood"><center><img src="images/mood.png" alt="Mark my mood" width="100px"></center></a></td>
@@ -157,16 +160,78 @@ a {text-decoration:none;}
 <div data-role="page" data-theme="b" id="HeartRate">
 
   <div data-role="header" data-position="inline">
+	
+
+	
   	<h1>Quantify this! - Heart Rate</h1>
 <a href="#MarkMyMood" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
   </div>
 
-	
   <div data-role="content"> 
    <p>Hier komen heart rate toestanden.</p>  
-	 <div data-role="controlgroup" data-type="horizontal">
-	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood!</a>
-	</div>  
+	
+	<p id="weather"></p>
+<button data-inline="true" onclick="getLocation()">Show the weather</button>
+<script>
+var x=document.getElementById("weather");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+ 
+	
+			var APPID = 'dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky';		// our Yahoo APP id
+			var DEG = 'c';	
+ 			var lat = position.coords.latitude;
+	    var lon = position.coords.longitude;
+	    var geoAPI = 'http://where.yahooapis.com/geocode?location='+lat+','+lon+'&flags=J&gflags=R&appid='+APPID;
+	   
+	    var wsql = 'select * from weather.forecast where woeid=WID and u="'+DEG+'"',
+	    weatherYQL = 'http://query.yahooapis.com/v1/public/yql?q='+encodeURIComponent(wsql)+'&format=json&callback=?',code, city, results, woeid;
+		
+		$.getJSON(geoAPI, function(r){
+	       
+	        if(r.ResultSet.Found == 1){
+	        	
+	            results = r.ResultSet.Results;
+	            city = results[0].city;
+	            code = results[0].statecode || results[0].countrycode;
+	    
+	            // This is the city identifier for the Yahoo weather API
+	            woeid = results[0].woeid;
+	
+	            // Make a weather API request:
+	            $.getJSON(weatherYQL.replace('WID',woeid), function(r){
+	                if(r.query && r.query.count == 1){
+	                    var item = r.query.results.channel.item.condition;       
+	                    if(!item){
+	                    	showError("We can't find weather information about your city!");
+	                    	if (window.console && window.console.info){
+						    	console.info("%s, %s; woeid: %d", city, code, woeid);
+						    }
+						    
+						    return false;
+	                    }
+	                   x.innerHTML=item.temp+'°'+DEG +" in " + city;  
+	                }
+	                else {
+	                    showError("Error retrieving weather data!");
+	                }
+	            });
+	        }     
+	    }).error(function(){
+	    	showError("Your browser does not support CORS requests!");
+	    });
+	   
+	}
+
+</script>
   </div>
 
 	
@@ -189,9 +254,7 @@ a {text-decoration:none;}
 	 <p>How well did you sleep?</p>
 	 <input type="range" name="slider-many-hours" id="slider-many-hours" value="7" min="1" max="10" data-highlight="true" />    
 	 <br/><br/><br/>
-	 <div data-role="controlgroup" data-type="horizontal">
-	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true">Mark my mood</a>
-	</div>
+
 	<br/><br/><br/>
   </div>
 

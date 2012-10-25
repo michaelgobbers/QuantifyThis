@@ -46,6 +46,9 @@
 		247344A416313A08007C33D1 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2473449616313A08007C33D1 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		247344A616313C91007C33D1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247344A516313C91007C33D1 /* MessageUI.framework */; };
 		24963683162C28CC00D4A4C1 /* RegisterMoodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24963682162C28CC00D4A4C1 /* RegisterMoodController.m */; };
+		24DD9DCF1636F72F00FB6928 /* HeartBeatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DCE1636F72F00FB6928 /* HeartBeatController.m */; };
+		24DD9DD81637333400FB6928 /* SleepController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DD71637333400FB6928 /* SleepController.m */; };
+		24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,12 @@
 		247344A516313C91007C33D1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		24963681162C28CC00D4A4C1 /* RegisterMoodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterMoodController.h; sourceTree = "<group>"; };
 		24963682162C28CC00D4A4C1 /* RegisterMoodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterMoodController.m; sourceTree = "<group>"; };
+		24DD9DCD1636F72F00FB6928 /* HeartBeatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartBeatController.h; sourceTree = "<group>"; };
+		24DD9DCE1636F72F00FB6928 /* HeartBeatController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartBeatController.m; sourceTree = "<group>"; };
+		24DD9DD61637333400FB6928 /* SleepController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepController.h; sourceTree = "<group>"; };
+		24DD9DD71637333400FB6928 /* SleepController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepController.m; sourceTree = "<group>"; };
+		24DD9DD91637383B00FB6928 /* RegisterMoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterMoodModel.h; sourceTree = "<group>"; };
+		24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterMoodModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +190,7 @@
 		2447FD741626D0D9004F6F66 /* QuantifyThis */ = {
 			isa = PBXGroup;
 			children = (
+				24DD9DD51637330500FB6928 /* RegisterMood */,
 				2473447616313A08007C33D1 /* InAppSettingsKit */,
 				2447FD7D1626D0DA004F6F66 /* AppDelegate.h */,
 				2447FD7E1626D0DA004F6F66 /* AppDelegate.m */,
@@ -189,8 +199,6 @@
 				2447FD8A1626D0DA004F6F66 /* ViewController.m */,
 				2447FD751626D0DA004F6F66 /* Supporting Files */,
 				240F8F7D16287D7E00B03805 /* Settings.bundle */,
-				24963681162C28CC00D4A4C1 /* RegisterMoodController.h */,
-				24963682162C28CC00D4A4C1 /* RegisterMoodController.m */,
 			);
 			path = QuantifyThis;
 			sourceTree = "<group>";
@@ -292,6 +300,21 @@
 				2473449616313A08007C33D1 /* IASKTextField.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		24DD9DD51637330500FB6928 /* RegisterMood */ = {
+			isa = PBXGroup;
+			children = (
+				24963681162C28CC00D4A4C1 /* RegisterMoodController.h */,
+				24963682162C28CC00D4A4C1 /* RegisterMoodController.m */,
+				24DD9DCD1636F72F00FB6928 /* HeartBeatController.h */,
+				24DD9DCE1636F72F00FB6928 /* HeartBeatController.m */,
+				24DD9DD61637333400FB6928 /* SleepController.h */,
+				24DD9DD71637333400FB6928 /* SleepController.m */,
+				24DD9DD91637383B00FB6928 /* RegisterMoodModel.h */,
+				24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */,
+			);
+			name = RegisterMood;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +452,9 @@
 				247344A216313A08007C33D1 /* IASKSlider.m in Sources */,
 				247344A316313A08007C33D1 /* IASKSwitch.m in Sources */,
 				247344A416313A08007C33D1 /* IASKTextField.m in Sources */,
+				24DD9DCF1636F72F00FB6928 /* HeartBeatController.m in Sources */,
+				24DD9DD81637333400FB6928 /* SleepController.m in Sources */,
+				24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
