@@ -33,5 +33,8 @@
 	<string name="pref_notifications_agenda_mode_summary">Bug me when a new appointment in the agenda is going on</string>
 	<string name="pref_notifications_list_amount_title">Notifications amount</string>
 	<string name="pref_notifications_list_amount_summary">Select the amount of times per day you want to be notified</string>
-
+	<string name="pref_agenda_account_list_title">Google calendar account</string>
+	<string name="pref_agenda_account_list_summary">Set the google calendar account to be used.</string>
+	<string name="agenda_settings_title">Agenda</string>
+	<string name="agenda_settings_summary">Setup account and dsiplay details for the agenda view.</string>
 </resources>

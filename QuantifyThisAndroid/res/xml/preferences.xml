@@ -4,4 +4,8 @@
         android:fragment="be.mume.quantifythis.fragments.PreferenceNotificationsFragment"
         android:title="@string/notifications_settings_title"
         android:summary="@string/notifications_settings_summary" />
+     <header 
+        android:fragment="be.mume.quantifythis.fragments.PreferenceAccountFragment"
+        android:title="@string/agenda_settings_title"
+        android:summary="@string/agenda_settings_summary" />
 </preference-headers>

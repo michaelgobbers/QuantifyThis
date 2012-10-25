@@ -1,6 +1,5 @@
 package be.mume.quantifythis.fragments;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,12 +7,17 @@ import java.util.Date;
 import be.mume.quantifythis.R;
 import be.mume.quantifythis.adapters.AgendaAdapter;
 import be.mume.quantifythis.adapters.calendarevent.CalendarEvent;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.provider.CalendarContract;
-import android.provider.CalendarContract.Calendars;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +68,9 @@ public class AgendaFragment extends Fragment{
 		c.setTime(new Date());
 		c.add(Calendar.DATE, -1);  // Subtract 1 day of current time.
 		
-		String selection = "(" + CalendarContract.Events.DTSTART + " >  ?)";
-		String[] selectionArgs = new String[] {Long.toString(c.getTimeInMillis())}; 
+		String selection = "(" + CalendarContract.Events.DTSTART + " >  ?) AND (" +
+		CalendarContract.Events.DTEND + " <= ?)";
+		String[] selectionArgs = new String[] {Long.toString(c.getTimeInMillis()), Long.toString(new Date().getTime())}; 
 		// Submit the query and get a Cursor object back. 
 		cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs, null);
 		
@@ -86,9 +91,6 @@ public class AgendaFragment extends Fragment{
 		    adapter.addEvent(new CalendarEvent(eventTitle, eventDescription, startDate, endDate));
 		    // notify adapter change to update listView.
 		    adapter.notifyDataSetChanged();
-		    
-		    
-		    
 		}
 	}
 }
