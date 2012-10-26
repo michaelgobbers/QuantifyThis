@@ -168,7 +168,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerMood:" destination="gLS-tA-r1o" eventType="touchUpInside" id="jMm-dB-Scu"/>
-                                    <segue destination="WSt-ln-HeV" kind="push" id="S09-ML-G91"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ubF-Jh-JGh">
@@ -406,7 +405,7 @@
             <objects>
                 <viewController id="G1m-Xo-pqT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yU-oq-pHy">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVT-wn-bf5">
@@ -571,7 +570,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="S09-ML-G91"/>
-    </inferredMetricsTieBreakers>
 </document>

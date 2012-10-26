@@ -31,6 +31,7 @@
 
 - (IBAction)registerMood:(id)sender {
     [self getWeatherData];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
