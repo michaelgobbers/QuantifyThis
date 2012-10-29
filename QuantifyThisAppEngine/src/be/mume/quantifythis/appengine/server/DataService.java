@@ -68,15 +68,17 @@ public class DataService extends HttpServlet {
 		if(request!=null){
 			if(user!=null && request.equals("getMood")){
 				EntityManager em = EMF.get().createEntityManager();
-				Query emQuery = em.createQuery("SELECT x FROM Entry x");
+				Query emQuery = em.createQuery("SELECT x FROM Entry x WHERE x.userEmail = '"+user.getEmail()+"'");
 
 				List<Entry> resList = emQuery.getResultList();
-				Document doc;
-				try {
-					doc = new DocumentGenerator().EntryDocument(resList);
-					deliverXML(doc, resp);
-				} catch (ParserConfigurationException e) {
-					e.printStackTrace();
+				if(resList!=null){
+					Document doc;
+					try {
+						doc = new DocumentGenerator().EntryDocument(resList);
+						deliverXML(doc, resp);
+					} catch (ParserConfigurationException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}

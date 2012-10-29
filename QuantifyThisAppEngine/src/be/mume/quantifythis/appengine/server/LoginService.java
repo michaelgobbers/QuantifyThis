@@ -22,10 +22,16 @@ public class LoginService extends HttpServlet{
         	
             User user = userService.getCurrentUser();
             resp.setContentType("text/html");
+            resp.getWriter().println("<head>");
+            resp.getWriter().println("<meta http-equiv=\"refresh\" content=\"1,http://www.yourredirecturlhere.com/\" />");
+            resp.getWriter().println("</head>");
+            resp.getWriter().println("<body>");
         	resp.getWriter().println("<p>Welcome "+ user.getNickname() +"</p>");
+        	resp.getWriter().println("</body>");
         }
         else{
         	resp.setContentType("text/html");
+        	
         	resp.getWriter().println("<p>Please <a href=\"" +
                     userService.createLoginURL(req.getRequestURI()) +
                     "\">sign in</a>.</p>");

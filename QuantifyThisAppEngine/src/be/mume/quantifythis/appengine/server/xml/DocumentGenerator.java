@@ -62,41 +62,49 @@ public class DocumentGenerator {
 			entryEl.appendChild(dateEl);
 			
 			//moods
-			Element moodEl = doc.createElement("mood");
-			List<Integer> moodValues = entry.getMood().getMoodValues();
-			for(Integer moodValue:moodValues){
-				Element moodValEl = doc.createElement("moodvalue");
-				moodValEl.appendChild(doc.createTextNode(Integer.toString(moodValue)));
-				moodEl.appendChild(moodValEl);
+			if(entry.getMood()!=null){
+				Element moodEl = doc.createElement("mood");
+				List<Integer> moodValues = entry.getMood().getMoodValues();
+				for(Integer moodValue:moodValues){
+					Element moodValEl = doc.createElement("moodvalue");
+					moodValEl.appendChild(doc.createTextNode(Integer.toString(moodValue)));
+					moodEl.appendChild(moodValEl);
+				}
+				entryEl.appendChild(moodEl);
 			}
-			entryEl.appendChild(moodEl);
 			
 			//heart
-			Element heartEl = doc.createElement("heart");
-			Element bpmEl = doc.createElement("bpm");
-			bpmEl.appendChild(doc.createTextNode(Integer.toString(entry.getHeartRate().getBpm())));
-			heartEl.appendChild(bpmEl);
-			entryEl.appendChild(heartEl);
+			if(entry.getHeartRate()!=null && entry.getHeartRate().getBpm()!=null){
+				Element heartEl = doc.createElement("heart");
+				Element bpmEl = doc.createElement("bpm");
+				bpmEl.appendChild(doc.createTextNode(Integer.toString(entry.getHeartRate().getBpm())));
+				heartEl.appendChild(bpmEl);
+				entryEl.appendChild(heartEl);
+			}
 			
 			//sleep
-			Element sleepEl = doc.createElement("sleep");
-			Element hoursEl = doc.createElement("hours");
-			hoursEl.appendChild(doc.createTextNode(Integer.toString(entry.getSleep().getHoursSlept())));
-			sleepEl.appendChild(hoursEl);
-			Element effEl = doc.createElement("eff");
-			effEl.appendChild(doc.createTextNode(Integer.toString(entry.getSleep().getSleepEfficiency())));
-			sleepEl.appendChild(effEl);
-			entryEl.appendChild(sleepEl);
+			if(entry.getSleep()!=null&&entry.getSleep().getHoursSlept()!=null&&entry.getSleep().getSleepEfficiency()!=null){
+				Element sleepEl = doc.createElement("sleep");
+				Element hoursEl = doc.createElement("hours");
+				hoursEl.appendChild(doc.createTextNode(Integer.toString(entry.getSleep().getHoursSlept())));
+				sleepEl.appendChild(hoursEl);
+				Element effEl = doc.createElement("eff");
+				effEl.appendChild(doc.createTextNode(Integer.toString(entry.getSleep().getSleepEfficiency())));
+				sleepEl.appendChild(effEl);
+				entryEl.appendChild(sleepEl);
+			}
 			
 			//weather
-			Element weatherEl = doc.createElement("weather");
-			Element rainEl = doc.createElement("rain");
-			rainEl.appendChild(doc.createTextNode(Integer.toString(entry.getWeather().getRainPercentage())));
-			weatherEl.appendChild(rainEl);
-			Element sunEl = doc.createElement("sun");
-			sunEl.appendChild(doc.createTextNode(Integer.toString(entry.getWeather().getAmountOfSun())));
-			weatherEl.appendChild(sunEl);
-			entryEl.appendChild(weatherEl);
+			if(entry.getWeather()!=null && entry.getWeather().getAmountOfSun()!=null&entry.getWeather().getRainPercentage()!=null){
+				Element weatherEl = doc.createElement("weather");
+				Element rainEl = doc.createElement("rain");
+				rainEl.appendChild(doc.createTextNode(Integer.toString(entry.getWeather().getRainPercentage())));
+				weatherEl.appendChild(rainEl);
+				Element sunEl = doc.createElement("sun");
+				sunEl.appendChild(doc.createTextNode(Integer.toString(entry.getWeather().getAmountOfSun())));
+				weatherEl.appendChild(sunEl);
+				entryEl.appendChild(weatherEl);
+			}
 			
 			
 		}
