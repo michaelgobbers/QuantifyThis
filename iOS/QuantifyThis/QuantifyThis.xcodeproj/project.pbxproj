@@ -24,12 +24,6 @@
 		2447FD951626D0DA004F6F66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2447FD701626D0D9004F6F66 /* Foundation.framework */; };
 		2447FD9D1626D0DA004F6F66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2447FD9B1626D0DA004F6F66 /* InfoPlist.strings */; };
 		2447FDA01626D0DA004F6F66 /* QuantifyThisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2447FD9F1626D0DA004F6F66 /* QuantifyThisTests.m */; };
-		247344311630796D007C33D1 /* 10-medical.png in Resources */ = {isa = PBXBuildFile; fileRef = 2473442B1630796D007C33D1 /* 10-medical.png */; };
-		247344321630796D007C33D1 /* 16-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2473442C1630796D007C33D1 /* 16-line-chart.png */; };
-		247344331630796D007C33D1 /* 17-bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2473442D1630796D007C33D1 /* 17-bar-chart.png */; };
-		247344341630796D007C33D1 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2473442E1630796D007C33D1 /* 19-gear.png */; };
-		247344351630796D007C33D1 /* 77-ekg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2473442F1630796D007C33D1 /* 77-ekg.png */; };
-		247344361630796D007C33D1 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 247344301630796D007C33D1 /* 83-calendar.png */; };
 		2473449716313A08007C33D1 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2473447916313A08007C33D1 /* IASKAppSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2473449816313A08007C33D1 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2473447B16313A08007C33D1 /* IASKAppSettingsWebViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2473449916313A08007C33D1 /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2473447D16313A08007C33D1 /* IASKSpecifierValuesViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -49,6 +43,8 @@
 		24DD9DCF1636F72F00FB6928 /* HeartBeatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DCE1636F72F00FB6928 /* HeartBeatController.m */; };
 		24DD9DD81637333400FB6928 /* SleepController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DD71637333400FB6928 /* SleepController.m */; };
 		24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */; };
+		24DD9DE416397DEF00FB6928 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DD9DE316397DEF00FB6928 /* CoreLocation.framework */; };
+		24DD9DE716399B5200FB6928 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DE616399B5200FB6928 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,12 +81,6 @@
 		2447FD9C1626D0DA004F6F66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2447FD9E1626D0DA004F6F66 /* QuantifyThisTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuantifyThisTests.h; sourceTree = "<group>"; };
 		2447FD9F1626D0DA004F6F66 /* QuantifyThisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantifyThisTests.m; sourceTree = "<group>"; };
-		2473442B1630796D007C33D1 /* 10-medical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "10-medical.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/10-medical.png"; sourceTree = "<group>"; };
-		2473442C1630796D007C33D1 /* 16-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "16-line-chart.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/16-line-chart.png"; sourceTree = "<group>"; };
-		2473442D1630796D007C33D1 /* 17-bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "17-bar-chart.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/17-bar-chart.png"; sourceTree = "<group>"; };
-		2473442E1630796D007C33D1 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/19-gear.png"; sourceTree = "<group>"; };
-		2473442F1630796D007C33D1 /* 77-ekg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "77-ekg.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/77-ekg.png"; sourceTree = "<group>"; };
-		247344301630796D007C33D1 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "83-calendar.png"; path = "../../../../../../Downloads/glyphish-icons/PNG icons/83-calendar.png"; sourceTree = "<group>"; };
 		2473447816313A08007C33D1 /* IASKAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsViewController.h; sourceTree = "<group>"; };
 		2473447916313A08007C33D1 /* IASKAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsViewController.m; sourceTree = "<group>"; };
 		2473447A16313A08007C33D1 /* IASKAppSettingsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsWebViewController.h; sourceTree = "<group>"; };
@@ -129,6 +119,9 @@
 		24DD9DD71637333400FB6928 /* SleepController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepController.m; sourceTree = "<group>"; };
 		24DD9DD91637383B00FB6928 /* RegisterMoodModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterMoodModel.h; sourceTree = "<group>"; };
 		24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterMoodModel.m; sourceTree = "<group>"; };
+		24DD9DE316397DEF00FB6928 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		24DD9DE516399B5100FB6928 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		24DD9DE616399B5200FB6928 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24DD9DE416397DEF00FB6928 /* CoreLocation.framework in Frameworks */,
 				247344A616313C91007C33D1 /* MessageUI.framework in Frameworks */,
 				2447FD6F1626D0D9004F6F66 /* UIKit.framework in Frameworks */,
 				2447FD711626D0D9004F6F66 /* Foundation.framework in Frameworks */,
@@ -159,6 +153,7 @@
 		2447FD5F1626D0D9004F6F66 = {
 			isa = PBXGroup;
 			children = (
+				24DD9DE316397DEF00FB6928 /* CoreLocation.framework */,
 				247344A516313C91007C33D1 /* MessageUI.framework */,
 				2447FD741626D0D9004F6F66 /* QuantifyThis */,
 				2447FD981626D0DA004F6F66 /* QuantifyThisTests */,
@@ -199,6 +194,8 @@
 				2447FD8A1626D0DA004F6F66 /* ViewController.m */,
 				2447FD751626D0DA004F6F66 /* Supporting Files */,
 				240F8F7D16287D7E00B03805 /* Settings.bundle */,
+				24DD9DE516399B5100FB6928 /* Constants.h */,
+				24DD9DE616399B5200FB6928 /* Constants.m */,
 			);
 			path = QuantifyThis;
 			sourceTree = "<group>";
@@ -206,12 +203,6 @@
 		2447FD751626D0DA004F6F66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2473442B1630796D007C33D1 /* 10-medical.png */,
-				2473442C1630796D007C33D1 /* 16-line-chart.png */,
-				2473442D1630796D007C33D1 /* 17-bar-chart.png */,
-				2473442E1630796D007C33D1 /* 19-gear.png */,
-				2473442F1630796D007C33D1 /* 77-ekg.png */,
-				247344301630796D007C33D1 /* 83-calendar.png */,
 				2447FD761626D0DA004F6F66 /* QuantifyThis-Info.plist */,
 				2447FD771626D0DA004F6F66 /* InfoPlist.strings */,
 				2447FD7A1626D0DA004F6F66 /* main.m */,
@@ -394,12 +385,6 @@
 				2447FD851626D0DA004F6F66 /* Default-568h@2x.png in Resources */,
 				2447FD881626D0DA004F6F66 /* MainStoryboard.storyboard in Resources */,
 				240F8F7E16287D7E00B03805 /* Settings.bundle in Resources */,
-				247344311630796D007C33D1 /* 10-medical.png in Resources */,
-				247344321630796D007C33D1 /* 16-line-chart.png in Resources */,
-				247344331630796D007C33D1 /* 17-bar-chart.png in Resources */,
-				247344341630796D007C33D1 /* 19-gear.png in Resources */,
-				247344351630796D007C33D1 /* 77-ekg.png in Resources */,
-				247344361630796D007C33D1 /* 83-calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +440,7 @@
 				24DD9DCF1636F72F00FB6928 /* HeartBeatController.m in Sources */,
 				24DD9DD81637333400FB6928 /* SleepController.m in Sources */,
 				24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */,
+				24DD9DE716399B5200FB6928 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
