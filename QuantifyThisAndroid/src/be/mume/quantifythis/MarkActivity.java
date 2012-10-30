@@ -1,37 +1,20 @@
 package be.mume.quantifythis;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import be.mume.quantifythis.fragments.HeartRateFragment;
 import be.mume.quantifythis.fragments.MarkMoodFragment;
 import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
 import be.mume.quantifythis.fragments.SleepFragment;
-import be.mume.quantifythis.fragments.StatisticsFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.res.Configuration;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 /**
  * This activity contains 3 fragments, the MarkMoodFragment, the HeartRateFragment and the Sleep Fragment. This is implemented using tabs in portrait and without tabs in landscape.
  * @author michaelgobbers
