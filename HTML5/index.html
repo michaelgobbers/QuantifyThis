@@ -10,9 +10,23 @@
 <script src="verticalSlider.js"></script>
 <script src="gae_functions.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  
+  $("#step li").each(function (i) {
+    i = i+1;
+    $(this).addClass("item");
+  });
+});
+</script>
+
 <style type="text/css">
 a {text-decoration:none;}
-
+#step .item {
+  list-style-type: none; 
+  background: url(images/list-line.png) no-repeat;
+  padding-top:5px;
+}
 </style>
  
 </head>
@@ -138,8 +152,29 @@ a {text-decoration:none;}
   </div>
 
 	
-  <div data-role="content"> 
-   <p>Hier komt de calendar view.</p>    
+  <div data-role="content">
+    <ul id="step">
+     <center><li><p>Calendar data 1</p></li></center>
+     <center><li><p>Calendar data 2</p></li></center>
+     <center><li><p>Calendar data 3</p></li></center>
+     <center><li><p>Calendar data 4</p></li></center>
+     <center><li><p>Calendar data 5</p></li></center>
+     <center><li><p>Calendar data 6</p></li></center>
+     <center><li><p>Calendar data 7</p></li></center>
+     <center><li><p>Calendar data 8</p></li></center>
+     <center><li><p>Calendar data 9</p></li></center>
+     <center><li><p>Calendar data 10</li></p></center>
+     <center><li><p>Calendar data 1</p></li></center>
+     <center><li><p>Calendar data 2</p></li></center>
+     <center><li><p>Calendar data 3</p></li></center>
+     <center><li><p>Calendar data 4</p></li></center>
+     <center><li><p>Calendar data 5</p></li></center>
+     <center><li><p>Calendar data 6</p></li></center>
+     <center><li><p>Calendar data 7</p></li></center>
+     <center><li><p>Calendar data 8</p></li></center>
+     <center><li><p>Calendar data 9</p></li></center>
+     <center><li><p>Calendar data 10</li></p></center>
+    </ul>
   </div>
 
 	
