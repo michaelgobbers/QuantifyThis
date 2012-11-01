@@ -7,7 +7,8 @@
               android:orientation="vertical">
     <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium">
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
@@ -22,7 +23,6 @@
                     android:paddingLeft="20dp"
                     android:text="@string/mood_label_1"
                     android:textAppearance="?android:attr/textAppearanceMedium"/>
-
             <SeekBar
                     android:id="@+id/seekBar1"
                     android:layout_weight=".80"
@@ -147,6 +147,21 @@
                     android:text="0%"
                     android:textAppearance="?android:attr/textAppearanceSmall"/>
         </TableRow>
+        <TableRow
+                android:gravity="center">
+            <Button
+                android:id="@+id/button_heart_rate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/button_heart_rate"/>
+            <Button
+                    android:id="@+id/button_sleep"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/button_sleep"/>
+        </TableRow>
     </TableLayout>
     <LinearLayout
             android:layout_width="match_parent"
@@ -155,7 +170,7 @@
             android:orientation="vertical">
 
         <Button
-                android:id="@+id/button1"
+                android:id="@+id/button_mark_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_bottom_mark_button"
