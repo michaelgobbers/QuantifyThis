@@ -14,8 +14,12 @@ import be.mume.quantifythis.model.MarkMoodModel;
  *
  */
 public class HeartRateFragment extends Fragment {
-	public HeartRateFragment(MarkMoodModel model) {
+    private MarkMoodModel model;
+
+    public HeartRateFragment(MarkMoodModel model) {
+        this.model = model;
 	}
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
