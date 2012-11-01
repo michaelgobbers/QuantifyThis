@@ -15,6 +15,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Display;
 import android.view.Menu;
+import be.mume.quantifythis.model.MarkMoodModel;
+
 /**
  * This activity contains 3 fragments, the MarkMoodFragment, the HeartRateFragment and the Sleep Fragment. This is implemented using tabs in portrait and without tabs in landscape.
  * @author michaelgobbers
@@ -35,21 +37,25 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
      */
     ViewPager mViewPager;
 
+    private MarkMoodModel model;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-    	
+
         super.onCreate(savedInstanceState);
         int orientation = getResources().getConfiguration().orientation;
         setContentView(R.layout.activity_mark);
+
+        model = new MarkMoodModel();
         //use tabs in portrait mode
         if(orientation == Configuration.ORIENTATION_PORTRAIT){
 	        
 	        // Create the adapter that will return a fragment for each of the three primary sections
 	        // of the app.
 	        pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
-	        pagerAdapter.addFragment(new MarkMoodFragment(), getResources().getString(R.string.tab_title_mark_mood));
-	        pagerAdapter.addFragment(new HeartRateFragment(), getResources().getString(R.string.tab_title_heart));
-	        pagerAdapter.addFragment(new SleepFragment(), getResources().getString(R.string.tab_title_sleep));
+	        pagerAdapter.addFragment(new MarkMoodFragment(model), getResources().getString(R.string.tab_title_mark_mood));
+	        pagerAdapter.addFragment(new HeartRateFragment(model), getResources().getString(R.string.tab_title_heart));
+	        pagerAdapter.addFragment(new SleepFragment(model), getResources().getString(R.string.tab_title_sleep));
 	
 	        // Set up the action bar.
 	        final ActionBar actionBar = getActionBar();

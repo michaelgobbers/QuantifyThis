@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import be.mume.quantifythis.model.MarkMoodModel;
 
 /**
  * The Fragment cotaining 5 mood sliders that max up to a total of 100%
@@ -17,8 +18,13 @@ import android.widget.TextView;
  *
  */
 public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListener{
-	public MarkMoodFragment() {
+	private MarkMoodModel model;
+    public MarkMoodFragment() {
 	}
+    public MarkMoodFragment(MarkMoodModel model){
+        this.model = model;
+    }
+
 	/**
 	 * inflates the layout for this fragment and registers this class as the listener for every change that happens to a seekbar.
 	 */
@@ -48,38 +54,41 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
 		checkAndAdjustMoodTotal(seekBar);
+        TextView label = null;
+        View view = (View) seekBar.getParent().getParent();
 		if(seekBar.getId()==R.id.seekBar1){
-			View view = (View) seekBar.getParent();
-			TextView label = (TextView) view.findViewById(R.id.seekbar1_label);
-			label.setText(Integer.toString(seekBar.getProgress())+"%");
+			label = (TextView) view.findViewById(R.id.seekbar1_label);
 		}
 		else if(seekBar.getId()==R.id.seekBar2){
-			View view = (View) seekBar.getParent();
-			TextView label = (TextView) view.findViewById(R.id.seekbar2_label);
-			label.setText(Integer.toString(seekBar.getProgress())+"%");
+            label = (TextView) view.findViewById(R.id.seekbar2_label);
 		}
 		else if(seekBar.getId()==R.id.seekBar3){
-			View view = (View) seekBar.getParent();
-			TextView label = (TextView) view.findViewById(R.id.seekbar3_label);
-			label.setText(Integer.toString(seekBar.getProgress())+"%");
+            label = (TextView) view.findViewById(R.id.seekbar3_label);
 		}
 		else if(seekBar.getId()==R.id.seekBar4){
-			View view = (View) seekBar.getParent();
-			TextView label = (TextView) view.findViewById(R.id.seekbar4_label);
-			label.setText(Integer.toString(seekBar.getProgress())+"%");
+	        label = (TextView) view.findViewById(R.id.seekbar4_label);
 		}
 		else if(seekBar.getId()==R.id.seekBar5){
-			View view = (View) seekBar.getParent();
-			TextView label = (TextView) view.findViewById(R.id.seekbar5_label);
-			label.setText(Integer.toString(seekBar.getProgress())+"%");
+			label = (TextView) view.findViewById(R.id.seekbar5_label);
 		}
-		
-	}
+        if (label != null) label.setText(progress+"%");
+    }
 	@Override
 	public void onStartTrackingTouch(SeekBar seekBar) {
 	}
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
+        View seekBarParent = (View) seekBar.getParent().getParent();
+        SeekBar bar1 = (SeekBar) seekBarParent.findViewById(R.id.seekBar1);
+        SeekBar bar2 = (SeekBar) seekBarParent.findViewById(R.id.seekBar2);
+        SeekBar bar3 = (SeekBar) seekBarParent.findViewById(R.id.seekBar3);
+        SeekBar bar4 = (SeekBar) seekBarParent.findViewById(R.id.seekBar4);
+        SeekBar bar5 = (SeekBar) seekBarParent.findViewById(R.id.seekBar5);
+        model.setCat1(bar1.getProgress());
+        model.setCat2(bar2.getProgress());
+        model.setCat3(bar3.getProgress());
+        model.setCat4(bar4.getProgress());
+        model.setCat5(bar5.getProgress());
 	}
 	
 	/**
@@ -87,7 +96,7 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
 	 * This algorithm still contains a few bugs. but works roughly. 
 	 */
 	private void checkAndAdjustMoodTotal(SeekBar seekBar) {
-		View seekBarParent = (View) seekBar.getParent();
+		View seekBarParent = (View) seekBar.getParent().getParent();
 		SeekBar bar1 = (SeekBar) seekBarParent.findViewById(R.id.seekBar1);
     	SeekBar bar2 = (SeekBar) seekBarParent.findViewById(R.id.seekBar2);
     	SeekBar bar3 = (SeekBar) seekBarParent.findViewById(R.id.seekBar3);

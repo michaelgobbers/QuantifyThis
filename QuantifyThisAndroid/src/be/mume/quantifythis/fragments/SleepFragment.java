@@ -9,6 +9,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
+import be.mume.quantifythis.model.MarkMoodModel;
 
 /**
  * This is the fragment containing the sleep details to mark. It implements the OnSeekBarChangeListener to display the value of the seekbar in the corresponding textview.
@@ -16,7 +17,7 @@ import be.mume.quantifythis.R;
  *
  */
 public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
-	public SleepFragment() {
+	public SleepFragment(MarkMoodModel model) {
 	}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
