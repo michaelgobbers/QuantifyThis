@@ -20,8 +20,8 @@
 	<string name="mood_label_3">Angry</string>
 	<string name="mood_label_4">Energized</string>
 	<string name="mood_label_5">Tired</string>
-	<string name="sleep_hours_label">Hours Slept?</string>
-	<string name="sleep_efficiency_label">Rested?</string>
+	<string name="sleep_hours_label">How many hours did you sleep?</string>
+	<string name="sleep_efficiency_label">How rested do you feel?</string>
 	<string name="label_statistics">Statistics</string>
 	
 	<string name="settings_label">Settings</string>

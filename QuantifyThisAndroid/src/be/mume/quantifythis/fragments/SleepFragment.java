@@ -17,7 +17,9 @@ import be.mume.quantifythis.model.MarkMoodModel;
  *
  */
 public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
-	public SleepFragment(MarkMoodModel model) {
+	private MarkMoodModel model;
+    public SleepFragment(MarkMoodModel model) {
+        this.model = model;
 	}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +55,11 @@ public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
 	}
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
-		
+        if(seekBar.getId()==R.id.hours_seek_bar){
+            model.setAmountOfSleep(seekBar.getProgress());
+        }
+        else if(seekBar.getId()==R.id.sleep_efficiency_seek_bar){
+            model.setSleepQuality(seekBar.getProgress());
+        }
 	}
 }
