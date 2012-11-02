@@ -1,8 +1,10 @@
 package be.mume.quantifythis.fragments;
 
+import android.app.Activity;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,21 +13,13 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
+import be.mume.quantifythis.helpers.WeatherRequestListener;
+import be.mume.quantifythis.helpers.WeatherRequestHelper;
 import be.mume.quantifythis.model.LocationModel;
 import be.mume.quantifythis.model.MarkMoodModel;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
 
 /**
  * The Fragment cotaining 5 mood sliders that max up to a total of 100%
@@ -37,12 +31,16 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
     private LocationModel locationModel;
 
     public MarkMoodFragment() {
-        locationModel = new LocationModel(getActivity());
     }
 
     public MarkMoodFragment(MarkMoodModel model) {
-        this();
         this.model = model;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.locationModel = new LocationModel(activity);
     }
 
     /**
@@ -180,32 +178,41 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
 
     @Override
     public void onClick(View view) {
+        weatherInfo();
         //get weather
         //persist to appengine
 
     }
 
     private void weatherInfo() {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpContext httpContext = new BasicHttpContext();
         Location location = locationModel.getLastLocation();
         locationModel.stopTracking();
-        HttpGet httpGet = new HttpGet("http://where.yahooapis.com/geocode?location=" +
-                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" /*+ /*APPID*/);
-        String text;
-        try {
-            HttpResponse response = httpClient.execute(httpGet, httpContext);
-            HttpEntity entity = response.getEntity();
-            String retSrc = EntityUtils.toString(entity);
+        String request = "http://where.yahooapis.com/geocode?location=" +
+                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" + "dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky";
+        WeatherRequestHelper requestHelper = new WeatherRequestHelper();
+        requestHelper.setListener(new WeatherRequestListener() {
+            @Override
+            public void handleResults(String s) {
+                JSONObject json = null;
+                try {
+                    json = new JSONObject(s);
+                    JSONObject resultSet = json.getJSONObject("ResultSet");
+                    JSONArray results = resultSet.getJSONArray("Results");
+                    JSONObject result = results.getJSONObject(0);
+                    int woeid = result.getInt("woeid");
+                    Log.i("QuantifyThis", "info: " + woeid);
+                } catch (JSONException e) {
+                    Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
+                }
+            }
+        });
+        requestHelper.execute(request);
 
-            JSONObject result = new JSONObject(retSrc);
-            /*JSONArray resultSet = result.getJSONArray("ResultSet");
-            JSONArray results = resultSet.getJSONArray("Results");*/
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        requestHelper.setListener(new WeatherRequestListener() {
+            @Override
+            public void handleResults(String results) {
+                
+            }
+        });
     }
 }

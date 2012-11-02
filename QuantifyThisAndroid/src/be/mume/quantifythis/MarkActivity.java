@@ -52,30 +52,30 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
 	        
 	        // Create the adapter that will return a fragment for each of the three primary sections
 	        // of the app.
-	        /*pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
+	        pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
 	        pagerAdapter.addFragment(new MarkMoodFragment(model), getResources().getString(R.string.tab_title_mark_mood));
 	        pagerAdapter.addFragment(new HeartRateFragment(model), getResources().getString(R.string.tab_title_heart));
 	        pagerAdapter.addFragment(new SleepFragment(model), getResources().getString(R.string.tab_title_sleep));
-	*/
+
 	        // Set up the action bar.
-	        /*final ActionBar actionBar = getActionBar();
+	        final ActionBar actionBar = getActionBar();
 	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 	
 	        // Set up the ViewPager with the sections adapter.
 	        mViewPager = (ViewPager) findViewById(R.id.pager);
 	        mViewPager.setAdapter(pagerAdapter);
-	        */
+
 	
 	        // When swiping between different sections, select the corresponding tab.
 	        // We can also use ActionBar.Tab#select() to do this if we have a reference to the
 	        // Tab.
-	       /* mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+	        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 	            @Override
 	            public void onPageSelected(int position) {
 	                actionBar.setSelectedNavigationItem(position);
 	            }
-	        });*/
-	/*
+	        });
+
 	        // For each of the sections in the app, add a tab to the action bar.
 	        for (int i = 0; i < pagerAdapter.getCount(); i++) {
 	            // Create a tab with text corresponding to the page title defined by the adapter.
@@ -85,7 +85,7 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
 	                    actionBar.newTab()
 	                            .setText(pagerAdapter.getPageTitle(i))
 	                            .setTabListener(this));
-	        }*/
+	        }
         }else{
         	Fragment markFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_mark);
         	Fragment heartFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_heart);
