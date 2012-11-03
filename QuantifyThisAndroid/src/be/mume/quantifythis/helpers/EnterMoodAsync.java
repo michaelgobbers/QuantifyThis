@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.Map;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,10 +41,15 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
     }
 
     private void getWeather(){
+        int woeid = getWoeid();
+        if(woeid == 0){
+            return; //commit without weather info
+        }
+
         HttpClient httpClient = new DefaultHttpClient();
         HttpContext httpContext = new BasicHttpContext();
-        String requestString = "http://where.yahooapis.com/geocode?location=" +
-                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" + "dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky";
+
+        String requestString = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D" + woeid + "%20and%20u%3D'c'&format=json&callback=";
         HttpGet httpGet = new HttpGet(requestString);
         String responseString = "";
         try {
@@ -53,7 +58,16 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             responseString = EntityUtils.toString(entity);
         } catch (IOException e) {
             Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
+            return;
         }
+
+        Log.i("QuantifyThis", responseString);
+        try {
+            JSONObject json = new JSONObject(responseString);
+        } catch (JSONException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+
     }
 
     private int getWoeid(){
@@ -71,6 +85,7 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
         }
 
+        Log.i("QuantifyThis", responseString);
         try {
             JSONObject json = new JSONObject(responseString);
             JSONObject resultSet = json.getJSONObject("ResultSet");
