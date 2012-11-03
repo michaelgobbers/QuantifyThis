@@ -13,13 +13,10 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
-import be.mume.quantifythis.helpers.WeatherRequestListener;
-import be.mume.quantifythis.helpers.WeatherRequestHelper;
+import be.mume.quantifythis.helpers.EnterMoodAsync;
+import be.mume.quantifythis.helpers.Tuple;
 import be.mume.quantifythis.model.LocationModel;
 import be.mume.quantifythis.model.MarkMoodModel;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * The Fragment cotaining 5 mood sliders that max up to a total of 100%
@@ -177,42 +174,9 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void onClick(View view) {
-        weatherInfo();
-        //get weather
-        //persist to appengine
-
-    }
-
-    private void weatherInfo() {
-        Location location = locationModel.getLastLocation();
-        locationModel.stopTracking();
-        String request = "http://where.yahooapis.com/geocode?location=" +
-                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" + "dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky";
-        WeatherRequestHelper requestHelper = new WeatherRequestHelper();
-        requestHelper.setListener(new WeatherRequestListener() {
-            @Override
-            public void handleResults(String s) {
-                JSONObject json = null;
-                try {
-                    json = new JSONObject(s);
-                    JSONObject resultSet = json.getJSONObject("ResultSet");
-                    JSONArray results = resultSet.getJSONArray("Results");
-                    JSONObject result = results.getJSONObject(0);
-                    int woeid = result.getInt("woeid");
-                    Log.i("QuantifyThis", "info: " + woeid);
-                } catch (JSONException e) {
-                    Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
-                }
-            }
-        });
-        requestHelper.execute(request);
-
-        requestHelper.setListener(new WeatherRequestListener() {
-            @Override
-            public void handleResults(String results) {
-                
-            }
-        });
+        Tuple<MarkMoodModel, Location> tuple = new Tuple<MarkMoodModel, Location>(model, locationModel.getLastLocation());
+        new EnterMoodAsync().execute(tuple);
     }
 }
