@@ -8,7 +8,13 @@ function sendMood(){
     
     //sleep values
     var sleepHours = document.getElementById("slider-many-hours").value;
-    var sleepEff = document.getElementById("slider-eff").value;
-    
-    $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff } );
+    var sleepEff = document.getElementById("slider-eff").value;    
+    $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff } );   
+}
+
+function loginAppEngine(){
+    window.open('http://localhost:8888/LoginService', 'App Engine Login');
+    var authorizeButton = document.getElementById('authorize-button-appengine');
+    authorizeButton.style.visibility = 'hidden';
+    return false;
 }

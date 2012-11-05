@@ -9,7 +9,8 @@
 <link href="verticalSlider.css" rel="stylesheet" type="text/css" />
 <script src="verticalSlider.js"></script>
 <script src="gae_functions.js"></script>
-
+<script src="calendar_api.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   
@@ -37,7 +38,8 @@ a {text-decoration:none;}
   <!-- Home Page Header -->
   <div data-role="header" data-position="inline">
   	<h1>Quantify This!</h1>
-	<a href="http://localhost:8888/LoginService"><center><img src="images/login-button.png" alt="Log in with google account for access to app engine." width="100px"></center></a>
+	<a id='authorize-button-calendar'><center><img src="images/login-button.png" alt="Log in with google account for access to google calendar" width="100px" ></center></a><br/>
+	<a onclick="loginAppEngine()" id='authorize-button-appengine'><center><img src="images/login-button.png" alt="Log in with google account for access to app engine." width="100px" ></center></a>
   </div>
     <div data-role="content">
     <div id="weatherElement"></div>
@@ -154,26 +156,6 @@ a {text-decoration:none;}
 	
   <div data-role="content">
     <ul id="step">
-     <center><li><p>Calendar data 1</p></li></center>
-     <center><li><p>Calendar data 2</p></li></center>
-     <center><li><p>Calendar data 3</p></li></center>
-     <center><li><p>Calendar data 4</p></li></center>
-     <center><li><p>Calendar data 5</p></li></center>
-     <center><li><p>Calendar data 6</p></li></center>
-     <center><li><p>Calendar data 7</p></li></center>
-     <center><li><p>Calendar data 8</p></li></center>
-     <center><li><p>Calendar data 9</p></li></center>
-     <center><li><p>Calendar data 10</li></p></center>
-     <center><li><p>Calendar data 1</p></li></center>
-     <center><li><p>Calendar data 2</p></li></center>
-     <center><li><p>Calendar data 3</p></li></center>
-     <center><li><p>Calendar data 4</p></li></center>
-     <center><li><p>Calendar data 5</p></li></center>
-     <center><li><p>Calendar data 6</p></li></center>
-     <center><li><p>Calendar data 7</p></li></center>
-     <center><li><p>Calendar data 8</p></li></center>
-     <center><li><p>Calendar data 9</p></li></center>
-     <center><li><p>Calendar data 10</li></p></center>
     </ul>
   </div>
 
