@@ -7,20 +7,13 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <link href="verticalSlider.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
 <script src="verticalSlider.js"></script>
 <script src="gae_functions.js"></script>
 <script src="calendar_api.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  
-  $("#step li").each(function (i) {
-    i = i+1;
-    $(this).addClass("item");
-  });
-});
-</script>
 
+<style type="text/css" ></style>
 <style type="text/css">
 a {text-decoration:none;}
 #step .item {
@@ -83,7 +76,9 @@ a {text-decoration:none;}
 				<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
   </div>
   <center>
-  <div data-role="content"> 
+  <div data-role="content">
+  <p id="markevent">No event selected</p>
+  <input type="hidden" name="markeventid" id="markeventid" />
     <table>
 <tr>
 <td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
@@ -154,9 +149,14 @@ a {text-decoration:none;}
   </div>
 
 	
-  <div data-role="content">
-    <ul id="step">
-    </ul>
+  <div data-role="content" data-theme="b">
+    <div data-role="fieldcontain" id='categories-container' style="text-align: center;">
+ 	
+    </div>
+    <div id="events-container">
+      <ul data-role="listview" id="events-list" data-theme="b">
+      </ul>
+    </div>
   </div>
 
 	
