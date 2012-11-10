@@ -19,14 +19,18 @@ public class Mood {
 	private Key key;
 	
 	private List<Integer> moodValues;
+	private String category;
+	private String eventid;
 	
 	
 	public Mood(){
 		moodValues = new ArrayList<Integer>();
 	}
-	public Mood(List<Integer> moodValues){
+	public Mood(List<Integer> moodValues, String category, String eventid){
 		this.moodValues = new ArrayList<Integer>();
 		setMoodValues(moodValues);
+		setCategory(category);
+		setEventid(eventid);
 	}
 	public Key getKey() {
 		return key;
@@ -37,5 +41,17 @@ public class Mood {
 	public void setMoodValues(List<Integer> moodValues){
 		if(moodValues!=null)
 			this.moodValues.addAll(moodValues);
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getEventid() {
+		return eventid;
+	}
+	public void setEventid(String eventid) {
+		this.eventid = eventid;
 	}
 }

@@ -27,7 +27,8 @@ import be.mume.quantifythis.appengine.server.entities.HeartRate;
 import be.mume.quantifythis.appengine.server.entities.Mood;
 import be.mume.quantifythis.appengine.server.entities.Sleep;
 import be.mume.quantifythis.appengine.server.entities.Weather;
-import be.mume.quantifythis.appengine.server.xml.DocumentGenerator;
+import be.mume.quantifythis.appengine.server.replies.json.JsonDocumentGenerator;
+import be.mume.quantifythis.appengine.server.replies.xml.XmlDocumentGenerator;
 
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
@@ -35,7 +36,10 @@ import com.google.appengine.api.users.UserServiceFactory;
 
 /**
  * POST REQUESTS:
- * addMood
+ *  request = addMood
+ * -format = xml || json
+ * -category
+ * -eventid
  * -mood1
  * -mood2
  * -mood3
@@ -66,17 +70,30 @@ public class DataService extends HttpServlet {
 		User user = userService.getCurrentUser();
 		String request = req.getParameter("request");
 		if(request!=null){
+			String format = req.getParameter("format");
 			if(user!=null && request.equals("getMood")){
 				EntityManager em = EMF.get().createEntityManager();
 				Query emQuery = em.createQuery("SELECT x FROM Entry x WHERE x.userEmail = '"+user.getEmail()+"'");
 
 				List<Entry> resList = emQuery.getResultList();
-				if(resList!=null){
-					Document doc;
+				if(format.equals("xml")){
+					if(resList!=null){
+						
+						Document doc;
+						try {
+							doc = new XmlDocumentGenerator().EntryDocument(resList);
+							deliverXML(doc, resp);
+						} catch (ParserConfigurationException e) {
+							e.printStackTrace();
+						}
+					}
+				}else if(format.equals("json")){
+					JsonDocumentGenerator gen = new JsonDocumentGenerator();
+					resp.setContentType("application/json");
 					try {
-						doc = new DocumentGenerator().EntryDocument(resList);
-						deliverXML(doc, resp);
-					} catch (ParserConfigurationException e) {
+						resp.getWriter().print(gen.EntryDocument(resList));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -112,12 +129,15 @@ public class DataService extends HttpServlet {
 	private Mood getMoodFromRequestParams(HttpServletRequest req) {
 		//Get the mood from the parameters
 		String mood = req.getParameter("mood1");
+		String category = req.getParameter("category");
+		String eventid = req.getParameter("eventid");
+		
 		List<Integer> moodValues = new ArrayList<Integer>();
 		for(int i = 2;mood!=null;i++){
 			moodValues.add(Integer.parseInt(mood));
 			mood = req.getParameter("mood"+Integer.toString(i));
 		}
-		Mood moodObject = new Mood(moodValues);
+		Mood moodObject = new Mood(moodValues, category, eventid);
 		return moodObject;
 	}
 	private Date getDateFromRequestParams(HttpServletRequest req) {
