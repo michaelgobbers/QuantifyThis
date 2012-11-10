@@ -72,8 +72,8 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress,
                                   boolean fromUser) {
-        checkAndAdjustMoodTotal(seekBar);
-        TextView label = null;
+        //checkAndAdjustMoodTotal(seekBar);
+        /*TextView label = null;
         View view = (View) seekBar.getParent().getParent();
         if (seekBar.getId() == R.id.seekBar1) {
             label = (TextView) view.findViewById(R.id.seekbar1_label);
@@ -86,7 +86,7 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
         } else if (seekBar.getId() == R.id.seekBar5) {
             label = (TextView) view.findViewById(R.id.seekbar5_label);
         }
-        if (label != null) label.setText(progress + "%");
+        if (label != null) label.setText(progress + "%");*/
     }
 
     @Override
@@ -106,71 +106,6 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
         model.setCat3(bar3.getProgress());
         model.setCat4(bar4.getProgress());
         model.setCat5(bar5.getProgress());
-    }
-
-    /**
-     * This method checks and adjusts the seek bars when the total exceeds 100%
-     * This algorithm still contains a few bugs. but works roughly.
-     */
-    private void checkAndAdjustMoodTotal(SeekBar seekBar) {
-        View seekBarParent = (View) seekBar.getParent().getParent();
-        SeekBar bar1 = (SeekBar) seekBarParent.findViewById(R.id.seekBar1);
-        SeekBar bar2 = (SeekBar) seekBarParent.findViewById(R.id.seekBar2);
-        SeekBar bar3 = (SeekBar) seekBarParent.findViewById(R.id.seekBar3);
-        SeekBar bar4 = (SeekBar) seekBarParent.findViewById(R.id.seekBar4);
-        SeekBar bar5 = (SeekBar) seekBarParent.findViewById(R.id.seekBar5);
-        int bar1Value = bar1.getProgress();
-        int bar2Value = bar2.getProgress();
-        int bar3Value = bar3.getProgress();
-        int bar4Value = bar4.getProgress();
-        int bar5Value = bar5.getProgress();
-        int totalValue = bar1Value + bar2Value + bar3Value + bar4Value + bar5Value;
-        if (bar1Value + bar2Value + bar3Value + bar4Value + bar5Value > 100) {
-            int amountToSubstract = (totalValue - 100) / 4;
-            int rest = (totalValue - 100) % 4;
-
-            if (bar1.getId() != seekBar.getId())
-                if (bar1Value >= amountToSubstract + rest)
-                    bar1.setProgress(bar1Value - amountToSubstract - rest);
-                else {
-                    rest = (amountToSubstract + rest) - bar1Value;
-                    bar1.setProgress(0);
-
-                }
-            if (bar2.getId() != seekBar.getId())
-                if (bar2Value >= amountToSubstract + rest)
-                    bar2.setProgress(bar2Value - amountToSubstract - rest);
-                else {
-                    rest = (amountToSubstract + rest) - bar2Value;
-                    bar2.setProgress(0);
-
-                }
-            if (bar3.getId() != seekBar.getId())
-                if (bar3Value >= amountToSubstract + rest)
-                    bar3.setProgress(bar3Value - amountToSubstract - rest);
-                else {
-                    rest = (amountToSubstract + rest) - bar3Value;
-                    bar3.setProgress(0);
-
-                }
-            if (bar4.getId() != seekBar.getId())
-                if (bar4Value >= amountToSubstract + rest)
-                    bar4.setProgress(bar4Value - amountToSubstract - rest);
-                else {
-                    rest = (amountToSubstract + rest) - bar4Value;
-                    bar4.setProgress(0);
-
-                }
-            if (bar5.getId() != seekBar.getId())
-                if (bar5Value >= amountToSubstract + rest)
-                    bar5.setProgress(bar1Value - amountToSubstract - rest);
-                else {
-                    rest = (amountToSubstract + rest) - bar5Value;
-                    bar5.setProgress(0);
-
-                }
-        }
-
     }
 
     @Override
