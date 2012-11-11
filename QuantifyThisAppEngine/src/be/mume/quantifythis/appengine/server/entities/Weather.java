@@ -14,27 +14,17 @@ public class Weather {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Key key;
 	
-	private Integer rainPercentage;
-	private Integer amountOfSun;
+	private Integer temperature;
 	
 	public Weather(){
 	}
-	public Weather(Integer rain, Integer sun){
-		setRainPercentage(rain);
-		setAmountOfSun(sun);
+	public Weather(Integer temp){
+		setTemperature(temp);
 	}
-	public Integer getRainPercentage() {
-		return rainPercentage;
+	public Integer getTemperature() {
+		return temperature;
 	}
-	public void setRainPercentage(Integer rainPercentage) {
-		this.rainPercentage = rainPercentage;
-	}
-	public Integer getAmountOfSun() {
-		return amountOfSun;
-	}
-	public void setAmountOfSun(Integer amountOfSun) {
-		this.amountOfSun = amountOfSun;
-	}
-	
-	
+	public void setTemperature(Integer temperature) {
+		this.temperature = temperature;
+	}	
 }

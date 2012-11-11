@@ -50,8 +50,7 @@ import com.google.appengine.api.users.UserServiceFactory;
  * -sleepeff * (integer as string)
  * -sleephours * (integer as string)
  * -bpm* (integer as string)
- * -rainpercentage * (integer as string)
- * -sunhours * (integer as string)
+ * -temp * (integer as string)
  * 
  * 
  * GET REQUESTS:
@@ -181,17 +180,14 @@ public class DataService extends HttpServlet {
 	}
 	private Weather getWeatherFromRequestParams(HttpServletRequest req) {
 		//get weather from parameters
-		String rainString = req.getParameter("rainpercentage");
-		String sunAmountString = req.getParameter("sunhours");
-		Integer sunHours;
-		Integer rainPercentage;
+		String tempString = req.getParameter("temp");
+		Integer temp;
 		Weather weather;
-		if(rainString!=null && sunAmountString!=null){
-			rainPercentage = Integer.parseInt(rainString);
-			sunHours = Integer.parseInt(sunAmountString);
-			weather = new Weather(rainPercentage, sunHours);
+		if(tempString!=null){
+			temp = Integer.parseInt(tempString);
+			weather = new Weather(temp);
 		} else {
-			weather = new Weather(null, null);
+			weather = new Weather(null);
 		}
 		return weather;
 	}

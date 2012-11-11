@@ -80,6 +80,7 @@ a {text-decoration:none;}
   <p id="markevent">No event selected</p>
   <input type="hidden" name="markeventid" id="markeventid" />
   <input type="hidden" name="eventcategory" id="eventcategory" />
+  <input type="hidden" name="temperature" id="temperature" value="null"/>
     <table>
 <tr>
 <td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
@@ -235,13 +236,18 @@ a {text-decoration:none;}
 <script>
 var x=document.getElementById("weather");
 function getLocation()
-  {
+{
   if (navigator.geolocation)
-    {
+  {
     navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
   }
+  else{
+    x.innerHTML="Geolocation is not supported by this browser.";
+  }
+}
+function getTemp(){
+  showPosition
+}
 function showPosition(position)
   {
  
@@ -271,14 +277,11 @@ function showPosition(position)
 	                if(r.query && r.query.count == 1){
 	                    var item = r.query.results.channel.item.condition;       
 	                    if(!item){
-	                    	showError("We can't find weather information about your city!");
-	                    	if (window.console && window.console.info){
-						    	console.info("%s, %s; woeid: %d", city, code, woeid);
-						    }
-						    
-						    return false;
+			      $("#temperature").val(null);
+				return null;
 	                    }
-	                   x.innerHTML=item.temp+'°'+DEG +" in " + city;  
+			    $("#temperature").val(item.temp);
+			   return item.temp;
 	                }
 	                else {
 	                    showError("Error retrieving weather data!");

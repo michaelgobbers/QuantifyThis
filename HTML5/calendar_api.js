@@ -16,6 +16,7 @@ var geteventListCallBack = function(calID) {
 };
 
 function loadCalendar() {
+  getLocation();
   gapi.client.setApiKey(apiKey);
   window.setTimeout(checkAuthCalendar,1);
   checkAuthCalendar();
