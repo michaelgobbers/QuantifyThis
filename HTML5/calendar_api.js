@@ -4,6 +4,17 @@ var scopes = 'https://www.googleapis.com/auth/calendar';
 var apicallmade =false;
 var calendarAmount = 0;
 
+var geteventListCallBack = function(calID) {
+    return function(resp, textStatus) {
+        var list = $("#events-list");
+    for (var j = 0; j < resp.items.length; j++) {
+        var html = '<li onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood">'+resp.items[j].summary+'</a></li>';           
+        $(list).append(html);
+    }
+    $(list).listview("refresh");
+    };
+};
+
 function loadCalendar() {
   gapi.client.setApiKey(apiKey);
   window.setTimeout(checkAuthCalendar,1);
@@ -37,29 +48,41 @@ function handleAuthClickCalendar(event) {
       handleAuthResultCalendar);
   return false;
 }
-function setEventDetailsInMarkMood(id, summary){
+function setEventDetailsInMarkMood(id, summary, calID){
     var markmoodeventsummary = $("#markevent");
     var marmoodeventid = $("#markeventid");
+    var heartratebutton = $("#heartratebutton");
+    var sleepbutton = $("#sleepbutton");
+    var eventCat = $("#eventcategory");
     markmoodeventsummary.text(summary);
     marmoodeventid.val(id);
+    heartratebutton.hide();
+    sleepbutton.hide();
+    eventCat.val(calID);
 }
-function showCalendarsWithID(ids, list) {
+function returnFromMarkMood(){
+    var markmoodeventsummary = $("#markevent");
+    var marmoodeventid = $("#markeventid");
+    var heartratebutton = $("#heartratebutton");
+    var sleepbutton = $("#sleepbutton");
+    var eventCat = $("#eventcategory");
+    markmoodeventsummary.text("No event selected.");
+    marmoodeventid.val("");
+    heartratebutton.show();
+    sleepbutton.show();
+    eventCat.val("");
+}
+
+function showCalendarsWithID(ids) {
     gapi.client.load('calendar', 'v3', function() {
         for(var i=0;i<ids.length;i++){
             var request = gapi.client.calendar.events.list({
                     'calendarId': ids[i]
             });
                   
-            request.execute(function(resp, i) {
-                for (var j = 0; j < resp.items.length; j++) {
-                    var html = '<li onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\')"><a href="#MarkMyMood">'+resp.items[j].summary+'</a></li>';           
-                    $(list).append(html);
-                }
-                $(list).listview("refresh");
-            });
+            request.execute(geteventListCallBack(ids[i]));
         }
     });
-    
 }
 
 function showCalendars(){
@@ -74,7 +97,7 @@ function showCalendars(){
         }
     }
     $('#events-list').empty();
-    showCalendarsWithID(ids, $('#events-list'));
+    showCalendarsWithID(ids);
 }
 
 function displayCategories(){
