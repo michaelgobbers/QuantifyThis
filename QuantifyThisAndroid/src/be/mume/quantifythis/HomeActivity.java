@@ -63,6 +63,7 @@ public class HomeActivity extends FragmentActivity{
     }
 
     private class GetCookieTask extends AsyncTask<String, Void, Boolean> {
+        @Override
         protected Boolean doInBackground(String... tokens) {
             try {
                 // Don't follow redirects
@@ -91,6 +92,7 @@ public class HomeActivity extends FragmentActivity{
             return false;
         }
 
+        @Override
         protected void onPostExecute(Boolean result) {
             new AuthenticatedRequestTask().execute("http://yourapp.appspot.com/admin/");
         }
@@ -112,22 +114,26 @@ public class HomeActivity extends FragmentActivity{
             return null;
         }
 
+        @Override
+        //unnessesary
         protected void onPostExecute(HttpResponse result) {
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(result.getEntity().getContent()));
-                String first_line = reader.readLine();
-                Toast.makeText(getApplicationContext(), first_line, Toast.LENGTH_LONG).show();
+            /*try {
+                //BufferedReader reader = new BufferedReader(new InputStreamReader(result.getEntity().getContent()));
+                //String first_line = reader.readLine();
+                //Toast.makeText(getApplicationContext(), first_line, Toast.LENGTH_LONG).show();
             } catch (IllegalStateException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 
     private class GetAuthTokenCallback implements AccountManagerCallback<Bundle> {
+
+        @Override
         public void run(AccountManagerFuture<Bundle> result) {
             Bundle bundle;
             try {

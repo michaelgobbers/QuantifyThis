@@ -16,6 +16,7 @@ public class MarkMoodModel {
     private int amountOfSleep;
     private int sleepQuality;
     private int heartRate;
+    private int temperature;
 
     public MarkMoodModel(){
         cat1 = 0;
@@ -26,6 +27,7 @@ public class MarkMoodModel {
         amountOfSleep = 0;
         sleepQuality = 0;
         heartRate = 0;
+        temperature = 0;
     }
 
     public int getCat1() {
@@ -90,5 +92,13 @@ public class MarkMoodModel {
 
     public void setHeartRate(int heartRate) {
         this.heartRate = heartRate;
+    }
+
+    public int getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 }
