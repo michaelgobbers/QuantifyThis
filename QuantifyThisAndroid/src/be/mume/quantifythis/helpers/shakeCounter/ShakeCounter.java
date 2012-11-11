@@ -1,4 +1,4 @@
-package be.mume.quantifythis.shakeCounter;
+package be.mume.quantifythis.helpers.shakeCounter;
 
 import android.content.Context;
 import android.hardware.Sensor;

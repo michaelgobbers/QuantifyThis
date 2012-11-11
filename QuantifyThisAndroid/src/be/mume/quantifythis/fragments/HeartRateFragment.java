@@ -1,9 +1,6 @@
 package be.mume.quantifythis.fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.PowerManager;
-import android.util.Log;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
 import android.os.Bundle;
@@ -12,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import be.mume.quantifythis.model.MarkMoodModel;
-import be.mume.quantifythis.shakeCounter.ShakeCounter;
-import be.mume.quantifythis.shakeCounter.ShakeCounterListener;
+import be.mume.quantifythis.helpers.shakeCounter.ShakeCounter;
+import be.mume.quantifythis.helpers.shakeCounter.ShakeCounterListener;
 
 import java.util.Date;
 
@@ -25,10 +22,8 @@ import java.util.Date;
 public class HeartRateFragment extends Fragment implements ShakeCounterListener {
     private MarkMoodModel model;
     private ShakeCounter shakeCounter;
-    private PowerManager.WakeLock wakeLock;
     private TextView bpmLabel;
     private long startTime;
-    private int avg;
 
     public HeartRateFragment(MarkMoodModel model) {
         this.model = model;
@@ -59,6 +54,7 @@ public class HeartRateFragment extends Fragment implements ShakeCounterListener 
     public void onPause() {
         super.onPause();
         this.shakeCounter.stopListening();
+        this.shakeCounter.reset();
     }
 
     @Override
@@ -66,7 +62,7 @@ public class HeartRateFragment extends Fragment implements ShakeCounterListener 
         if(shakeCounter.getTotalCount() == 1){
             startTime = new Date().getTime();
         }else{
-            this.avg = (int) ((60000 * shakeCounter.getTotalCount()) / (new Date().getTime() - startTime));
+            int avg = (int) ((60000 * shakeCounter.getTotalCount()) / (new Date().getTime() - startTime));
             bpmLabel.setText(avg + "");
         }
     }

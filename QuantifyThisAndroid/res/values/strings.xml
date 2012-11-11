@@ -17,11 +17,16 @@
     <string name="button_settings_label">Settings</string>
     <string name="shake_instructions">Hold your finger to your neck and shake the phone with your pulse rate. You can stop when the phone vibrates.</string>
 
-    <string name="mood_label_1">Happy</string>
-	<string name="mood_label_2">Sad</string>
-	<string name="mood_label_3">Angry</string>
-	<string name="mood_label_4">Energized</string>
-	<string name="mood_label_5">Tired</string>
+    <string name="mood_label_1_left">Energized</string>
+    <string name="mood_label_1_right">Tired</string>
+	<string name="mood_label_2_left">Focused</string>
+    <string name="mood_label_2_right">Distracted</string>
+	<string name="mood_label_3_left">Happy</string>
+    <string name="mood_label_3_right">Sad</string>
+	<string name="mood_label_4_left">Loving</string>
+    <string name="mood_label_4_right">Angry</string>
+	<string name="mood_label_5_left">Calm</string>
+    <string name="mood_label_5_right">Stressed</string>
 	<string name="sleep_hours_label">How many hours did you sleep?</string>
 	<string name="sleep_efficiency_label">How rested do you feel?</string>
 	<string name="label_statistics">Statistics</string>

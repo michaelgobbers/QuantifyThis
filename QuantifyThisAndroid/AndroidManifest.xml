@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
@@ -24,10 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MarkActivity"></activity>
-        <activity android:name=".StatisticsActivity"></activity>
-        <activity android:name="AgendaActivity"></activity>
-        <activity android:name="SettingsActivity"></activity>
+        <activity android:name=".MarkActivity"/>
+        <activity android:name=".StatisticsActivity"/>
+        <activity android:name="AgendaActivity"/>
+        <activity android:name="SettingsActivity"/>
     </application>
 
 </manifest>
