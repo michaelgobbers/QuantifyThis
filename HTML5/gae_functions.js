@@ -17,11 +17,17 @@ function sendMood(){
     //weather details
     var temperature = $("#temperature").val();
     
-    
-    if(temperature==null)
-        $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, eventid: eventId, category: categoryId} );
-    else
-        $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, eventid: eventId, category: categoryId, temp: temperature} );
+    if(eventId==''){
+        if(temperature==null)
+            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff} );
+        else
+            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, temp: temperature} );
+    }else{
+        if(temperature==null)
+            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId} );
+        else
+            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId, temp: temperature} );
+    }
 }
 
 function loginAppEngine(){
