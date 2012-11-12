@@ -6,9 +6,14 @@ import android.util.Log;
 import be.mume.quantifythis.model.MarkMoodModel;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
@@ -17,6 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -27,6 +34,7 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Void, Void> {
+    private final static String APP_ENGINE_URL = "quantifythisapp.appspot.com/DataService";
     private MarkMoodModel model;
     private Location location;
 
@@ -64,6 +72,14 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
         Log.i("QuantifyThis", responseString);
         try {
             JSONObject json = new JSONObject(responseString);
+            JSONObject resultSet = json.getJSONObject("query");
+            JSONObject results = resultSet.getJSONObject("results");
+            JSONObject channel = results.getJSONObject("channel");
+            JSONObject item = channel.getJSONObject("item");
+            JSONObject condition = item.getJSONObject("condition");
+            int temperature = condition.getInt("temp");
+            Log.i("QuantifyThis", "Temperature: " + temperature);
+            model.setTemperature(temperature);
         } catch (JSONException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -91,7 +107,9 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             JSONObject resultSet = json.getJSONObject("ResultSet");
             JSONArray results = resultSet.getJSONArray("Results");
             JSONObject result = results.getJSONObject(0);
-            return result.getInt("woeid");
+            int woeid = result.getInt("woeid");
+            Log.i("QuantifyThis", "WOEID: " + woeid);
+            return woeid;
 
         } catch (JSONException e) {
             Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
@@ -100,6 +118,28 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
     }
 
     private void persist(){
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httppost = new HttpPost(APP_ENGINE_URL);
 
+        try {
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+            nameValuePairs.add(new BasicNameValuePair("request", "addMood"));
+            nameValuePairs.add(new BasicNameValuePair("mood1", model.getCat1() + ""));
+            nameValuePairs.add(new BasicNameValuePair("mood2", model.getCat2() + ""));
+            nameValuePairs.add(new BasicNameValuePair("mood3", model.getCat3() + ""));
+            nameValuePairs.add(new BasicNameValuePair("mood4", model.getCat4() + ""));
+            nameValuePairs.add(new BasicNameValuePair("mood5", model.getCat5() + ""));
+            nameValuePairs.add(new BasicNameValuePair("sleephours", model.getAmountOfSleep() + ""));
+            nameValuePairs.add(new BasicNameValuePair("sleepeff", model.getSleepQuality() + ""));
+            nameValuePairs.add(new BasicNameValuePair("bpm", model.getHeartRate() + ""));
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            HttpResponse response = httpclient.execute(httppost);
+            Log.i("QuantifyThis", "Persist response: " + response.getStatusLine());
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+        }
     }
 }
