@@ -8,7 +8,9 @@ var geteventListCallBack = function(calID) {
     return function(resp, textStatus) {
         var list = $("#events-list");
     for (var j = 0; j < resp.items.length; j++) {
-        var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood">'+resp.items[j].summary+'</a></li>';           
+
+        var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood"><h1>'+resp.items[j].summary+'</h1><p id="start"></p><p id="end"></p></a></li>';
+        setEventTime(resp.items[j].id, calID);
         $(list).append(html);
     }
     $(list).listview("refresh");
@@ -16,6 +18,19 @@ var geteventListCallBack = function(calID) {
     };
 };
 
+
+function setEventTime(eventID, calID){
+    var request = gapi.client.calendar.events.get({
+            'calendarId': calID,
+            'eventId': eventID
+    });
+    request.execute(function(resp){
+        var startEventTimeElement = $("#"+eventID+" #start");
+        startEventTimeElement.html("Start Time: "+ resp.start.dateTime);
+        var endEventTimeElement = $("#"+eventID+" #end");
+        endEventTimeElement.html("End Time: "+ resp.end.dateTime);
+    });
+}
 function loadCalendar() {
   getLocation();
   gapi.client.setApiKey(apiKey);
