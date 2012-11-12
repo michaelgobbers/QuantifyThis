@@ -8,10 +8,11 @@ var geteventListCallBack = function(calID) {
     return function(resp, textStatus) {
         var list = $("#events-list");
     for (var j = 0; j < resp.items.length; j++) {
-        var html = '<li onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood">'+resp.items[j].summary+'</a></li>';           
+        var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood">'+resp.items[j].summary+'</a></li>';           
         $(list).append(html);
     }
     $(list).listview("refresh");
+    getEntryList();
     };
 };
 
@@ -20,6 +21,10 @@ function loadCalendar() {
   gapi.client.setApiKey(apiKey);
   window.setTimeout(checkAuthCalendar,1);
   checkAuthCalendar();
+  
+  $( "#eventsdays" ).bind( "change", function(event, ui) {
+    showCalendars();
+  });
 }
 
 function checkAuthCalendar() {
@@ -76,14 +81,30 @@ function returnFromMarkMood(){
 
 function showCalendarsWithID(ids) {
     gapi.client.load('calendar', 'v3', function() {
+        var days = $("#eventsdays").val();
+        var minDate=new Date();
+        minDate.setDate(minDate.getDate()-days);
         for(var i=0;i<ids.length;i++){
             var request = gapi.client.calendar.events.list({
-                    'calendarId': ids[i]
+                    'calendarId': ids[i],
+                    'timeMin' : minDate,
+                    'timeMax' : new Date(),
+                    'singleEvents' : true,
+                    'orderBy' : "startTime"
             });
                   
             request.execute(geteventListCallBack(ids[i]));
         }
     });
+    
+}
+function filterEvents(gaeEntries){
+    for(var i=0; i< gaeEntries.length; i++){
+        var eventid = gaeEntries[i].mood.eventid;
+        if(eventid!=null){
+            $("#"+eventid).hide();
+        }
+    }
 }
 
 function showCalendars(){

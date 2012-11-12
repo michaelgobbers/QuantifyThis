@@ -73,7 +73,7 @@ a {text-decoration:none;}
 <div data-role="page" data-theme="b" id="MarkMyMood">
   <div data-role="header">
 	  <h1>Mark My Mood</h1>
-				<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
+	    <a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
   </div>
   <center>
   <div data-role="content">
@@ -152,9 +152,14 @@ a {text-decoration:none;}
 
 	
   <div data-role="content" data-theme="b">
+    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+    <label for="number" class="ui-input-text">Amount of days back to show:</label>
+    <input type="number" name="eventsdays" id="eventsdays" value="1" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+   </div>
     <div data-role="fieldcontain" id='categories-container' style="text-align: center;">
  	
     </div>
+    
     <div id="events-container">
       <ul data-role="listview" id="events-list" data-theme="b">
       </ul>
