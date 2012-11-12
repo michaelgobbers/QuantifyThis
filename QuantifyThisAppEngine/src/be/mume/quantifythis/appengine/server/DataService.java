@@ -38,8 +38,8 @@ import com.google.appengine.api.users.UserServiceFactory;
  * POST REQUESTS:
  *  request = addMood
  * -format = xml || json
- * -category
- * -eventid
+ * -category *
+ * -eventid *
  * -mood1
  * -mood2
  * -mood3
