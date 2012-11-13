@@ -1,6 +1,8 @@
 package be.mume.quantifythis.fragments;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Vibrator;
 import android.widget.TextView;
 import be.mume.quantifythis.R;
 import android.os.Bundle;
@@ -20,10 +22,19 @@ import java.util.Date;
  *
  */
 public class HeartRateFragment extends Fragment implements ShakeCounterListener {
+    private static final int AVG_TOLERANCE = 5;
+    private static final int STABLE_AVG_COUNT = 5;
     private MarkMoodModel model;
     private ShakeCounter shakeCounter;
     private TextView bpmLabel;
     private long startTime;
+    private long lastShake;
+    private int lastAverage;
+    private int stableCount = 0;
+
+    public HeartRateFragment(){
+
+    }
 
     public HeartRateFragment(MarkMoodModel model) {
         this.model = model;
@@ -61,9 +72,35 @@ public class HeartRateFragment extends Fragment implements ShakeCounterListener 
     public void onShake() {
         if(shakeCounter.getTotalCount() == 1){
             startTime = new Date().getTime();
-        }else{
+            lastShake = startTime;
+        }else if(isValidShake()){
+            lastShake = new Date().getTime();
             int avg = (int) ((60000 * shakeCounter.getTotalCount()) / (new Date().getTime() - startTime));
             bpmLabel.setText(avg + "");
+
+            if(Math.abs(lastAverage - avg) < AVG_TOLERANCE)
+                stableCount++;
+            else
+                stableCount = 0;
+
+            if(isStable(avg)){
+                Vibrator v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(500);
+                model.setHeartRate(avg);
+                this.shakeCounter.stopListening();
+            }
+            lastAverage = avg;
+        }else{
+            this.shakeCounter.reset();
         }
+    }
+
+    // if time since last shake is less than 2 seconds
+    private boolean isValidShake() {
+        return new Date().getTime() - lastShake < 2000;
+    }
+
+    private boolean isStable(int avg) {
+        return stableCount >= STABLE_AVG_COUNT;
     }
 }

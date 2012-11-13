@@ -93,7 +93,6 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
         	Display display = getWindowManager().getDefaultDisplay();
         	
         	int width = display.getWidth();
-        	int height = display.getHeight();
         	markFragment.getView().getLayoutParams().width = width/3;
         	heartFragment.getView().getLayoutParams().width = width/3;
         	sleepFragment.getView().getLayoutParams().width = width/3;

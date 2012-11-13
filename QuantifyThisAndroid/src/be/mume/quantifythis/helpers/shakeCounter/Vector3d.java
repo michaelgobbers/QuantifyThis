@@ -1,11 +1,9 @@
 package be.mume.quantifythis.helpers.shakeCounter;
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 04/11/12
- * Time: 11:59
- * To change this template use File | Settings | File Templates.
+ * Basic 3d vector class
+ *
+ * @author Nik Torfs
  */
 public class Vector3d {
     private final double x;

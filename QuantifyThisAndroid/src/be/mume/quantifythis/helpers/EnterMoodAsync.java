@@ -1,8 +1,10 @@
 package be.mume.quantifythis.helpers;
 
+import android.content.Context;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
+import be.mume.quantifythis.R;
 import be.mume.quantifythis.model.MarkMoodModel;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,16 +29,19 @@ import java.util.List;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 02/11/12
- * Time: 17:04
- * To change this template use File | Settings | File Templates.
+ * Class to persist the mood and other attributes to the backend
+ *
+ * @author Nik Torfs
  */
 public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Void, Void> {
     private final static String APP_ENGINE_URL = "quantifythisapp.appspot.com/DataService";
     private MarkMoodModel model;
     private Location location;
+    private Context context;
+
+    public EnterMoodAsync(Context context){
+        this.context = context;
+    }
 
     @Override
     protected Void doInBackground(Tuple<MarkMoodModel,Location>... tuples) {
@@ -48,6 +53,9 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
         return null;
     }
 
+    /**
+     * get the weather from the yahoo api
+     */
     private void getWeather(){
         int woeid = getWoeid();
         if(woeid == 0){
@@ -86,11 +94,15 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
 
     }
 
+    /**
+     * get the woeid for the current location from the yahoo location api
+     * @return woeid
+     */
     private int getWoeid(){
         HttpClient httpClient = new DefaultHttpClient();
         HttpContext httpContext = new BasicHttpContext();
         String requestString = "http://where.yahooapis.com/geocode?location=" +
-                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" + "dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky";
+                location.getLatitude() + ',' + location.getLongitude() + "&flags=J&gflags=R&appid=" + context.getString(R.string.yahoo_api_key);
         HttpGet httpGet = new HttpGet(requestString);
         String responseString = "";
         try {
@@ -117,9 +129,12 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
         return 0;
     }
 
+    /**
+     * Send the data to the backend
+     */
     private void persist(){
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(APP_ENGINE_URL);
+        HttpPost httppost = new HttpPost(context.getString(R.string.appengine_url));
 
         try {
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -137,9 +152,9 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             HttpResponse response = httpclient.execute(httppost);
             Log.i("QuantifyThis", "Persist response: " + response.getStatusLine());
         } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
+            Log.e("QuantifyThis", "ClientProtocolException: " + e.getLocalizedMessage());
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            Log.e("QuantifyThis", "IOException: " + e.getLocalizedMessage());
         }
     }
 }

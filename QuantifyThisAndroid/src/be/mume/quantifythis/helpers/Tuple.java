@@ -1,11 +1,11 @@
 package be.mume.quantifythis.helpers;
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 03/11/12
- * Time: 15:23
- * To change this template use File | Settings | File Templates.
+ * Class that represents a tuple of two specified Types
+ *
+ * @author Nik Torfs
+ * @param <X> first type
+ * @param <Y> second type
  */
 public class Tuple<X,Y> {
     public final X first;
