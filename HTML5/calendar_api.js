@@ -75,11 +75,15 @@ function setEventDetailsInMarkMood(id, summary, calID){
     var heartratebutton = $("#heartratebutton");
     var sleepbutton = $("#sleepbutton");
     var eventCat = $("#eventcategory");
+    var heartratebuttontext= $("#heartratebuttontext");
+    var sleepbuttontext= $("#sleepbuttontext");
     markmoodeventsummary.text(summary);
     marmoodeventid.val(id);
     heartratebutton.hide();
     sleepbutton.hide();
     eventCat.val(calID);
+    heartratebuttontext.hide();
+    sleepbuttontext.hide();
 }
 function returnFromMarkMood(){
     var markmoodeventsummary = $("#markevent");
@@ -92,6 +96,8 @@ function returnFromMarkMood(){
     heartratebutton.show();
     sleepbutton.show();
     eventCat.val("");
+    heartratebuttontext.show();
+    sleepbuttontext.show();
 }
 
 function showCalendarsWithID(ids) {

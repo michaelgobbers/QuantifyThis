@@ -104,8 +104,8 @@ a {text-decoration:none;}
 <td><a href="#SleepTime" id="sleepbutton"><center><img src="images/sleeptime.png" alt="Amount of Sleep" width="150px"></center></a></td>
 </tr>
 <tr>
-<td style="padding-left:30px"><a href="#HeartRate">Heart Rate</a> </td>
-<td style="padding-left:55px"><a href="#SleepTime">Sleep</a> </td>
+<td style="padding-left:30px"><a href="#HeartRate" id="heartratebuttontext">Heart Rate</a> </td>
+<td style="padding-left:55px"><a href="#SleepTime" id="sleepbuttontext">Sleep</a> </td>
 </tr>
 </table>
 <div data-role="controlgroup" data-type="horizontal">
@@ -237,6 +237,10 @@ a {text-decoration:none;}
    <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
     <label for="number" class="ui-input-text">Heartrate:</label>
     <input type="number" name="heartrate" id="heartrate" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+   </div>
+   <div>
+    <p id="acceleration"></p>
+    <p id="acceleration-gravity"></p>
    </div>
 
     <script>
