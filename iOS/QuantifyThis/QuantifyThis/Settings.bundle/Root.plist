@@ -48,12 +48,22 @@
 				<string>3</string>
 			</array>
 		</dict>
-		<dict>
+        <dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Music</string>
+			<string>Developers</string>
 		</dict>
+        <dict>
+            <key>DefaultValue</key>
+            <string>Michael, Nik and Sander</string>
+            <key>Key</key>
+            <string>version_string1</string>
+            <key>Title</key>
+            <string>Developed by</string>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+        </dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
