@@ -7,11 +7,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 04/11/12
- * Time: 16:09
- * To change this template use File | Settings | File Templates.
+ * Class that counts the amout of times the phone is shaken
+ * A listener can be added to get an update everytime the phone is shaken
  */
 public class ShakeCounter implements SensorEventListener {
     private static final short FORCE = 2;
@@ -61,6 +58,13 @@ public class ShakeCounter implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+        measureMovement(event);
+    }
+
+    /**
+     * Calculates if a movement counts as a shake
+     */
+    private void measureMovement(SensorEvent event) {
         float xAcceleration = event.values[0];
         float yAcceleration = event.values[1];
         float zAcceleration = event.values[2];

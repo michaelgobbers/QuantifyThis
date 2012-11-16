@@ -7,11 +7,9 @@ import android.location.LocationManager;
 import android.os.Bundle;
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 01/11/12
- * Time: 21:33
- * To change this template use File | Settings | File Templates.
+ * Class that listens to location updates and stores the last location
+ *
+ * @author Nik Torfs
  */
 public class LocationModel implements LocationListener {
 

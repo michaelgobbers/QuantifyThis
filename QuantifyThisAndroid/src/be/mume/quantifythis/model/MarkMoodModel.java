@@ -1,11 +1,9 @@
 package be.mume.quantifythis.model;
 
 /**
- * Created with IntelliJ IDEA.
- * User: nik
- * Date: 01/11/12
- * Time: 09:30
- * To change this template use File | Settings | File Templates.
+ * Model for representing the mood and extra attributes
+ *
+ * @author Nik Torfs
  */
 public class MarkMoodModel {
     private int cat1;

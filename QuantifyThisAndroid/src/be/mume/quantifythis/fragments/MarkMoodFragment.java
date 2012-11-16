@@ -64,29 +64,9 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
         return view;
     }
 
-    /**
-     * When the pprogress is changed the corresponding label that displays the seek bars percentage is adjusted.
-     * Before this is done the checkAndAdjustMoodTotal() method is called to check that the total amount does not exceed 100%, if so the other bars are adjusted to represent 100%.
-     * This algorithm still needs some work but works roughly at the moment.
-     */
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress,
                                   boolean fromUser) {
-        //checkAndAdjustMoodTotal(seekBar);
-        /*TextView label = null;
-        View view = (View) seekBar.getParent().getParent();
-        if (seekBar.getId() == R.id.seekBar1) {
-            label = (TextView) view.findViewById(R.id.seekbar1_label);
-        } else if (seekBar.getId() == R.id.seekBar2) {
-            label = (TextView) view.findViewById(R.id.seekbar2_label);
-        } else if (seekBar.getId() == R.id.seekBar3) {
-            label = (TextView) view.findViewById(R.id.seekbar3_label);
-        } else if (seekBar.getId() == R.id.seekBar4) {
-            label = (TextView) view.findViewById(R.id.seekbar4_label);
-        } else if (seekBar.getId() == R.id.seekBar5) {
-            label = (TextView) view.findViewById(R.id.seekbar5_label);
-        }
-        if (label != null) label.setText(progress + "%");*/
     }
 
     @Override
@@ -112,6 +92,6 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
     @SuppressWarnings("unchecked")
     public void onClick(View view) {
         Tuple<MarkMoodModel, Location> tuple = new Tuple<MarkMoodModel, Location>(model, locationModel.getLastLocation());
-        new EnterMoodAsync().execute(tuple);
+        new EnterMoodAsync(this.getActivity()).execute(tuple);
     }
 }
