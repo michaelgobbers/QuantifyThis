@@ -18,6 +18,11 @@ import be.mume.quantifythis.model.MarkMoodModel;
  */
 public class SleepFragment extends Fragment implements OnSeekBarChangeListener{
 	private MarkMoodModel model;
+
+    public SleepFragment(){
+
+    }
+
     public SleepFragment(MarkMoodModel model) {
         this.model = model;
 	}

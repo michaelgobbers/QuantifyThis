@@ -1,6 +1,7 @@
 package be.mume.quantifythis;
 
 import android.accounts.*;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -39,6 +40,7 @@ public class HomeActivity extends FragmentActivity{
         Account account = accounts[0];
         accountManager.getAuthToken(account, "ah",savedInstanceState , false, new GetAuthTokenCallback(), null);
     }
+
 	public void launchActivity(View view){
 		Intent intent = new Intent();
 		if(view.getId()==R.id.button_launch_mark){
@@ -52,9 +54,8 @@ public class HomeActivity extends FragmentActivity{
 		}
 		else if(view.getId()==R.id.button_launch_settings){
 			intent.setClass(this, SettingsActivity.class);
-		}
-		if(intent!=null)
-			startActivity(intent);
+        }
+		startActivity(intent);
 	}
 
     protected void onGetAuthToken(Bundle bundle) {
@@ -112,22 +113,6 @@ public class HomeActivity extends FragmentActivity{
                 e.printStackTrace();
             }
             return null;
-        }
-
-        @Override
-        //unnessesary
-        protected void onPostExecute(HttpResponse result) {
-            /*try {
-                //BufferedReader reader = new BufferedReader(new InputStreamReader(result.getEntity().getContent()));
-                //String first_line = reader.readLine();
-                //Toast.makeText(getApplicationContext(), first_line, Toast.LENGTH_LONG).show();
-            } catch (IllegalStateException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }*/
         }
     }
 

@@ -16,6 +16,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
@@ -77,7 +78,6 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             return;
         }
 
-        Log.i("QuantifyThis", responseString);
         try {
             JSONObject json = new JSONObject(responseString);
             JSONObject resultSet = json.getJSONObject("query");
@@ -89,7 +89,7 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             Log.i("QuantifyThis", "Temperature: " + temperature);
             model.setTemperature(temperature);
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            Log.e("QuantifyThis", "error: " + e.getLocalizedMessage());
         }
 
     }
@@ -113,7 +113,6 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             Log.e("QuantifyThis", "error: " + e.getLocalizedMessage(), e);
         }
 
-        Log.i("QuantifyThis", responseString);
         try {
             JSONObject json = new JSONObject(responseString);
             JSONObject resultSet = json.getJSONObject("ResultSet");
@@ -133,6 +132,7 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
      * Send the data to the backend
      */
     private void persist(){
+        Log.i("QuantifyThis", "Persisting now");
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost(context.getString(R.string.appengine_url));
 
@@ -150,6 +150,7 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
             HttpResponse response = httpclient.execute(httppost);
+
             Log.i("QuantifyThis", "Persist response: " + response.getStatusLine());
         } catch (ClientProtocolException e) {
             Log.e("QuantifyThis", "ClientProtocolException: " + e.getLocalizedMessage());

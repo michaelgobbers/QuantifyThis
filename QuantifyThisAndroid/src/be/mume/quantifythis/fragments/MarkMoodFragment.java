@@ -23,21 +23,14 @@ import be.mume.quantifythis.model.MarkMoodModel;
  *
  * @author michaelgobbers
  */
-public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListener, View.OnClickListener {
+public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListener {
     private MarkMoodModel model;
-    private LocationModel locationModel;
 
     public MarkMoodFragment() {
     }
 
     public MarkMoodFragment(MarkMoodModel model) {
         this.model = model;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.locationModel = new LocationModel(activity);
     }
 
     /**
@@ -52,14 +45,12 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
         SeekBar bar3 = (SeekBar) view.findViewById(R.id.seekBar3);
         SeekBar bar4 = (SeekBar) view.findViewById(R.id.seekBar4);
         SeekBar bar5 = (SeekBar) view.findViewById(R.id.seekBar5);
-        Button button = (Button) view.findViewById(R.id.button_mark_mood);
 
         bar1.setOnSeekBarChangeListener(this);
         bar2.setOnSeekBarChangeListener(this);
         bar3.setOnSeekBarChangeListener(this);
         bar4.setOnSeekBarChangeListener(this);
         bar5.setOnSeekBarChangeListener(this);
-        button.setOnClickListener(this);
 
         return view;
     }
@@ -88,10 +79,4 @@ public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListene
         model.setCat5(bar5.getProgress());
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public void onClick(View view) {
-        Tuple<MarkMoodModel, Location> tuple = new Tuple<MarkMoodModel, Location>(model, locationModel.getLastLocation());
-        new EnterMoodAsync(this.getActivity()).execute(tuple);
-    }
 }

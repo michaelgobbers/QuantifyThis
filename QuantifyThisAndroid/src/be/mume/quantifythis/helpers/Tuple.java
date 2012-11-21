@@ -1,7 +1,7 @@
 package be.mume.quantifythis.helpers;
 
 /**
- * Class that represents a tuple of two specified Types
+ * Utility class that represents a tuple of two specified Types
  *
  * @author Nik Torfs
  * @param <X> first type

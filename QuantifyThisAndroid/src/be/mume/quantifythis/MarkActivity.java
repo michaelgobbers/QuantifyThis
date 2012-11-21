@@ -1,6 +1,10 @@
 package be.mume.quantifythis;
 
 
+import android.content.Intent;
+import android.location.Location;
+import android.view.MenuItem;
+import android.view.View;
 import be.mume.quantifythis.fragments.HeartRateFragment;
 import be.mume.quantifythis.fragments.MarkMoodFragment;
 import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
@@ -15,6 +19,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Display;
 import android.view.Menu;
+import be.mume.quantifythis.helpers.EnterMoodAsync;
+import be.mume.quantifythis.helpers.Tuple;
+import be.mume.quantifythis.model.LocationModel;
 import be.mume.quantifythis.model.MarkMoodModel;
 
 /**
@@ -38,64 +45,73 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
     ViewPager mViewPager;
 
     private MarkMoodModel model;
+    private LocationModel locationModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        int orientation = getResources().getConfiguration().orientation;
+        this.locationModel = new LocationModel(this);
         setContentView(R.layout.activity_mark);
 
         model = new MarkMoodModel();
-        //use tabs in portrait mode
-        if(orientation == Configuration.ORIENTATION_PORTRAIT){
-	        
-	        // Create the adapter that will return a fragment for each of the three primary sections
-	        // of the app.
-	        pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
-	        pagerAdapter.addFragment(new MarkMoodFragment(model), getResources().getString(R.string.tab_title_mark_mood));
-	        pagerAdapter.addFragment(new HeartRateFragment(model), getResources().getString(R.string.tab_title_heart));
-	        pagerAdapter.addFragment(new SleepFragment(model), getResources().getString(R.string.tab_title_sleep));
+        // Create the adapter that will return a fragment for each of the three primary sections
+        // of the app.
+        pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new MarkMoodFragment(model), getResources().getString(R.string.tab_title_mark_mood));
+        pagerAdapter.addFragment(new HeartRateFragment(model), getResources().getString(R.string.tab_title_heart));
+        pagerAdapter.addFragment(new SleepFragment(model), getResources().getString(R.string.tab_title_sleep));
 
-	        // Set up the action bar.
-	        final ActionBar actionBar = getActionBar();
-	        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	
-	        // Set up the ViewPager with the sections adapter.
-	        mViewPager = (ViewPager) findViewById(R.id.pager);
-	        mViewPager.setAdapter(pagerAdapter);
+        // Set up the action bar.
+        final ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
 
-	
-	        // When swiping between different sections, select the corresponding tab.
-	        // We can also use ActionBar.Tab#select() to do this if we have a reference to the
-	        // Tab.
-	        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-	            @Override
-	            public void onPageSelected(int position) {
-	                actionBar.setSelectedNavigationItem(position);
-	            }
-	        });
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(pagerAdapter);
 
-	        // For each of the sections in the app, add a tab to the action bar.
-	        for (int i = 0; i < pagerAdapter.getCount(); i++) {
-	            // Create a tab with text corresponding to the page title defined by the adapter.
-	            // Also specify this Activity object, which implements the TabListener interface, as the
-	            // listener for when this tab is selected.
-	            actionBar.addTab(
-	                    actionBar.newTab()
-	                            .setText(pagerAdapter.getPageTitle(i))
-	                            .setTabListener(this));
-	        }
-        }else{
-        	Fragment markFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_mark);
-        	Fragment heartFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_heart);
-        	Fragment sleepFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_sleep);
-        	Display display = getWindowManager().getDefaultDisplay();
-        	
-        	int width = display.getWidth();
-        	markFragment.getView().getLayoutParams().width = width/3;
-        	heartFragment.getView().getLayoutParams().width = width/3;
-        	sleepFragment.getView().getLayoutParams().width = width/3;
+
+        // When swiping between different sections, select the corresponding tab.
+        // We can also use ActionBar.Tab#select() to do this if we have a reference to the
+        // Tab.
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+        });
+
+        // For each of the sections in the app, add a tab to the action bar.
+        for (int i = 0; i < pagerAdapter.getCount(); i++) {
+            // Create a tab with text corresponding to the page title defined by the adapter.
+            // Also specify this Activity object, which implements the TabListener interface, as the
+            // listener for when this tab is selected.
+            actionBar.addTab(
+                    actionBar.newTab()
+                            .setText(pagerAdapter.getPageTitle(i))
+                            .setTabListener(this));
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            case R.id.menu_save:
+                Tuple<MarkMoodModel, Location> tuple = new Tuple<MarkMoodModel, Location>(model, locationModel.getLastLocation());
+                new EnterMoodAsync(this).execute(tuple);
+                intent = new Intent(this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -118,7 +134,4 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
-
-    
- 
 }
