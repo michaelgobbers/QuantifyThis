@@ -5,7 +5,7 @@ package be.mume.quantifythis.model;
  *
  * @author Nik Torfs
  */
-public class MarkMoodModel {
+public class MoodModel {
     private int cat1;
     private int cat2;
     private int cat3;
@@ -16,16 +16,16 @@ public class MarkMoodModel {
     private int heartRate;
     private int temperature;
 
-    public MarkMoodModel(){
+    public MoodModel(){
         cat1 = 0;
         cat2 = 0;
         cat3 = 0;
         cat4 = 0;
         cat5 = 0;
-        amountOfSleep = 0;
-        sleepQuality = 0;
-        heartRate = 0;
-        temperature = 0;
+        amountOfSleep = Integer.MAX_VALUE;
+        sleepQuality = Integer.MAX_VALUE;
+        heartRate = Integer.MAX_VALUE;
+        temperature = Integer.MAX_VALUE;
     }
 
     public int getCat1() {

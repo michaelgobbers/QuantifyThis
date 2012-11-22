@@ -4,7 +4,6 @@ package be.mume.quantifythis;
 import android.content.Intent;
 import android.location.Location;
 import android.view.MenuItem;
-import android.view.View;
 import be.mume.quantifythis.fragments.HeartRateFragment;
 import be.mume.quantifythis.fragments.MarkMoodFragment;
 import be.mume.quantifythis.fragments.QuantifyPagerAdapter;
@@ -12,17 +11,14 @@ import be.mume.quantifythis.fragments.SleepFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Display;
 import android.view.Menu;
 import be.mume.quantifythis.helpers.EnterMoodAsync;
 import be.mume.quantifythis.helpers.Tuple;
 import be.mume.quantifythis.model.LocationModel;
-import be.mume.quantifythis.model.MarkMoodModel;
+import be.mume.quantifythis.model.MoodModel;
 
 /**
  * This activity contains 3 fragments, the MarkMoodFragment, the HeartRateFragment and the Sleep Fragment. This is implemented using tabs in portrait and without tabs in landscape.
@@ -44,7 +40,7 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
      */
     ViewPager mViewPager;
 
-    private MarkMoodModel model;
+    private MoodModel model;
     private LocationModel locationModel;
 
     @Override
@@ -53,7 +49,7 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
         this.locationModel = new LocationModel(this);
         setContentView(R.layout.activity_mark);
 
-        model = new MarkMoodModel();
+        model = new MoodModel();
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
         pagerAdapter = new QuantifyPagerAdapter(getSupportFragmentManager());
@@ -104,7 +100,7 @@ public class MarkActivity extends FragmentActivity implements ActionBar.TabListe
                 startActivity(intent);
                 return true;
             case R.id.menu_save:
-                Tuple<MarkMoodModel, Location> tuple = new Tuple<MarkMoodModel, Location>(model, locationModel.getLastLocation());
+                Tuple<MoodModel, Location> tuple = new Tuple<MoodModel, Location>(model, locationModel.getLastLocation());
                 new EnterMoodAsync(this).execute(tuple);
                 intent = new Intent(this, HomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

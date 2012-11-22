@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import be.mume.quantifythis.helpers.CookieHelper;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -20,6 +22,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.CookieManager;
 
 
 /**
@@ -60,17 +63,31 @@ public class HomeActivity extends FragmentActivity{
 
     protected void onGetAuthToken(Bundle bundle) {
         String auth_token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-        new GetCookieTask().execute(auth_token);
+        GetCookieTask task = new GetCookieTask(
+                this.getString(R.string.appengine_base_url),
+                this.getString(R.string.appengine_login_prefix),
+                "_ah/login?continue=http://localhost/&auth=");
+        task.execute(auth_token);
     }
 
     private class GetCookieTask extends AsyncTask<String, Void, Boolean> {
+        String baseUrl = "";
+        String loginPrefix = "";
+        String authPrefix = "";
+
+        public GetCookieTask(String baseUrl, String loginPrefix, String authPrefix){
+            this.baseUrl = baseUrl;
+            this.loginPrefix = loginPrefix;
+            this.authPrefix = authPrefix;
+        }
+
         @Override
         protected Boolean doInBackground(String... tokens) {
             try {
                 // Don't follow redirects
                 http_client.getParams().setBooleanParameter(ClientPNames.HANDLE_REDIRECTS, false);
 
-                HttpGet http_get = new HttpGet("https://yourapp.appspot.com/_ah/login?continue=http://localhost/&auth=" + tokens[0]);
+                HttpGet http_get = new HttpGet(this.baseUrl + authPrefix + tokens[0]);
                 HttpResponse response;
                 response = http_client.execute(http_get);
                 if(response.getStatusLine().getStatusCode() != 302)
@@ -78,15 +95,18 @@ public class HomeActivity extends FragmentActivity{
                     return false;
 
                 for(Cookie cookie : http_client.getCookieStore().getCookies()) {
-                    if(cookie.getName().equals("ACSID"))
+                    if(cookie.getName().equals("ACSID")){
+                        // keep authentication session somewhere to be used in other activities
+                        CookieHelper.getInstance().setCookies(http_client.getCookieStore());
                         return true;
+                    }
+
                 }
+
             } catch (ClientProtocolException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "ClientProtocolException: " + Log.getStackTraceString(e));
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "IOException: " + Log.getStackTraceString(e));
             } finally {
                 http_client.getParams().setBooleanParameter(ClientPNames.HANDLE_REDIRECTS, true);
             }
@@ -95,8 +115,8 @@ public class HomeActivity extends FragmentActivity{
 
         @Override
         protected void onPostExecute(Boolean result) {
-            new AuthenticatedRequestTask().execute("http://yourapp.appspot.com/admin/");
-        }
+            new AuthenticatedRequestTask().execute(this.baseUrl + this.loginPrefix);
+    }
     }
 
     private class AuthenticatedRequestTask extends AsyncTask<String, Void, HttpResponse> {
@@ -106,11 +126,9 @@ public class HomeActivity extends FragmentActivity{
                 HttpGet http_get = new HttpGet(urls[0]);
                 return http_client.execute(http_get);
             } catch (ClientProtocolException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "ClientProtocolException: " + Log.getStackTraceString(e));
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "IOException: " + Log.getStackTraceString(e));
             }
             return null;
         }
@@ -131,14 +149,11 @@ public class HomeActivity extends FragmentActivity{
                     onGetAuthToken(bundle);
                 }
             } catch (OperationCanceledException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "ERROR: " + Log.getStackTraceString(e));
             } catch (AuthenticatorException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "ERROR: " + Log.getStackTraceString(e));
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                Log.e("QuantifyThis", "ERROR: " + Log.getStackTraceString(e));
             }
         }
     };

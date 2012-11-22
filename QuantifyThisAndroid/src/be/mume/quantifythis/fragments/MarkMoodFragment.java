@@ -1,22 +1,14 @@
 package be.mume.quantifythis.fragments;
 
-import android.app.Activity;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
 import be.mume.quantifythis.R;
-import be.mume.quantifythis.helpers.EnterMoodAsync;
-import be.mume.quantifythis.helpers.Tuple;
-import be.mume.quantifythis.model.LocationModel;
-import be.mume.quantifythis.model.MarkMoodModel;
+import be.mume.quantifythis.model.MoodModel;
 
 /**
  * The Fragment cotaining 5 mood sliders that max up to a total of 100%
@@ -24,12 +16,12 @@ import be.mume.quantifythis.model.MarkMoodModel;
  * @author michaelgobbers
  */
 public class MarkMoodFragment extends Fragment implements OnSeekBarChangeListener {
-    private MarkMoodModel model;
+    private MoodModel model;
 
     public MarkMoodFragment() {
     }
 
-    public MarkMoodFragment(MarkMoodModel model) {
+    public MarkMoodFragment(MoodModel model) {
         this.model = model;
     }
 

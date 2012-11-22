@@ -49,6 +49,8 @@
 	<string name="agenda_settings_summary">Setup account and dsiplay details for the agenda view.</string>
 
     <!--App configuration (api keys, urls, constants) -->
-    <string name="appengine_url">http://quantifythisapp.appspot.com/DataService</string>
+    <string name="appengine_base_url">http://quantifythisapp.appspot.com/</string>
+    <string name="appengine_data_prefix">DataService</string>
+    <string name="appengine_login_prefix">LoginService</string>
     <string name="yahoo_api_key">dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky</string>
 </resources>

@@ -10,7 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import be.mume.quantifythis.model.MarkMoodModel;
+import be.mume.quantifythis.model.MoodModel;
 import be.mume.quantifythis.helpers.shakeCounter.ShakeCounter;
 import be.mume.quantifythis.helpers.shakeCounter.ShakeCounterListener;
 
@@ -24,7 +24,8 @@ import java.util.Date;
 public class HeartRateFragment extends Fragment implements ShakeCounterListener {
     private static final int AVG_TOLERANCE = 5;
     private static final int STABLE_AVG_COUNT = 5;
-    private MarkMoodModel model;
+
+    private MoodModel model;
     private ShakeCounter shakeCounter;
     private TextView bpmLabel;
     private long startTime;
@@ -36,7 +37,7 @@ public class HeartRateFragment extends Fragment implements ShakeCounterListener 
 
     }
 
-    public HeartRateFragment(MarkMoodModel model) {
+    public HeartRateFragment(MoodModel model) {
         this.model = model;
 	}
 

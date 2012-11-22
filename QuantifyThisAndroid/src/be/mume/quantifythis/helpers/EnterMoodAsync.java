@@ -5,7 +5,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.util.Log;
 import be.mume.quantifythis.R;
-import be.mume.quantifythis.model.MarkMoodModel;
+import be.mume.quantifythis.model.MoodModel;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -16,7 +16,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
@@ -34,9 +33,8 @@ import java.util.List;
  *
  * @author Nik Torfs
  */
-public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Void, Void> {
-    private final static String APP_ENGINE_URL = "quantifythisapp.appspot.com/DataService";
-    private MarkMoodModel model;
+public class EnterMoodAsync extends AsyncTask<Tuple<MoodModel,Location>, Void, Void> {
+    private MoodModel model;
     private Location location;
     private Context context;
 
@@ -45,8 +43,8 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
     }
 
     @Override
-    protected Void doInBackground(Tuple<MarkMoodModel,Location>... tuples) {
-        Tuple<MarkMoodModel, Location> tuple = tuples[0];
+    protected Void doInBackground(Tuple<MoodModel,Location>... tuples) {
+        Tuple<MoodModel, Location> tuple = tuples[0];
         model = tuple.first;
         location = tuple.second;
         getWeather();
@@ -133,8 +131,13 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
      */
     private void persist(){
         Log.i("QuantifyThis", "Persisting now");
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(context.getString(R.string.appengine_url));
+        DefaultHttpClient httpclient = new DefaultHttpClient();
+        httpclient.setCookieStore(CookieHelper.getInstance().getCookies());
+        //httpclient.getParams().setBooleanParameter("http.protocol.expect-continue", false);
+        HttpPost httppost = new HttpPost(
+            context.getString(R.string.appengine_base_url) +
+            context.getString(R.string.appengine_data_prefix)
+        );
 
         try {
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
@@ -144,18 +147,24 @@ public class EnterMoodAsync extends AsyncTask<Tuple<MarkMoodModel,Location>, Voi
             nameValuePairs.add(new BasicNameValuePair("mood3", model.getCat3() + ""));
             nameValuePairs.add(new BasicNameValuePair("mood4", model.getCat4() + ""));
             nameValuePairs.add(new BasicNameValuePair("mood5", model.getCat5() + ""));
-            nameValuePairs.add(new BasicNameValuePair("sleephours", model.getAmountOfSleep() + ""));
-            nameValuePairs.add(new BasicNameValuePair("sleepeff", model.getSleepQuality() + ""));
-            nameValuePairs.add(new BasicNameValuePair("bpm", model.getHeartRate() + ""));
+            if(model.getAmountOfSleep() != Integer.MAX_VALUE || model.getSleepQuality() != Integer.MAX_VALUE){
+                nameValuePairs.add(new BasicNameValuePair("sleephours", model.getAmountOfSleep() + ""));
+                nameValuePairs.add(new BasicNameValuePair("sleepeff", model.getSleepQuality() + ""));
+            }
+            if(model.getHeartRate() != Integer.MAX_VALUE)
+                nameValuePairs.add(new BasicNameValuePair("bpm", model.getHeartRate() + ""));
+            if(model.getTemperature()!=Integer.MAX_VALUE)
+                nameValuePairs.add(new BasicNameValuePair("temp", model.getTemperature() + ""));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
             HttpResponse response = httpclient.execute(httppost);
 
             Log.i("QuantifyThis", "Persist response: " + response.getStatusLine());
         } catch (ClientProtocolException e) {
-            Log.e("QuantifyThis", "ClientProtocolException: " + e.getLocalizedMessage());
+            Log.e("QuantifyThis", "ClientProtocolException: " + Log.getStackTraceString(e));
         } catch (IOException e) {
-            Log.e("QuantifyThis", "IOException: " + e.getLocalizedMessage());
+            Log.e("QuantifyThis", "IOException: " + Log.getStackTraceString(e));
+
         }
     }
 }
