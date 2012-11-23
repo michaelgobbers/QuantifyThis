@@ -3,4 +3,8 @@
         android:title="@string/menu_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/menu_save"
+          android:title="@string/menu_mark_mood"
+          android:orderInCategory="1"
+          android:showAsAction="always"/>
 </menu>

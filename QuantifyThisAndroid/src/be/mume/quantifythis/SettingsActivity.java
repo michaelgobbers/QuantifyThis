@@ -2,7 +2,12 @@ package be.mume.quantifythis;
 
 import java.util.List;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.view.MenuItem;
+
 /**
  * This is the settings activity. The SettingsFragment used here are specified in the res/xml folder.
  * Some Functional code is specified in the respective SettingsFragment Classes namely PreferenceAccountFragment and PreferenceNotificationsFragment.
@@ -20,6 +25,28 @@ public class SettingsActivity extends PreferenceActivity {
     public void onBuildHeaders(List<Header> target){
         // Display the fragment as the main content.
         loadHeadersFromResource(R.xml.preferences, target);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        final ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 	
 }

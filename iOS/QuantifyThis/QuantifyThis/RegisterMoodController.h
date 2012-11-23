@@ -2,7 +2,7 @@
 //  RegisterMoodController.h
 //  QuantifyThis
 //
-//  Created by Nik Torfs on 15/10/12.
+//  Created by Nik Torfs on 15/10/12and edited by Sander
 //  Copyright (c) 2012 KULeuven. All rights reserved.
 //
 

@@ -42,8 +42,8 @@
 }
 
 - (void) getWeatherData{
-    NSInteger woeid = [self getWOEID];
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://weather.yahooapis.com/forecastrss?w=%d&u=%@", woeid, YAHOO_WEATHER_DEGREE_UNIT];
+
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://weather.yahooapis.com/forecastrss?w=973505&u=c"];
     NSURL *url = [NSURL URLWithString: urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSHTTPURLResponse *response = nil;
@@ -56,7 +56,21 @@
     }
     
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", responseString);
+  //  NSLog(@"%@", responseString);
+    
+    NSString *temperature = nil;
+    NSRange start = [responseString rangeOfString:@"temp=\""];
+    if (start.location != NSNotFound)
+    {
+        temperature = [responseString substringFromIndex:start.location + start.length];
+        NSRange end = [temperature rangeOfString:@"\""];
+        if (end.location != NSNotFound)
+        {
+            temperature = [temperature substringToIndex:end.location];
+        }
+    }
+   
+NSLog(@"The temperature is %@ degrees", temperature);
 }
 
 - (NSInteger) getWOEID{

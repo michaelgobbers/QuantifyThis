@@ -6,6 +6,7 @@
     <string name="tab_title_sleep">Sleep</string>
     <string name="tab_title_sleepmargin_bottom_mark_button">Sleep</string>
     <string name="menu_settings">Settings</string>
+    <string name="menu_mark_mood">Mark mood</string>
     <string name="title_activity_main">Quantify This</string>
     <string name="button_input_mood_label">Mark</string>
     <string name="button_mark_mood_label">Mark mood</string>
@@ -48,6 +49,8 @@
 	<string name="agenda_settings_summary">Setup account and dsiplay details for the agenda view.</string>
 
     <!--App configuration (api keys, urls, constants) -->
-    <string name="appengine_url">http://localhost:8080</string>
+    <string name="appengine_base_url">http://quantifythisapp.appspot.com/</string>
+    <string name="appengine_data_prefix">DataService</string>
+    <string name="appengine_login_prefix">LoginService</string>
     <string name="yahoo_api_key">dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky</string>
 </resources>

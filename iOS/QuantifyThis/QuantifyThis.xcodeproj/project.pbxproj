@@ -45,6 +45,15 @@
 		24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DDA1637383B00FB6928 /* RegisterMoodModel.m */; };
 		24DD9DE416397DEF00FB6928 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DD9DE316397DEF00FB6928 /* CoreLocation.framework */; };
 		24DD9DE716399B5200FB6928 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD9DE616399B5200FB6928 /* Constants.m */; };
+		3F566C9C165F6F220095094D /* mood.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566C9B165F6F220095094D /* mood.png */; };
+		3F566CA4165F6F480095094D /* calendar_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566C9E165F6F480095094D /* calendar_view.png */; };
+		3F566CA5165F6F480095094D /* heartrate.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566C9F165F6F480095094D /* heartrate.png */; };
+		3F566CA6165F6F480095094D /* login-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566CA0165F6F480095094D /* login-button.png */; };
+		3F566CA7165F6F480095094D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566CA1165F6F480095094D /* settings.png */; };
+		3F566CA8165F6F480095094D /* sleeptime.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566CA2165F6F480095094D /* sleeptime.png */; };
+		3F566CA9165F6F480095094D /* statistics.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566CA3165F6F480095094D /* statistics.png */; };
+		3F566CAB165F72430095094D /* Check-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F566CAA165F72430095094D /* Check-icon.png */; };
+		3F566CB6165F7F140095094D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F566CB5165F7F140095094D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +131,16 @@
 		24DD9DE316397DEF00FB6928 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		24DD9DE516399B5100FB6928 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		24DD9DE616399B5200FB6928 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		3F566C9B165F6F220095094D /* mood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mood.png; sourceTree = "<group>"; };
+		3F566C9E165F6F480095094D /* calendar_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_view.png; sourceTree = "<group>"; };
+		3F566C9F165F6F480095094D /* heartrate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartrate.png; sourceTree = "<group>"; };
+		3F566CA0165F6F480095094D /* login-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button.png"; sourceTree = "<group>"; };
+		3F566CA1165F6F480095094D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		3F566CA2165F6F480095094D /* sleeptime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleeptime.png; sourceTree = "<group>"; };
+		3F566CA3165F6F480095094D /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
+		3F566CAA165F72430095094D /* Check-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-icon.png"; sourceTree = "<group>"; };
+		3F566CB4165F7F140095094D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3F566CB5165F7F140095094D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +204,7 @@
 		2447FD741626D0D9004F6F66 /* QuantifyThis */ = {
 			isa = PBXGroup;
 			children = (
+				3F566CAC165F7A6F0095094D /* LoginToGoogleWithOAuth */,
 				24DD9DD51637330500FB6928 /* RegisterMood */,
 				2473447616313A08007C33D1 /* InAppSettingsKit */,
 				2447FD7D1626D0DA004F6F66 /* AppDelegate.h */,
@@ -203,6 +223,14 @@
 		2447FD751626D0DA004F6F66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F566CAA165F72430095094D /* Check-icon.png */,
+				3F566C9E165F6F480095094D /* calendar_view.png */,
+				3F566C9F165F6F480095094D /* heartrate.png */,
+				3F566CA0165F6F480095094D /* login-button.png */,
+				3F566CA1165F6F480095094D /* settings.png */,
+				3F566CA2165F6F480095094D /* sleeptime.png */,
+				3F566CA3165F6F480095094D /* statistics.png */,
+				3F566C9B165F6F220095094D /* mood.png */,
 				2447FD761626D0DA004F6F66 /* QuantifyThis-Info.plist */,
 				2447FD771626D0DA004F6F66 /* InfoPlist.strings */,
 				2447FD7A1626D0DA004F6F66 /* main.m */,
@@ -308,6 +336,15 @@
 			name = RegisterMood;
 			sourceTree = "<group>";
 		};
+		3F566CAC165F7A6F0095094D /* LoginToGoogleWithOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				3F566CB4165F7F140095094D /* LoginViewController.h */,
+				3F566CB5165F7F140095094D /* LoginViewController.m */,
+			);
+			name = LoginToGoogleWithOAuth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,6 +422,14 @@
 				2447FD851626D0DA004F6F66 /* Default-568h@2x.png in Resources */,
 				2447FD881626D0DA004F6F66 /* MainStoryboard.storyboard in Resources */,
 				240F8F7E16287D7E00B03805 /* Settings.bundle in Resources */,
+				3F566C9C165F6F220095094D /* mood.png in Resources */,
+				3F566CA4165F6F480095094D /* calendar_view.png in Resources */,
+				3F566CA5165F6F480095094D /* heartrate.png in Resources */,
+				3F566CA6165F6F480095094D /* login-button.png in Resources */,
+				3F566CA7165F6F480095094D /* settings.png in Resources */,
+				3F566CA8165F6F480095094D /* sleeptime.png in Resources */,
+				3F566CA9165F6F480095094D /* statistics.png in Resources */,
+				3F566CAB165F72430095094D /* Check-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +486,7 @@
 				24DD9DD81637333400FB6928 /* SleepController.m in Sources */,
 				24DD9DDB1637383B00FB6928 /* RegisterMoodModel.m in Sources */,
 				24DD9DE716399B5200FB6928 /* Constants.m in Sources */,
+				3F566CB6165F7F140095094D /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
