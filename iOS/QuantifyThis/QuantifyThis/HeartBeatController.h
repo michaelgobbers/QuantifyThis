@@ -15,6 +15,8 @@
 
 @interface HeartBeatController : UIViewController
 
+- (NSString *)stringByReplacingOccurencesOfString:(NSString *)target withString:(NSString *)replacement;
+
 @property (weak, nonatomic) IBOutlet UILabel *beatsPerMinute;
 @property (retain) id delegate;
 
