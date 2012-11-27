@@ -19,6 +19,23 @@
 @synthesize currentLocation = _currentLocation;
 @synthesize locationManager = _locationManager;
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    NSLog(@"response recieved");
+    
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d{
+    NSLog(@"data recieved");
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"failed with error.");
+}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSLog(@"connection finished loading");
+}
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
+    NSLog(@"authentication needed!");
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
 
@@ -32,6 +49,18 @@
 - (IBAction)registerMood:(id)sender {
     [self getWeatherData];
     [self.navigationController popViewControllerAnimated:YES];
+    NSString *url = @"http://quantifythisapp.appspot.com/DataService";
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:(NSString *)@"POST"];
+    NSMutableString *parameters = [[NSMutableString alloc] initWithString:@"request=addMood"];
+    [parameters appendString:@"&mood1=10&mood2=10&mood3=10&mood4=10&mood5=10"];
+    
+    [request setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:(NSURLRequest *)request delegate: self];
+    [connection start];
+    
+    
+    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

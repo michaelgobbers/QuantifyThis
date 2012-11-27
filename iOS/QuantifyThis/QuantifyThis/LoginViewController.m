@@ -27,13 +27,19 @@
 {
     [super viewDidLoad];
     NSLog(@"de controller toont dat hij werkt");
-	// Do any additional setup after loading the view.
+	NSURL *url = [NSURL URLWithString:@"http://quantifythisapp.appspot.com/LoginService"];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    NSLog(@"Error : %@",error);
 }
 
 @end
