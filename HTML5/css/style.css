@@ -22,7 +22,41 @@ body{
 	text-align:center;
 }
 .ui-content{
+	min-width:350px;
 	text-align:center;
+}
+.buttonbar{
+	margin-top:20px;
+}
+.ui-link{
+	font-weight:normal !important;
+}
+.important a{
+	color:#ffffff !important;
+}
+.important a:hover{
+	cursor:pointer;
+}
+.important{
+
+
+	text-align:center;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding:5px;
+	border: 1px solid #febbbb;
+	margin:5px;
+
+	background: #ff3019;
+	background: -moz-linear-gradient(top,  #ff3019 0%, #cf0404 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff3019), color-stop(100%,#cf0404));
+	background: -webkit-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+	background: -o-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+	background: -ms-linear-gradient(top,  #ff3019 0%,#cf0404 100%);
+	background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 );
 }
 .notify{
 	text-align:center;

@@ -23,19 +23,19 @@ function sendMood(){
     if(eventId==''){
         if(temperature==null)
             if(heartrate=='')
-                $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff} );
+                $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff} );
             else
-                $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, bpm: heartrate} );
+                $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, bpm: heartrate} );
         else
             if(heartrate=='')
-                $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, temp: temperature} );
+                $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, temp: temperature} );
             else
-                $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, temp: temperature, bpm: heartrate} );
+                $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, sleephours: sleepHours, sleepeff: sleepEff, temp: temperature, bpm: heartrate} );
     }else{
         if(temperature==null)
-            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId} );
+            $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId} );
         else
-            $.post("http://localhost:8888/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId, temp: temperature} );
+            $.post("http://quantifythisapp.appspot.com/DataService", { request: "addMood", mood1: value1, mood2: value2, mood3: value3, mood4: value4, mood5: value5, eventid: eventId, category: categoryId, temp: temperature} );
     }
     
     //hide event id from entries list.
@@ -43,14 +43,14 @@ function sendMood(){
 }
 
 function loginAppEngine(){
-    window.open('http://localhost:8888/LoginService', 'App Engine Login');
+    window.open('http://quantifythisapp.appspot.com/LoginService', 'App Engine Login');
     var authorizeButton = document.getElementById('authorize-button-appengine');
     authorizeButton.style.visibility = 'hidden';
     return false;
 }
 
 function getEntryList(){
-    $.get("http://localhost:8888/DataService", { request: "getMood", format: "json"}, function(resp){
+    $.get("http://quantifythisapp.appspot.com/DataService", { request: "getMood", format: "json"}, function(resp){
         filterEvents(resp.entries); 
     }, "json");
 }
