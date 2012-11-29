@@ -3,26 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Quantify This!</title>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<!--<link href="css/verticalSlider.css" rel="stylesheet" type="text/css" />-->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-<link href="verticalSlider.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script src="verticalSlider.js"></script>
-<script src="gae_functions.js"></script>
-<script src="calendar_api.js"></script>
-<script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
-<script src="heart_rate.js?onload=startAccelerometerOutput"></script>
-<style type="text/css" ></style>
-<style type="text/css">
-a {text-decoration:none;}
-#step .item {
-  list-style-type: none; 
-  background: url(images/list-line.png) no-repeat;
-  padding-top:5px;
-}
-</style>
- 
+	<script src="http://d3js.org/d3.v2.js"></script>
+	<!--<script src="js/verticalSlider.js"></script>-->
+	<script src="js/gae_functions.js"></script>
+	<script src="js/calendar_api.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
+	<script src="js/heart_rate.js?onload=startAccelerometerOutput"></script>
 </head>
 
 <body>
@@ -31,36 +25,48 @@ a {text-decoration:none;}
   <!-- Home Page Header -->
   <div data-role="header" data-position="inline">
   	<h1>Quantify This!</h1>
-	<a id='authorize-button-calendar'><center><img src="images/login-button.png" alt="Log in with google account for access to google calendar" width="100px" ></center></a><br/>
-	<a onclick="loginAppEngine()" id='authorize-button-appengine'><center><img src="images/login-button.png" alt="Log in with google account for access to app engine." width="100px" ></center></a>
+	<a id='authorize-button-calendar'>Authorize google calendar</a>
+	<a onclick="loginAppEngine()" id='authorize-button-appengine'>Authorize app engine</a>
   </div>
-    <div data-role="content">
-    <div id="weatherElement"></div>
-  <center>
-    <!-- Buttons Table! -->
-    <table>
-      <tr>
-	<td><a href="#MarkMyMood"><center><img src="images/mood.png" alt="Mark my mood" width="100px"></center></a></td>
-	<td><a href="#CalendarView"><center><img src="images/calendar_view.png" alt="Calendar View" width="100px"></center></a></td>
-      </tr>
-      <tr>
-	<td><center><a href="#MarkMyMood"> Mark my mood</a></center></td>
-	<td><center><a href="#CalendarView">Calendar view</a></center></td>
-      </tr>
-      <tr>
-	<td><a href="#Statistics"><center><img src="images/statistics.png" alt="Statistics" width="100px"></center></a></td>
-	<td><a href="settings.html" data-ajax="false"><center><img src="images/settings.png" alt="Settings" width="100px"></center></a></td>
-      </tr>
-      <tr>
-	<td><center><a href="#Statistics">Statistics</a></center></td>
-	<td><center><a href="settings.html" data-ajax="false">Settings</a></center></td>
-      </tr>
-    </table>
-  </center>
-  <br/>
-  <hr />
-  <p>Tip of the day</p>
-  <br/><br/><br/><br/><br/><br/><br/><br/>
+  <div data-role="content">
+	<div class="wrap">
+		<div class="wrap">
+			<div class="big_button">
+				<a href="#MarkMyMood">
+					<img src="images/mood.png" alt="Mark my mood" />
+					<div class="label">Mark My Mood</div>
+				</a>
+			</div>
+			<div class="big_button">
+				<a href="#CalendarView">
+					<img src="images/calendar_view.png" alt="Calendar View" />
+					<div class="label">Calendar View</div>
+				</a>
+			</div>
+			<div class="big_button">
+				<a href="#Statistics">
+					<img src="images/statistics.png" alt="Statistics" />
+					<div class="label">Statistics</div>
+				</a>
+			</div>
+			<div class="big_button">
+				<a href="#settings.html" data-ajax="false">
+					<img src="images/settings.png" alt="Settings" />
+					<div class="label">Settings</div>
+				</a>
+			</div>
+			
+		</div>	
+		<hr/>
+		<div class="notifications">
+			<div class="notify">
+				Tip of the day!
+			</div>
+			<div class="notify">
+				Another tip of the day
+			</div>
+		</div>
+	</div>
   </div>
   <!-- Home Page Footer -->
   <div data-role="footer">
@@ -75,44 +81,62 @@ a {text-decoration:none;}
 	  <h1>Mark My Mood</h1>
 	    <a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
   </div>
-  <center>
+
   <div data-role="content">
-  <p id="markevent">No event selected</p>
-  <input type="hidden" name="markeventid" id="markeventid" />
-  <input type="hidden" name="eventcategory" id="eventcategory" />
-  <input type="hidden" name="temperature" id="temperature" value="null"/>
-    <table>
-<tr>
-<td style="padding-right:20px"><input type="range" id="slider1" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
-<td style="padding-right:20px"><input type="range" id="slider2" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
-<td style="padding-right:20px"><input type="range" id="slider3" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
-<td style="padding-right:20px"><input type="range" id="slider4" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
-<td style="padding-right:20px"><input type="range" id="slider5" min="0" max="100" value="20" step="1" sliderOrientation="verticalInverted"  /></td>
-</tr>
-<tr>
-<td style="padding-left:10px">Angry</td>
-<td style="padding-left:10px">Stress</td>
-<td style="padding-left:10px">Mellow</td>
-<td style="padding-left:10px">Happy</td>
-<td style="padding-left:10px">Energized</td>
-</tr>
-</table>
-<br/>
-<table>
-<tr>
-<td><a href="#HeartRate" id="heartratebutton"><center><img src="images/heartrate.png" alt="Heart Rate" width="150px"></center></a></td>
-<td><a href="#SleepTime" id="sleepbutton"><center><img src="images/sleeptime.png" alt="Amount of Sleep" width="150px"></center></a></td>
-</tr>
-<tr>
-<td style="padding-left:30px"><a href="#HeartRate" id="heartratebuttontext">Heart Rate</a> </td>
-<td style="padding-left:55px"><a href="#SleepTime" id="sleepbuttontext">Sleep</a> </td>
-</tr>
-</table>
-<div data-role="controlgroup" data-type="horizontal">
-	 		<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true" onclick="sendMood()">Mark my mood</a>
+	<div class="wrap">
+		<p id="markevent">No event selected</p>
+		<input type="hidden" name="markeventid" id="markeventid" />
+		<input type="hidden" name="eventcategory" id="eventcategory" />
+		<input type="hidden" name="temperature" id="temperature" value="null"/>
+		
+		<div class="center">
+			<div class="slider_block">
+				<label class="first">Energized</label>
+				<input type="range" id="slider1" min="0" max="100" value="50" step="1" />
+				<label class="last">Tired</label>
+			</div>
+			<div class="slider_block">
+				<label class="first">Focused</label>
+				<input type="range" id="slider2" min="0" max="100" value="50" step="1" />
+				<label class="last">Distracted</label>
+			</div>
+			<div class="slider_block">
+				<label class="first">Happy</label>
+				<input type="range" id="slider3" min="0" max="100" value="50" step="1" />
+				<label class="last">Sad</label>
+			</div>
+			<div class="slider_block">
+				<label class="first">Loving</label>
+				<input type="range" id="slider4" min="0" max="100" value="50" step="1" />
+				<label class="last">Angry</label>
+			</div>
+			<div class="slider_block">
+				<label class="first">Calm</label>
+				<input type="range" id="slider5" min="0" max="100" value="50" step="1" />
+				<label class="last">Stressed</label>
+			</div>
+		</div>
+		
+		<div class="wrap">
+			<div class="big_button">
+				<a href="#HeartRate" id="heartratebutton">
+					<img src="images/heartrate.png" alt="Heart Rate" width="150px">
+					<div class="label">Heart Rate</div>
+				</a>
+			</div>
+			<div class="big_button">
+				<a href="#SleepTime" id="sleepbutton">
+					<img src="images/sleeptime.png" alt="Amount of Sleep" width="150px">
+					<div class="label">Sleep</div>
+				</a>
+			</div>
+		</div>
+
+		<div data-role="controlgroup" data-type="horizontal">
+				<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true" onclick="sendMood()">Mark my mood</a>
+		</div>
 	</div>
   </div>
-  </center>
   <div data-role="footer">
     <h4>&copy;  Quantify This! Designers</h4>
   </div>
@@ -206,15 +230,10 @@ a {text-decoration:none;}
 
 	
   <div data-role="content">
-    <center>
    <p>How many hours did you sleep?</p>
 	 <input type="range" name="slider-many-hours" id="slider-many-hours" value="8" min="1" max="22" data-highlight="true" />   
 	 <p>How well did you sleep?</p>
 	 <input type="range" name="slider-eff" id="slider-eff" value="7" min="1" max="10" data-highlight="true" />    
-	 <br/><br/><br/>
-
-	<br/><br/><br/>
-	</center>
   </div>
 
 	
@@ -244,7 +263,6 @@ a {text-decoration:none;}
    </div>
 
     <script>
-    var x=document.getElementById("weather");
     function getLocation()
     {
       if (navigator.geolocation)
