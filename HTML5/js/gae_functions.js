@@ -44,8 +44,7 @@ function sendMood(){
 
 function loginAppEngine(){
     window.open('http://quantifythisapp.appspot.com/LoginService', 'App Engine Login');
-    var authorizeButton = document.getElementById('authorize-button-appengine');
-    authorizeButton.style.visibility = 'hidden';
+	$('#authorize-button-appengine').hide();
     return false;
 }
 
