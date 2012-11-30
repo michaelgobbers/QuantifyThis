@@ -50,4 +50,9 @@ public class JsonDocumentGenerator {
 		
 		return jsonEntriesObject.toString();
 	}
+	public String loggedInDocument(boolean loggedin){
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("loggedin", loggedin);
+		return jsonObject.toString();
+	}
 }
