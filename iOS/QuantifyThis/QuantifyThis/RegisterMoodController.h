@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HeartBeatController.h"
 #import "SleepController.h"
+#import "RegisterMoodModel.h"
 #import <CoreLocation/CoreLocation.h>
 @protocol PostDelegate <NSObject>
 
@@ -22,9 +23,15 @@
 
 @interface RegisterMoodController : UIViewController <HeartBeatCallback, SleepCallback, CLLocationManagerDelegate, PostDelegate>
 
+@property (strong, nonatomic) RegisterMoodModel *model ;
+@property (strong, nonatomic) IBOutlet UISlider *bar1;
+@property (strong, nonatomic) IBOutlet UISlider *bar2;
+@property (strong, nonatomic) IBOutlet UISlider *bar3;
+@property (strong, nonatomic) IBOutlet UISlider *bar4;
+@property (strong, nonatomic) IBOutlet UISlider *bar5;
+
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
-
 - (IBAction)registerMood:(id)sender;
-
 @end

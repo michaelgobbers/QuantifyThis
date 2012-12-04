@@ -10,7 +10,7 @@
 #import "Constants.h"
 
 @interface RegisterMoodController()
-- (void) getWeatherData;
+- (NSString *) getWeatherData;
 - (NSInteger) getWOEID;
 @end
 
@@ -18,6 +18,19 @@
 
 @synthesize currentLocation = _currentLocation;
 @synthesize locationManager = _locationManager;
+@synthesize model = _model;
+@synthesize bar1;
+@synthesize bar2;
+@synthesize bar3;
+@synthesize bar4;
+@synthesize bar5;
+
+- (RegisterMoodModel *)model {
+    if (!_model)
+        _model = [[RegisterMoodModel alloc]init];
+    return _model;
+}
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"response recieved");
@@ -47,14 +60,39 @@
 }
 
 - (IBAction)registerMood:(id)sender {
-    [self getWeatherData];
+    NSString *temp = [self getWeatherData];
     [self.navigationController popViewControllerAnimated:YES];
     NSString *url = @"http://quantifythisapp.appspot.com/DataService";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:(NSString *)@"POST"];
     NSMutableString *parameters = [[NSMutableString alloc] initWithString:@"request=addMood"];
-    [parameters appendString:@"&mood1=10&mood2=10&mood3=10&mood4=10&mood5=10"];
     
+    float value = [bar1 value];
+    [parameters appendString:[NSString stringWithFormat:@"&mood1=%d", (int)value]];
+    value = [bar2 value];
+    [parameters appendString:[NSString stringWithFormat:@"&mood2=%d", (int)value]];
+    value = [bar3 value];
+    [parameters appendString:[NSString stringWithFormat:@"&mood3=%d", (int)value]];
+    value = [bar4 value];
+    [parameters appendString:[NSString stringWithFormat:@"&mood4=%d", (int)value]];
+    value = [bar5 value];
+    [parameters appendString:[NSString stringWithFormat:@"&mood5=%d", (int)value]];
+    [parameters appendString:[NSString stringWithFormat:@"&temp=%@", temp]];
+    NSInteger bpm = [self.model beatsPerMinute];
+    if (bpm!=0) {
+       [parameters appendString:[NSString stringWithFormat:@"&bpm=%d",bpm]];
+    }
+    NSInteger sleepTime = [self.model sleepTime];
+    NSInteger sleepQ = [self.model sleepQuality];
+    if(sleepTime!=0&&sleepQ!=0){
+        [parameters appendString:[NSString stringWithFormat:@"&sleepeff=%d",sleepQ]];
+        [parameters appendString:[NSString stringWithFormat:@"&sleephours=%d",sleepTime]];
+    }
+    
+    
+    
+    
+
     [request setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:(NSURLRequest *)request delegate: self];
     [connection start];
@@ -70,7 +108,7 @@
     }
 }
 
-- (void) getWeatherData{
+- (NSString *) getWeatherData{
 
     NSString *urlString = [[NSString alloc] initWithFormat:@"http://weather.yahooapis.com/forecastrss?w=973505&u=c"];
     NSURL *url = [NSURL URLWithString: urlString];
@@ -99,7 +137,8 @@
         }
     }
    
-NSLog(@"The temperature is %@ degrees", temperature);
+    NSLog(@"The temperature is %@ degrees", temperature);
+    return temperature;
 }
 
 - (NSInteger) getWOEID{
@@ -138,13 +177,15 @@ NSLog(@"The temperature is %@ degrees", temperature);
 
 
 // heartbeat protocol
-- (void) registerHeartbeat:(NSInteger *) bpm{
-    NSLog(@"heartrate measured bpm:%d", *bpm);
+- (void) registerHeartbeat:(NSInteger) bpm{
+    NSLog(@"heartrate measured bpm:%d", bpm);
+    [self.model setBeatsPerMinute: bpm];
 }
 
 //sleep protocol
-- (void) registerSleepTime:(NSUInteger *)time quality:(NSUInteger *)quality{
-    NSLog(@"Sleep measured time :%u quality:%u", *time, *quality);
+- (void) registerSleepTime:(NSUInteger)time quality:(NSUInteger)quality{
+    NSLog(@"Sleep measured time :%u quality:%u", time, quality);
+    [self.model setSleepQuality:quality];
+    [self.model setSleepTime:time];
 }
-
 @end

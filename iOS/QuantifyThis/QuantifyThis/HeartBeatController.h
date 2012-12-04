@@ -10,14 +10,14 @@
 
 @protocol HeartBeatCallback <NSObject>
 @required
-- (void) registerHeartbeat:(NSInteger *) bpm;
+- (void) registerHeartbeat:(NSInteger) bpm;
 @end
 
 @interface HeartBeatController : UIViewController
 
 - (NSString *)stringByReplacingOccurencesOfString:(NSString *)target withString:(NSString *)replacement;
 
-@property (weak, nonatomic) IBOutlet UILabel *beatsPerMinute;
+@property (strong, atomic) IBOutlet UILabel *beatsPerMinute;
 @property (retain) id delegate;
 
 @end

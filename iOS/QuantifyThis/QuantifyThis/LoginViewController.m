@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"de controller toont dat hij werkt");
 	NSURL *url = [NSURL URLWithString:@"http://quantifythisapp.appspot.com/LoginService"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];

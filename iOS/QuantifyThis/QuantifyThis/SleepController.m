@@ -15,7 +15,7 @@
     if([self.navigationController.viewControllers indexOfObject:self]==NSNotFound){
         NSUInteger time = (int)[[self timeSlider] value];
         NSUInteger q = (int)[[self qualitySlider] value];
-        [[self delegate] registerSleepTime:&time quality:&q];
+        [[self delegate] registerSleepTime:time quality:q];
     }
     [super viewWillDisappear:animated];
 }

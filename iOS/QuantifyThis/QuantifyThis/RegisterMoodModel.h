@@ -11,8 +11,9 @@
 @interface RegisterMoodModel : NSObject
 
 
-@property NSUInteger *beatsPerMinute;
-@property NSUInteger *sleepTime;
-@property NSUInteger *sleepQuality;
+@property NSInteger beatsPerMinute;
+@property NSInteger sleepTime;
+@property NSInteger sleepQuality;
+
 
 @end

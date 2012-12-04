@@ -269,7 +269,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distacted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F53-Ls-PB8">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distracted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F53-Ls-PB8">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -358,6 +358,13 @@
                     <navigationItem key="navigationItem" title="Enter mood" id="g6D-Nr-vYJ">
                         <barButtonItem key="backBarButtonItem" title="Done" id="eSX-Q9-kKH"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bar1" destination="ubF-Jh-JGh" id="CnI-Da-bhG"/>
+                        <outlet property="bar2" destination="ZGh-Xa-6BO" id="acz-bK-dZb"/>
+                        <outlet property="bar3" destination="M3i-xP-AsS" id="gnY-Mw-dnB"/>
+                        <outlet property="bar4" destination="v7y-oL-GO2" id="gtd-mu-GLh"/>
+                        <outlet property="bar5" destination="gaG-Jg-fWZ" id="3Pm-Ae-9bN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J5-NY-tXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -717,6 +724,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterMoodController.h"/>
             <relationships>
                 <relationship kind="action" name="registerMood:"/>
+                <relationship kind="action" name="setMoodValues:" candidateClass="UISlider"/>
+                <relationship kind="action" name="sliderChanged:"/>
+                <relationship kind="outlet" name="bar1" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar2" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar3" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar4" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar5" candidateClass="UISlider"/>
             </relationships>
         </class>
         <class className="SleepController" superclassName="UIViewController">

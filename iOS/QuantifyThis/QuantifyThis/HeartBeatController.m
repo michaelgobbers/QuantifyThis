@@ -16,7 +16,7 @@
     // check if backbutton is pressed
     if([self.navigationController.viewControllers indexOfObject:self]==NSNotFound){
         NSInteger bpm = [[_beatsPerMinute text] integerValue];
-        [[self delegate] registerHeartbeat:&bpm];
+        [[self delegate] registerHeartbeat:bpm];
     }
     [super viewWillDisappear:animated];
 }

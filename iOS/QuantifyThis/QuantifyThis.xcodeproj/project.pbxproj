@@ -68,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		240F8F7D16287D7E00B03805 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		2447FD6A1626D0D9004F6F66 /* QuantifyThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantifyThis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2447FD6E1626D0D9004F6F66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2447FD701626D0D9004F6F66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2447FD721626D0D9004F6F66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,7 +83,6 @@
 		2447FD871626D0DA004F6F66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2447FD891626D0DA004F6F66 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2447FD8A1626D0DA004F6F66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2447FD911626D0DA004F6F66 /* QuantifyThisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantifyThisTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2447FD921626D0DA004F6F66 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2447FD9A1626D0DA004F6F66 /* QuantifyThisTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantifyThisTests-Info.plist"; sourceTree = "<group>"; };
 		2447FD9C1626D0DA004F6F66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -141,6 +139,8 @@
 		3F566CAA165F72430095094D /* Check-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-icon.png"; sourceTree = "<group>"; };
 		3F566CB4165F7F140095094D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3F566CB5165F7F140095094D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		616CAB3F166E4F6E00A7EEDF /* QuantifyThisTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = QuantifyThisTests.octest; path = "/Users/michaelgobbers/Documents/workspace/iOS/QuantifyThis/build/Release-iphoneos/QuantifyThisTests.octest"; sourceTree = "<absolute>"; };
+		616CAB46166E500000A7EEDF /* QuantifyThis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = QuantifyThis.app; path = "/Users/michaelgobbers/Documents/workspace/iOS/QuantifyThis/build/Release-iphoneos/QuantifyThis.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,17 +177,7 @@
 				2447FD741626D0D9004F6F66 /* QuantifyThis */,
 				2447FD981626D0DA004F6F66 /* QuantifyThisTests */,
 				2447FD6D1626D0D9004F6F66 /* Frameworks */,
-				2447FD6B1626D0D9004F6F66 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		2447FD6B1626D0D9004F6F66 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2447FD6A1626D0D9004F6F66 /* QuantifyThis.app */,
-				2447FD911626D0DA004F6F66 /* QuantifyThisTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2447FD6D1626D0D9004F6F66 /* Frameworks */ = {
@@ -362,7 +352,7 @@
 			);
 			name = QuantifyThis;
 			productName = QuantifyThis;
-			productReference = 2447FD6A1626D0D9004F6F66 /* QuantifyThis.app */;
+			productReference = 616CAB46166E500000A7EEDF /* QuantifyThis.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2447FD901626D0DA004F6F66 /* QuantifyThisTests */ = {
@@ -381,7 +371,7 @@
 			);
 			name = QuantifyThisTests;
 			productName = QuantifyThisTests;
-			productReference = 2447FD911626D0DA004F6F66 /* QuantifyThisTests.octest */;
+			productReference = 616CAB3F166E4F6E00A7EEDF /* QuantifyThisTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -401,7 +391,7 @@
 				en,
 			);
 			mainGroup = 2447FD5F1626D0D9004F6F66;
-			productRefGroup = 2447FD6B1626D0D9004F6F66 /* Products */;
+			productRefGroup = 2447FD5F1626D0D9004F6F66;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -560,6 +550,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -581,6 +575,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -592,6 +590,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantifyThis/QuantifyThis-Prefix.pch";
 				INFOPLIST_FILE = "QuantifyThis/QuantifyThis-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-all_load\n",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -603,6 +610,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantifyThis/QuantifyThis-Prefix.pch";
 				INFOPLIST_FILE = "QuantifyThis/QuantifyThis-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-all_load\n",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

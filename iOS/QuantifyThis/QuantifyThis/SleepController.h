@@ -10,7 +10,7 @@
 
 @protocol SleepCallback <NSObject>
 @required
-- (void) registerSleepTime:(NSUInteger *) time quality:(NSUInteger *) quality;
+- (void) registerSleepTime:(NSUInteger) time quality:(NSUInteger) quality;
 @end
 
 @interface SleepController : UIViewController
