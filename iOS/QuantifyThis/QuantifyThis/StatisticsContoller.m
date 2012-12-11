@@ -32,6 +32,8 @@ NSMutableString *incompleteDataResponse;
 - (void)viewDidLoad
 {
     incompleteDataResponse = [[NSMutableString alloc] init];
+    if(self.model==nil)
+        self.model = [[MoodEntryModel alloc] init];
     [super viewDidLoad];
 }
 
@@ -47,7 +49,42 @@ NSMutableString *incompleteDataResponse;
     
     if(entries){
         NSLog(@"Parsing succesfull");
+        
+        //put parsed data into moodentries and add to entries to moodentrymodel.
+        NSArray *entryList = [entries objectForKey:@"entries"];
+        for(NSDictionary *entry in entryList){
+            NSLog(@"Entry: %d", [entryList indexOfObject:entry]);
+            //heartRate
+            NSNumber *heart = [entry objectForKey:@"heart"];
+            if(heart != (id)[NSNull null])
+                NSLog(@"%d", [heart integerValue]);
+            //moods
+            NSDictionary *mood = [entry objectForKey:@"mood"];
+            NSArray *values = [mood objectForKey:@"moodvalue"];
+            if(values != (id)[NSNull null] && [values count] == 5){
+
+                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:0] integerValue]);
+                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:1] integerValue]);
+                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:2] integerValue]);
+                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:3] integerValue]);
+                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:4] integerValue]);
+                
+                //entry date
+                NSNumber *date = [entry objectForKey:@"date"];
+                NSTimeInterval interval = [date longLongValue]/1000;
+                NSDate *entryDate = [[NSDate alloc]initWithTimeIntervalSince1970:interval];
+                NSLog(@"%@", entryDate);
+                
+                MoodEntry *finalEntry = [[MoodEntry alloc] initWithValue1:(NSNumber *)[values objectAtIndex:0] Value2:(NSNumber *)[values objectAtIndex:1] Value3:(NSNumber *)[values objectAtIndex:2] Value4:(NSNumber *)[values objectAtIndex:3] Value5:(NSNumber *)[values objectAtIndex:4] createdOn:entryDate];
+                [self.model addEntry:finalEntry];
+            }
+        }
+        [self refreshPlot];
+        
+        
         incompleteDataResponse = [[NSMutableString alloc] init];
+        
+        
     }
     
 }
@@ -76,11 +113,29 @@ NSMutableString *incompleteDataResponse;
     [connection start];
 }
 
+
+
+- (void) refreshPlot
+{
+    NSMutableArray *newData = [NSMutableArray array];
+    for(MoodEntry *entry in [self.model entries]){
+        NSNumber *average = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:0 OnDate:[entry entryDate]]];
+        NSNumber *time = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+        NSDictionary *plotPoint = [NSDictionary dictionaryWithObjectsAndKeys:time, [NSNumber numberWithInt:CPTScatterPlotFieldX],average, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+
+        [newData addObject: plotPoint];
+    }
+    
+    self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData];
+    [self.scatterPlot initialisePlot];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self loadEntryDataIntoModel];
-    NSTimeInterval oneDay = 24 * 60 * 60;
+    
+    /*NSTimeInterval oneDay = 24 * 60 * 60;
     
     NSMutableArray *newData = [NSMutableArray array];
     NSUInteger i;
@@ -96,7 +151,7 @@ NSMutableString *incompleteDataResponse;
     }
     
     self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData];
-    [self.scatterPlot initialisePlot];
+    [self.scatterPlot initialisePlot];*/
 }
 
 

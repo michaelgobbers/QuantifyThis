@@ -12,6 +12,7 @@
 
 @synthesize moodValues = _moodValues;
 @synthesize entryDate = _entryDate;
+@synthesize bpm = _bpm;
 
 - (id) initWithValue1:(NSNumber*)value1 Value2:(NSNumber*)value2 Value3:(NSNumber*)value3 Value4:(NSNumber*)value4 Value5:(NSNumber*)value5 createdOn:(NSDate *)date
 {

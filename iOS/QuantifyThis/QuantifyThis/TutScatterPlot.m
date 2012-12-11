@@ -31,7 +31,8 @@
 -(void)initialisePlot
 {
     NSTimeInterval oneDay = 24 * 60 * 60;
-    NSDate *refDate = [NSDate date];
+    NSDate *refDate = [NSDate dateWithTimeIntervalSince1970:0];
+    
     
     // Start with some simple sanity checks before we kick off
     if ( (self.hostingView == nil) || (self.graphData == nil) ) {
@@ -82,8 +83,8 @@
     plotSymbol.size = CGSizeMake(8.0, 8.0);
     
     // Setup some floats that represent the min/max values on our axis.
-    float xAxisMin = 0;
-    float xAxisMax = 7*oneDay;
+    float xAxisMin = [[NSDate date] timeIntervalSince1970] - (oneDay*20);
+    float xAxisMax = [[NSDate date] timeIntervalSince1970];
     float yAxisMin = 0;
     float yAxisMax = 100;
     
