@@ -391,7 +391,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xpd-Kx-Wjd" kind="push" id="QJr-sB-n5D"/>
+                                    <segue destination="Zy7-vO-8CP" kind="push" id="LxG-3s-iVN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tG9-sH-Fao">
@@ -617,55 +617,24 @@
             </objects>
             <point key="canvasLocation" x="-2152" y="2642"/>
         </scene>
-        <!--View Controller - Mood art-->
-        <scene sceneID="jqU-PY-Am2">
-            <objects>
-                <viewController id="MWe-WA-nPB" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RlV-rQ-Nck">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Mood art" id="kgO-sm-Rrr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4cn-cQ-r9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1614" y="2050"/>
-        </scene>
-        <!--View Controller - Graph-->
+        <!--Statistics Contoller - Graph-->
         <scene sceneID="ede-Dt-i45">
             <objects>
-                <viewController id="Zy7-vO-8CP" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LvU-qH-IUS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mx-4M-lfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Zy7-vO-8CP" customClass="StatisticsContoller" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="center" id="LvU-qH-IUS" customClass="CPTGraphHostingView">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Graph" id="Hn4-Jn-brE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4mx-4M-lfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1614" y="1381"/>
-        </scene>
-        <!--Tab Bar Controller - Statistics-->
-        <scene sceneID="26i-Uv-pVm">
-            <objects>
-                <tabBarController definesPresentationContext="YES" id="Xpd-Kx-Wjd" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Statistics" id="AxV-8d-AmX"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="0Wm-wY-5VC">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                    <navigationItem key="navigationItem" id="8LA-Tk-1sx"/>
                     <connections>
-                        <segue destination="Zy7-vO-8CP" kind="relationship" relationship="viewControllers" id="ts9-s3-xBh"/>
-                        <segue destination="MWe-WA-nPB" kind="relationship" relationship="viewControllers" id="sIQ-VH-JaE"/>
+                        <outlet property="graphHostingView" destination="LvU-qH-IUS" id="vdS-ji-q2q"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W30-gM-Kpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="-2152" y="1754"/>
+            <point key="canvasLocation" x="-2140" y="1621"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SDg-Xt-FrO">
@@ -693,6 +662,9 @@
         <image name="statistics.png" width="256" height="256"/>
     </resources>
     <classes>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
         <class className="FirstResponder">
             <source key="sourceIdentifier" type="user"/>
             <relationships>
@@ -724,8 +696,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterMoodController.h"/>
             <relationships>
                 <relationship kind="action" name="registerMood:"/>
-                <relationship kind="action" name="setMoodValues:" candidateClass="UISlider"/>
-                <relationship kind="action" name="sliderChanged:"/>
                 <relationship kind="outlet" name="bar1" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="bar2" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="bar3" candidateClass="UISlider"/>
@@ -740,6 +710,12 @@
                 <relationship kind="outlet" name="qualitySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="StatisticsContoller" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticsContoller.h"/>
+            <relationships>
+                <relationship kind="outlet" name="graphHostingView" candidateClass="CPTGraphHostingView"/>
             </relationships>
         </class>
     </classes>
