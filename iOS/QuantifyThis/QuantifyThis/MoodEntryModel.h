@@ -14,5 +14,6 @@
 
 - (void) addEntry:(MoodEntry*)entry;
 - (NSInteger) averageFromMoodIndex:(int)index OnDate:(NSDate*)date;
+- (NSArray *) sortedEntries;
 
 @end

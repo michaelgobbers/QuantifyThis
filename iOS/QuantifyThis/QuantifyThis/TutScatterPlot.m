@@ -83,7 +83,7 @@
     plotSymbol.size = CGSizeMake(8.0, 8.0);
     
     // Setup some floats that represent the min/max values on our axis.
-    float xAxisMin = [[NSDate date] timeIntervalSince1970] - (oneDay*20);
+    float xAxisMin = [[NSDate date] timeIntervalSince1970] - (oneDay*30);
     float xAxisMax = [[NSDate date] timeIntervalSince1970];
     float yAxisMin = 0;
     float yAxisMax = 100;

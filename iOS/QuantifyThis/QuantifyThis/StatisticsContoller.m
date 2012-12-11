@@ -61,6 +61,7 @@ NSMutableString *incompleteDataResponse;
             //moods
             NSDictionary *mood = [entry objectForKey:@"mood"];
             NSArray *values = [mood objectForKey:@"moodvalue"];
+            NSDate *prevDate;
             if(values != (id)[NSNull null] && [values count] == 5){
 
                 NSLog(@"%d", [(NSNumber *)[values objectAtIndex:0] integerValue]);
@@ -74,9 +75,9 @@ NSMutableString *incompleteDataResponse;
                 NSTimeInterval interval = [date longLongValue]/1000;
                 NSDate *entryDate = [[NSDate alloc]initWithTimeIntervalSince1970:interval];
                 NSLog(@"%@", entryDate);
-                
                 MoodEntry *finalEntry = [[MoodEntry alloc] initWithValue1:(NSNumber *)[values objectAtIndex:0] Value2:(NSNumber *)[values objectAtIndex:1] Value3:(NSNumber *)[values objectAtIndex:2] Value4:(NSNumber *)[values objectAtIndex:3] Value5:(NSNumber *)[values objectAtIndex:4] createdOn:entryDate];
                 [self.model addEntry:finalEntry];
+                
             }
         }
         [self refreshPlot];
@@ -114,16 +115,37 @@ NSMutableString *incompleteDataResponse;
 }
 
 
-
+//see if 2 dates are on the same day.
+- (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
+}
 - (void) refreshPlot
 {
     NSMutableArray *newData = [NSMutableArray array];
-    for(MoodEntry *entry in [self.model entries]){
-        NSNumber *average = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:0 OnDate:[entry entryDate]]];
-        NSNumber *time = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
-        NSDictionary *plotPoint = [NSDictionary dictionaryWithObjectsAndKeys:time, [NSNumber numberWithInt:CPTScatterPlotFieldX],average, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
-
-        [newData addObject: plotPoint];
+    NSMutableArray *handledDates = [[NSMutableArray alloc]init];
+    for(MoodEntry *entry in [self.model sortedEntries]){
+        BOOL allreadyHandled = NO;
+        for(NSDate *date in handledDates){
+            if([self isSameDayWithDate1:date date2:[entry entryDate]])
+                allreadyHandled = YES;
+        }
+        if(!allreadyHandled){
+            NSNumber *average = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:0 OnDate:[entry entryDate]]];
+            NSNumber *time = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+            NSDictionary *plotPoint = [NSDictionary dictionaryWithObjectsAndKeys:time, [NSNumber numberWithInt:CPTScatterPlotFieldX],average, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+            
+            [newData addObject: plotPoint];
+            [handledDates addObject:[entry entryDate]];
+        }
+        
     }
     
     self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData];

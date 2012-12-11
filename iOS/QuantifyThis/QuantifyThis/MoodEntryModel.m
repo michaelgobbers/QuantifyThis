@@ -12,6 +12,17 @@
 
 @synthesize entries = _entries;
 
+
+-(NSArray *) sortedEntries
+{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"entryDate"
+                                                  ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray;
+    sortedArray = [self.entries sortedArrayUsingDescriptors:sortDescriptors];
+    return sortedArray;
+}
 - (id) init
 {
     if(self = [super init])
