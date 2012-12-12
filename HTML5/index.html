@@ -7,21 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<!--<link href="css/verticalSlider.css" rel="stylesheet" type="text/css" />-->
-
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	<script src="http://d3js.org/d3.v2.js"></script>
-	<!--<script src="js/verticalSlider.js"></script>-->
-	<script src="js/gae_functions.js"></script>
-	<script src="js/calendar_api.js"></script>
-	<script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
-	<script src="js/heart_rate.js?onload=startAccelerometerOutput"></script>
 </head>
 
 <body>
 	<!-- Home Page! -->
-	<div data-role="page" data-theme="b" id="Home">
+	<div data-role="page" data-theme="b" id="home_page">
 		<!-- Home Page Header -->
 		<div data-role="header" data-position="inline">
 			<h1>Quantify This!</h1>
@@ -29,8 +19,8 @@
 	  
 		<div data-role="content">
 			<div class="wrap">
-				<div class="important">
-					<a id='authorize-button-calendar'>Please grant access to your google calendar</a>
+				<div class="important" id='authorize-button-calendar'>
+					<a>Please grant access to your google calendar</a>
 				</div>
 				
 				<div class="important" id='authorize-button-appengine'>
@@ -39,19 +29,19 @@
 		
 				<div class="wrap buttonbar">
 					<div class="big_button">
-						<a href="#MarkMyMood">
+						<a href="#markmood_page">
 							<img src="images/mood.png" alt="Mark my mood" />
 							<div class="label">Mark My Mood</div>
 						</a>
 					</div>
 					<div class="big_button">
-						<a href="#CalendarView">
+						<a href="#calendar_page">
 							<img src="images/calendar_view.png" alt="Calendar View" />
 							<div class="label">Calendar View</div>
 						</a>
 					</div>
 					<div class="big_button">
-						<a href="#Statistics">
+						<a href="#statistics_page">
 							<img src="images/statistics.png" alt="Statistics" />
 							<div class="label">Statistics</div>
 						</a>
@@ -82,10 +72,10 @@
 	</div>
 
 	<!-- MarkMyMood PAGE! -->
-	<div data-role="page" data-theme="b" id="MarkMyMood">
+	<div data-role="page" data-theme="b" id="markmood_page">
 		<div data-role="header">
 			<h1>Mark My Mood</h1>
-			<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
+			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
 		</div>
 
 		<div data-role="content">
@@ -97,27 +87,27 @@
 			
 				<div class="center">
 					<div class="slider_block">
-						<label class="first">Energized</label>
+						<label for="slider1" class="first">Energized</label>
 						<input type="range" id="slider1" min="0" max="100" value="50" step="1" />
 						<label class="last">Tired</label>
 					</div>
 					<div class="slider_block">
-						<label class="first">Focused</label>
+						<label for="slider2" class="first">Focused</label>
 						<input type="range" id="slider2" min="0" max="100" value="50" step="1" />
 						<label class="last">Distracted</label>
 					</div>
 					<div class="slider_block">
-						<label class="first">Happy</label>
+						<label for="slider3" class="first">Happy</label>
 						<input type="range" id="slider3" min="0" max="100" value="50" step="1" />
 						<label class="last">Sad</label>
 					</div>
 					<div class="slider_block">
-						<label class="first">Loving</label>
+						<label for="slider4" class="first">Loving</label>
 						<input type="range" id="slider4" min="0" max="100" value="50" step="1" />
 						<label class="last">Angry</label>
 					</div>
 					<div class="slider_block">
-						<label class="first">Calm</label>
+						<label for="slider5" class="first">Calm</label>
 						<input type="range" id="slider5" min="0" max="100" value="50" step="1" />
 						<label class="last">Stressed</label>
 					</div>
@@ -125,13 +115,13 @@
 			
 				<div class="wrap">
 					<div class="big_button">
-						<a href="#HeartRate" id="heartratebutton">
+						<a href="#heartrate_page" id="heartratebutton">
 							<img src="images/heartrate.png" alt="Heart Rate" width="150px">
 							<div class="label">Heart Rate</div>
 						</a>
 					</div>
 					<div class="big_button">
-						<a href="#SleepTime" id="sleepbutton">
+						<a href="#sleep_page" id="sleepbutton">
 							<img src="images/sleeptime.png" alt="Amount of Sleep" width="150px">
 							<div class="label">Sleep</div>
 						</a>
@@ -139,7 +129,7 @@
 				</div>
 
 				<div data-role="controlgroup" data-type="horizontal">
-					<a href="#MarkMoodThanks" data-role="button" data-icon="check" data-inline="true" onclick="sendMood()">Mark my mood</a>
+					<a href="#moodmarked_page" data-role="button" data-icon="check" data-inline="true" onclick="sendMood()">Mark my mood</a>
 				</div>
 			</div>
 		</div>
@@ -150,10 +140,10 @@
 	</div>
 
 	<!--  Thanks PAGE! -->
-	<div data-role="page" data-theme="b" id="MarkMoodThanks">
+	<div data-role="page" data-theme="b" id="moodmarked_page">
 		<div data-role="header" data-position="inline">
 			<h1>Mark My Mood - Thanks</h1>
-			<a href="#MarkMyMood" rel="external" data-icon="arrow-l" class="ui-btn-left"  data-transition="slidedown">Back</a>
+			<a href="#markmood_page" rel="external" data-icon="arrow-l" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
 		<div data-role="content"> 
@@ -166,15 +156,15 @@
 	</div>
 
 	<!--  Calendar View PAGE! -->
-	<div data-role="page" data-theme="b" id="CalendarView">
+	<div data-role="page" data-theme="b" id="calendar_page">
 		<div data-role="header" data-position="inline">
 			<h1>Mark My Mood - Calendar View</h1>
-			<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
+			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
 		</div>
 
 		<div data-role="content" data-theme="b">
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-				<label for="number" class="ui-input-text">Amount of days back to show:</label>
+				<label for="eventsdays" class="ui-input-text">Amount of days back to show:</label>
 				<input type="number" name="eventsdays" id="eventsdays" value="1" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 			</div>
 			
@@ -192,10 +182,10 @@
 	</div>
 
 	<!--  Statistics View PAGE! -->
-	<div data-role="page" data-theme="b" id="Statistics">
+	<div data-role="page" data-theme="b" id="statistics_page">
 		<div data-role="header" data-position="inline">
 			<h1>Quantify this! - Statistics</h1>
-			<a href="#Home" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
+			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
 		</div>
 		
 		<div data-role="content"> 
@@ -208,16 +198,16 @@
 	</div>
 
 	<!-- Sleep Page! -->
-	<div data-role="page" data-theme="b" id="SleepTime">
+	<div data-role="page" data-theme="b" id="sleep_page">
 		<div data-role="header" data-position="inline">
 			<h1>Quantify this! - Amount of Sleep</h1>
-			<a href="#MarkMyMood" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
+			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
 		<div data-role="content">
-			<p>How many hours did you sleep?</p>
+			<label for="slider-many-hours">How many hours did you sleep?</label>
 			<input type="range" name="slider-many-hours" id="slider-many-hours" value="8" min="1" max="22" data-highlight="true" />   
-			<p>How well did you sleep?</p>
+			<label for="slider-eff">How well did you sleep?</label>
 			<input type="range" name="slider-eff" id="slider-eff" value="7" min="1" max="10" data-highlight="true" />    
 		</div>
 
@@ -227,15 +217,15 @@
 	</div>
 
 	<!--  Heart Rate PAGE! -->
-	<div data-role="page" data-theme="b" id="HeartRate">
+	<div data-role="page" data-theme="b" id="heartrate_page">
 		<div data-role="header" data-position="inline">
 			<h1>Quantify this! - Heart Rate</h1>
-			<a href="#MarkMyMood" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
+			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
 		<div data-role="content"> 
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-				<label for="number" class="ui-input-text">Heartrate:</label>
+				<label for="heartrate" class="ui-input-text">Heartrate:</label>
 				<input type="number" name="heartrate" id="heartrate" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
 			</div>
 
@@ -243,67 +233,6 @@
 				<p id="acceleration"></p>
 				<p id="acceleration-gravity"></p>
 			</div>
-
-			<script>
-				function getLocation()
-				{
-				  if (navigator.geolocation)
-				  {
-				navigator.geolocation.getCurrentPosition(showPosition);
-				  }
-				  else{
-				x.innerHTML="Geolocation is not supported by this browser.";
-				  }
-				}
-				function getTemp(){
-				  showPosition
-				}
-				function showPosition(position)
-				  {
-				 
-					
-							var APPID = 'dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky';		// our Yahoo APP id
-							var DEG = 'c';	
-							var lat = position.coords.latitude;
-					var lon = position.coords.longitude;
-					var geoAPI = 'http://where.yahooapis.com/geocode?location='+lat+','+lon+'&flags=J&gflags=R&appid='+APPID;
-					   
-					var wsql = 'select * from weather.forecast where woeid=WID and u="'+DEG+'"',
-					weatherYQL = 'http://query.yahooapis.com/v1/public/yql?q='+encodeURIComponent(wsql)+'&format=json&callback=?',code, city, results, woeid;
-						
-						$.getJSON(geoAPI, function(r){
-					   
-						if(r.ResultSet.Found == 1){
-							
-						results = r.ResultSet.Results;
-						city = results[0].city;
-						code = results[0].statecode || results[0].countrycode;
-					
-						// This is the city identifier for the Yahoo weather API
-						woeid = results[0].woeid;
-					
-						// Make a weather API request:
-						$.getJSON(weatherYQL.replace('WID',woeid), function(r){
-							if(r.query && r.query.count == 1){
-							var item = r.query.results.channel.item.condition;       
-							if(!item){
-							  $("#temperature").val(null);
-								return null;
-							}
-							$("#temperature").val(item.temp);
-							   return item.temp;
-							}
-							else {
-							showError("Error retrieving weather data!");
-							}
-						});
-						}     
-					}).error(function(){
-						showError("Your browser does not support CORS requests!");
-					});
-					   
-					}
-			</script>
 		</div>
 			
 		<div data-role="footer">
@@ -311,6 +240,75 @@
 		</div>
 	</div>
 
+    <script>
+        function getLocation()
+        {
+            if (navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else{
+                x.innerHTML="Geolocation is not supported by this browser.";
+            }
+        }
+        function getTemp(){
+            showPosition
+        }
+        function showPosition(position)
+        {
+
+
+            var APPID = 'dj0yJmk9OTFZSWlwM29rWVRFJmQ9WVdrOWVYQnNVMUZoTjJrbWNHbzlOakV4TnpNMk9UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTky';		// our Yahoo APP id
+            var DEG = 'c';
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            var geoAPI = 'http://where.yahooapis.com/geocode?location='+lat+','+lon+'&flags=J&gflags=R&appid='+APPID;
+
+            var wsql = 'select * from weather.forecast where woeid=WID and u="'+DEG+'"',
+                    weatherYQL = 'http://query.yahooapis.com/v1/public/yql?q='+encodeURIComponent(wsql)+'&format=json&callback=?',code, city, results, woeid;
+
+            $.getJSON(geoAPI, function(r){
+
+                if(r.ResultSet.Found == 1){
+
+                    results = r.ResultSet.Results;
+                    city = results[0].city;
+                    code = results[0].statecode || results[0].countrycode;
+
+                    // This is the city identifier for the Yahoo weather API
+                    woeid = results[0].woeid;
+
+                    // Make a weather API request:
+                    $.getJSON(weatherYQL.replace('WID',woeid), function(r){
+                        if (!(r.query && r.query.count == 1)) {
+                            showError("Error retrieving weather data!");
+                            return null;
+                        }
+
+                        var item = r.query.results.channel.item.condition;
+                        var temp_element = $("#temperature");
+                        if (!item) {
+                            temp_element.val(null);
+                            return null;
+                        }
+                        temp_element.val(item.temp);
+                        return item.temp;
+                    });
+                }
+            }).error(function(){
+                        showError("Your browser does not support CORS requests!");
+                    });
+
+        }
+    </script>
+
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src="http://d3js.org/d3.v2.js"></script>
+    <script src="js/gae_functions.js"></script>
+    <script src="js/calendar_api.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
+    <script src="js/heart_rate.js?onload=startAccelerometerOutput"></script>
 </body>
 
 </html>
