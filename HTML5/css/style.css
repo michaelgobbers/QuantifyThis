@@ -120,6 +120,9 @@ a {
 }
 #step .item {
   list-style-type: none; 
-  background: url(images/list-line.png) no-repeat;
+  background: url(../images/list-line.png) no-repeat;
   padding-top:5px;
+}
+#authorize-button-calendar{
+    display: none;
 }

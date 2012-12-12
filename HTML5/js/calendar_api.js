@@ -9,7 +9,7 @@ var geteventListCallBack = function(calID) {
         var list = $("#events-list");
     for (var j = 0; j < resp.items.length; j++) {
 
-        var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#MarkMyMood"><h1>'+resp.items[j].summary+'</h1><p id="start"></p><p id="end"></p></a></li>';
+        var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#markmood_page"><h1>'+resp.items[j].summary+'</h1><p id="start"></p><p id="end"></p></a></li>';
         setEventTime(resp.items[j].id, calID);
         $(list).append(html);
     }
@@ -52,13 +52,13 @@ function checkAuthCalendar() {
 function handleAuthResultCalendar(authResult) {
   var authorizeButton = document.getElementById('authorize-button-calendar');
   if (authResult) {
-    authorizeButton.style.visibility = 'hidden';
+    authorizeButton.style.display = 'none';
     if(!apicallmade){
         displayCategories();
         apicallmade=true;
     }
   } else {
-    authorizeButton.style.visibility = '';
+    authorizeButton.style.display = 'block';
     authorizeButton.onclick = handleAuthClickCalendar;
    }
 }
@@ -129,7 +129,7 @@ function filterEvents(gaeEntries){
 }
 
 function showCalendars(){
-    var ids = new Array();
+    var ids = [];
     var index = 0;
     for(var i = 0 ; i<calendarAmount;i++){
         var checkbox = $('#checkbox-'+i);
