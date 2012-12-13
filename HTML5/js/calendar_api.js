@@ -91,7 +91,7 @@ function returnFromMarkMood(){
     var heartratebutton = $("#heartratebutton");
     var sleepbutton = $("#sleepbutton");
     var eventCat = $("#eventcategory");
-    markmoodeventsummary.text("No event selected.");
+    markmoodeventsummary.display = "none";
     marmoodeventid.val("");
     heartratebutton.show();
     sleepbutton.show();

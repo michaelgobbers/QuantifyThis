@@ -1,23 +1,25 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Quantify This!</title>
-	
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+
 	<link rel="stylesheet" type="text/css" href="css/style.css" />	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </head>
 
 <body>
 	<!-- Home Page! -->
-	<div data-role="page" data-theme="b" id="home_page">
+	<div data-role="page" data-theme="c" id="home_page">
 		<!-- Home Page Header -->
-		<div data-role="header" data-position="inline">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Quantify This!</h1>
 		</div>
 	  
-		<div data-role="content">
+		<div data-role="content" data-theme="c">
 			<div class="wrap">
 				<div class="important" id='authorize-button-calendar'>
 					<a>Please grant access to your google calendar</a>
@@ -64,16 +66,11 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- Home Page Footer -->
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- home page -->
 
 	<!-- MarkMyMood PAGE! -->
-	<div data-role="page" data-theme="b" id="markmood_page">
-		<div data-role="header">
+	<div data-role="page" data-theme="c" id="markmood_page">
+		<div data-role="header" data-theme="c">
 			<h1>Mark My Mood</h1>
 			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown" onclick="returnFromMarkMood()">Back</a>
 		</div>
@@ -86,31 +83,62 @@
 				<input type="hidden" name="temperature" id="temperature" value="null"/>
 			
 				<div class="center">
-					<div class="slider_block">
-						<label for="slider1" class="first">Energized</label>
-						<input type="range" id="slider1" min="0" max="100" value="50" step="1" />
-						<label class="last">Tired</label>
-					</div>
-					<div class="slider_block">
-						<label for="slider2" class="first">Focused</label>
-						<input type="range" id="slider2" min="0" max="100" value="50" step="1" />
-						<label class="last">Distracted</label>
-					</div>
-					<div class="slider_block">
-						<label for="slider3" class="first">Happy</label>
-						<input type="range" id="slider3" min="0" max="100" value="50" step="1" />
-						<label class="last">Sad</label>
-					</div>
-					<div class="slider_block">
-						<label for="slider4" class="first">Loving</label>
-						<input type="range" id="slider4" min="0" max="100" value="50" step="1" />
-						<label class="last">Angry</label>
-					</div>
-					<div class="slider_block">
-						<label for="slider5" class="first">Calm</label>
-						<input type="range" id="slider5" min="0" max="100" value="50" step="1" />
-						<label class="last">Stressed</label>
-					</div>
+                    <div class="ui-grid-b slider_block">
+                        <div class="ui-block-a">
+                            <label for="slider1" class="first">Energized</label>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="range" id="slider1" min="0" max="100" value="50" step="1" />
+                        </div>
+                        <div class="ui-block-c">
+                            <label class="last">Tired</label>
+                        </div>
+                    </div><!-- /grid-b -->
+                    <div class="ui-grid-b slider_block">
+                        <div class="ui-block-a">
+                            <label for="slider2" class="first">Focused</label>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="range" id="slider2" min="0" max="100" value="50" step="1" />
+                        </div>
+                        <div class="ui-block-c">
+                            <label class="last">Distracted</label>
+                        </div>
+                    </div><!-- /grid-b -->
+                    <div class="ui-grid-b slider_block">
+                        <div class="ui-block-a">
+                            <label for="slider3" class="first">Happy</label>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="range" id="slider3" min="0" max="100" value="50" step="1" />
+                        </div>
+                        <div class="ui-block-c">
+                            <label class="last">Sad</label>
+                        </div>
+                    </div><!-- /grid-b -->
+                    <div class="ui-grid-b slider_block">
+                        <div class="ui-block-a">
+                            <label for="slider4" class="first">Loving</label>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="range" id="slider4" min="0" max="100" value="50" step="1" />
+                        </div>
+                        <div class="ui-block-c">
+                            <label class="last">Angry</label>
+                        </div>
+                    </div><!-- /grid-b -->
+                    <div class="ui-grid-b slider_block">
+                        <div class="ui-block-a">
+                            <label for="slider5" class="first">Calm</label>
+                        </div>
+                        <div class="ui-block-b">
+                            <input type="range" id="slider5" min="0" max="100" value="50" step="1" />
+                        </div>
+                        <div class="ui-block-c">
+                            <label class="last">Stressed</label>
+                        </div>
+                    </div><!-- /grid-b -->
+
 				</div>
 			
 				<div class="wrap">
@@ -133,36 +161,30 @@
 				</div>
 			</div>
 		</div>
-		
-		<div data-role="footer">
-			<h4>&copy;  Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- mark mood page -->
 
 	<!--  Thanks PAGE! -->
-	<div data-role="page" data-theme="b" id="moodmarked_page">
-		<div data-role="header" data-position="inline">
+	<div data-role="page" data-theme="c" id="moodmarked_page">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Mark My Mood - Thanks</h1>
 			<a href="#markmood_page" rel="external" data-icon="arrow-l" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
-		<div data-role="content"> 
-			<p>Hier komt een bedankje omdat de gebruiker zijn mood heeft ingevuld.</p>    
+		<div data-role="content">
+            <div class="wrap">
+                <p>Hier komt een bedankje omdat de gebruiker zijn mood heeft ingevuld.</p>
+            </div>
 		</div>
-
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- thanks page -->
 
 	<!--  Calendar View PAGE! -->
-	<div data-role="page" data-theme="b" id="calendar_page">
-		<div data-role="header" data-position="inline">
+	<div data-role="page" data-theme="c" id="calendar_page">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Mark My Mood - Calendar View</h1>
 			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
 		</div>
 
-		<div data-role="content" data-theme="b">
+		<div data-role="content" data-theme="c">
 			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 				<label for="eventsdays" class="ui-input-text">Amount of days back to show:</label>
 				<input type="number" name="eventsdays" id="eventsdays" value="1" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
@@ -175,31 +197,48 @@
 				<ul data-role="listview" id="events-list" data-theme="b"></ul>
 			</div>
 		</div>
-
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- calendar page -->
 
 	<!--  Statistics View PAGE! -->
-	<div data-role="page" data-theme="b" id="statistics_page">
-		<div data-role="header" data-position="inline">
+	<div data-role="page" data-theme="c" id="statistics_page">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Quantify this! - Statistics</h1>
 			<a href="#home_page" rel="external" data-icon="arrow-l" class="ui-btn-left" data-transition="slidedown">Back</a>
 		</div>
 		
-		<div data-role="content"> 
-			<p>Hier komen de statistieken.</p>    
-		</div>
+		<div data-role="content">
+            <div class="wrap">
+                <h1>Mood visualisation</h1>
+                <div id="graph">
+                    <!-- graph gets loaded in this div -->
 
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
+
+                </div>
+                <div id="graph_controls" data-role="controlgroup" data-mini="true">
+                    <a onclick="toggle_graph('energized')" data-role="button">Energized / Tired</a>
+                    <a onclick="toggle_graph('focused')" data-role="button">Focused / Distracted</a>
+                    <a onclick="toggle_graph('happy')" data-role="button">Happy / Sad</a>
+                    <a onclick="toggle_graph('loving')" data-role="button">Loving / angry</a>
+                    <a onclick="toggle_graph('calm')" data-role="button">Calm / Stressed</a>
+                    <a onclick="toggle_graph('sleep')" data-role="button">Sleep quality</a>
+                </div>
+
+                <!-- stats-->
+                <div>
+                    <h1>Stats</h1>
+                    <!-- dummy data -->
+                    <div class="stats_entry" data-role="collapsible" data-theme="c">
+                        <h3>Mood 1</h3>
+
+                    </div>
+                </div>
+            </div>
 		</div>
-	</div>
+	</div><!-- statistics page -->
 
 	<!-- Sleep Page! -->
-	<div data-role="page" data-theme="b" id="sleep_page">
-		<div data-role="header" data-position="inline">
+	<div data-role="page" data-theme="c" id="sleep_page">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Quantify this! - Amount of Sleep</h1>
 			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
@@ -210,15 +249,11 @@
 			<label for="slider-eff">How well did you sleep?</label>
 			<input type="range" name="slider-eff" id="slider-eff" value="7" min="1" max="10" data-highlight="true" />    
 		</div>
-
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- sleep page -->
 
 	<!--  Heart Rate PAGE! -->
-	<div data-role="page" data-theme="b" id="heartrate_page">
-		<div data-role="header" data-position="inline">
+	<div data-role="page" data-theme="c" id="heartrate_page">
+		<div data-role="header" data-position="inline" data-theme="c">
 			<h1>Quantify this! - Heart Rate</h1>
 			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
@@ -234,11 +269,7 @@
 				<p id="acceleration-gravity"></p>
 			</div>
 		</div>
-			
-		<div data-role="footer">
-			<h4>&copy; Quantify This! Designers</h4>
-		</div>
-	</div>
+	</div><!-- heart rate page -->
 
     <script>
         function getLocation()
@@ -304,7 +335,9 @@
 
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script src="http://d3js.org/d3.v2.js"></script>
+    <script type="text/javascript" src="js/excanvas.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flot.js"></script>
+    <script src="js/graph.js"></script>
     <script src="js/gae_functions.js"></script>
     <script src="js/calendar_api.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>

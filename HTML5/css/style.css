@@ -2,7 +2,6 @@ body{
 	margin: 0 auto;
 	min-width:350px;
 }
-
 .big_button{
 	float:left;
 	margin-right:10px;
@@ -24,11 +23,6 @@ body{
 .ui-content{
 	min-width:350px;
 	text-align:center;
-}
-.ui-footer{
-	position:absolute !important;
-	bottom:0;
-	width:100%;
 }
 .buttonbar{
 	margin-top:20px;
@@ -80,13 +74,16 @@ body{
 	background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
 }
-
+#markevent{
+    display: none;
+}
 .wrap{
 	display:inline-block;
-	margin-left:auto;
-	margin-right:auto;
 }
-
+#graph{
+    width:300px;
+    height:300px;
+}
 .slider_block{
 	height:30px;
 	margin-top:10px;
@@ -95,26 +92,21 @@ body{
 .slider_block .ui-slider{
 	height:10px;
 	width:200px;
-	margin:0 20px 0 20px;
-	
 }
-.slider_block input{
-	
+.slider_block .ui-block-a{
+    width:25% !important;
+    text-align: left;
 }
-.slider_block label{
-	width:75px;
+.slider_block .ui-block-b{
+    width:50% !important;
 }
-.slider_block label.first{
-	float:left;
-	text-align:right;
-}
-.slider_block label.last{
-	text-align:right;
+.slider_block .ui-block-c{
+    width:25% !important;
+    text-align: left;
 }
 .ui-slider-input{
 	display:none !important;
 }
-
 a {
 	text-decoration:none;
 }
