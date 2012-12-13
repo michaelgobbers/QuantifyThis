@@ -32,3 +32,4 @@ QuantifyThisAppEngine/war/WEB-INF/lib/validation-api-1.0.0.GA.jar
 QuantifyThisAppEngine/war/WEB-INF/classes/be/mume/quantifythis/appengine/QuantifyThisAppEngine.gwt.xml
 QuantifyThisAppEngine/war/WEB-INF/classes/log4j.properties
 build.example.xml
+QuantifyThisAndroid_Old/

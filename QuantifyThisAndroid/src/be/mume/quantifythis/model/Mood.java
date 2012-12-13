@@ -3,11 +3,11 @@ package be.mume.quantifythis.model;
 import java.util.Date;
 
 /**
- * Model for representing the mood and extra attributes
+ * class representing the mood and extra attributes, different from moodModel that this one is not representing the current but a certain
  * 
- * @author Nik Torfs
+ * @author Sander
  */
-public class MoodModel {
+public class Mood {
 	private int cat1;
 	private int cat2;
 	private int cat3;
@@ -17,9 +17,11 @@ public class MoodModel {
 	private int sleepQuality;
 	private int heartRate;
 	private int temperature;
+	private String category;
+	private String eventId;
+	private long date;
 
-
-	public MoodModel() {
+	public Mood() {
 		cat1 = 0;
 		cat2 = 0;
 		cat3 = 0;
@@ -29,10 +31,52 @@ public class MoodModel {
 		sleepQuality = Integer.MAX_VALUE;
 		heartRate = Integer.MAX_VALUE;
 		temperature = Integer.MAX_VALUE;
-	
+		String category = "";
+		String eventId = "";
+		Date theDate = new Date();
+		long date = theDate.getTime();
 
 	}
+	
+	public Mood(String[] moods, int AmoutOfSleep, int sleepQuality, int heartrate, int temperature, String category, String eventId, long date)
+	{
+		setCat1(Integer.parseInt(moods[0]));
+		setCat2(Integer.parseInt(moods[1]));
+		setCat3(Integer.parseInt(moods[2]));
+		setCat4(Integer.parseInt(moods[3]));
+		setCat5(Integer.parseInt(moods[4]));
+		setAmountOfSleep(AmoutOfSleep);
+		setSleepQuality(sleepQuality);
+		setHeartRate(heartrate);
+		setCategory(category);
+		setEventId(eventId);
+		setDate(date);
+	}
 
+	public String getCategory() {
+		return category;
+	}
+	
+	public long getDate() {
+		return date;
+	}
+	
+	public void setEventId(String eventId) {
+		this.eventId = eventId;
+	}
+	
+	public void setDate(long date) {
+		this.date = date;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
+	public String getEventId() {
+		return eventId;
+	}
+	
 	public int getCat1() {
 		return cat1;
 	}
@@ -71,6 +115,11 @@ public class MoodModel {
 
 	public void setCat5(int cat5) {
 		this.cat5 = cat5;
+	}
+	
+	public int getTotalMood()
+	{
+		return 500-(getCat1()+getCat2()+getCat3()+getCat4()+getCat5()); //Om zo een mooi percentage te krijgen, door de 500-x krijg je dat iemand positief ook een hoge score heeft.
 	}
 
 	public int getAmountOfSleep() {

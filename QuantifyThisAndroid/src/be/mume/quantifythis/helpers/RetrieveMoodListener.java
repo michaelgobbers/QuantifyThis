@@ -1,5 +1,6 @@
 package be.mume.quantifythis.helpers;
 
+import be.mume.quantifythis.model.Mood;
 import be.mume.quantifythis.model.MoodModel;
 
 import java.util.List;
@@ -12,5 +13,5 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface RetrieveMoodListener {
-    void handleMood(List<MoodModel> moodList);
+    void handleMood(List<Mood> moodList); 
 }
