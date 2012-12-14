@@ -15,7 +15,7 @@ public class HintAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return 40;
+		return 5;
 	}
 
 	@Override
