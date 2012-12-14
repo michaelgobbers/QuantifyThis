@@ -48,6 +48,16 @@ function loginAppEngine(){
     return false;
 }
 
+function loggedIn(){
+    $.get("http://quantifythisapp.appspot.com/LoginService", {request: "loggedin"}, function(resp){
+        var auth_button = $("#authorize-button-appengine");
+        if(resp.loggedin == false){
+            auth_button.display = "block";
+        }
+
+    }, "json");
+}
+
 function getEntryList(){
     $.get("http://quantifythisapp.appspot.com/DataService", { request: "getMood", format: "json"}, function(resp){
         filterEvents(resp.entries); 

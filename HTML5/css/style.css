@@ -118,3 +118,6 @@ a {
 #authorize-button-calendar{
     display: none;
 }
+#authorize-button-appengine{
+    display: none;
+}
