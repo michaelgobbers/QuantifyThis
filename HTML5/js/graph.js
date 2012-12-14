@@ -23,7 +23,7 @@ $(document).delegate('#statistics_page', 'pageshow', function( ) {
 
     getData = function() {
         var jsonData = getEntryList();
-        console.log(jsonData);
+
     };
 })( jQuery );
 

@@ -52,3 +52,7 @@ QuantifyThisAppEngine/war/WEB-INF/classes/be/mume/quantifythis/appengine/server/
 QuantifyThisAppEngine/war/WEB-INF/classes/be/mume/quantifythis/appengine/server/replies/json/JsonDocumentGenerator.class
 QuantifyThisAppEngine/war/WEB-INF/classes/be/mume/quantifythis/appengine/server/replies/xml/XmlDocumentGenerator.class
 QuantifyThisAppEngine/war/WEB-INF/classes/be/mume/quantifythis/appengine/shared/FieldVerifier.class
+iOS/QuantifyThis/CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj/xcuserdata/nik.xcuserdatad/xcschemes/CorePlot-CocoaTouch.xcscheme
+iOS/QuantifyThis/CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj/xcuserdata/nik.xcuserdatad/xcschemes/Documentation.xcscheme
+iOS/QuantifyThis/CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj/xcuserdata/nik.xcuserdatad/xcschemes/Universal Library.xcscheme
+iOS/QuantifyThis/CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj/xcuserdata/nik.xcuserdatad/xcschemes/xcschememanagement.plist
