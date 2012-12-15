@@ -26,6 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
 	NSURL *url = [NSURL URLWithString:@"http://quantifythisapp.appspot.com/LoginService"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];

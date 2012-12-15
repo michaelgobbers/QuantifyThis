@@ -771,6 +771,8 @@
 		2447FDA41626D0DA004F6F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gonzalo Parra (SZ53NMWYH5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gonzalo Parra (SZ53NMWYH5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantifyThis/QuantifyThis-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../../../../Downloads/CorePlot_1.1/Source/framework/**";
@@ -785,6 +787,8 @@
 					"-all_load\n",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BF6E4A5D-9DBB-49CD-85BF-E4E8BB7DFBA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BF6E4A5D-9DBB-49CD-85BF-E4E8BB7DFBA4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -792,6 +796,8 @@
 		2447FDA51626D0DA004F6F66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gonzalo Parra (SZ53NMWYH5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gonzalo Parra (SZ53NMWYH5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantifyThis/QuantifyThis-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../../../../Downloads/CorePlot_1.1/Source/framework/**";
@@ -806,6 +812,8 @@
 					"-all_load\n",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BF6E4A5D-9DBB-49CD-85BF-E4E8BB7DFBA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BF6E4A5D-9DBB-49CD-85BF-E4E8BB7DFBA4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

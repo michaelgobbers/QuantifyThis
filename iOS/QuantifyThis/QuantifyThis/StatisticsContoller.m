@@ -63,12 +63,6 @@ NSMutableString *incompleteDataResponse;
             NSArray *values = [mood objectForKey:@"moodvalue"];
             NSDate *prevDate;
             if(values != (id)[NSNull null] && [values count] == 5){
-
-                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:0] integerValue]);
-                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:1] integerValue]);
-                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:2] integerValue]);
-                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:3] integerValue]);
-                NSLog(@"%d", [(NSNumber *)[values objectAtIndex:4] integerValue]);
                 
                 //entry date
                 NSNumber *date = [entry objectForKey:@"date"];
@@ -130,6 +124,10 @@ NSMutableString *incompleteDataResponse;
 - (void) refreshPlot
 {
     NSMutableArray *newData = [NSMutableArray array];
+    NSMutableArray *newData2 = [NSMutableArray array];
+    NSMutableArray *newData3 = [NSMutableArray array];
+    NSMutableArray *newData4 = [NSMutableArray array];
+    NSMutableArray *newData5 = [NSMutableArray array];
     NSMutableArray *handledDates = [[NSMutableArray alloc]init];
     for(MoodEntry *entry in [self.model sortedEntries]){
         BOOL allreadyHandled = NO;
@@ -141,14 +139,34 @@ NSMutableString *incompleteDataResponse;
             NSNumber *average = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:0 OnDate:[entry entryDate]]];
             NSNumber *time = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
             NSDictionary *plotPoint = [NSDictionary dictionaryWithObjectsAndKeys:time, [NSNumber numberWithInt:CPTScatterPlotFieldX],average, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
-            
             [newData addObject: plotPoint];
+            
+            NSNumber *average2 = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:1 OnDate:[entry entryDate]]];
+            NSNumber *time2 = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+            NSDictionary *plotPoint2 = [NSDictionary dictionaryWithObjectsAndKeys:time2, [NSNumber numberWithInt:CPTScatterPlotFieldX],average2, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+            [newData2 addObject: plotPoint2];
+            
+            NSNumber *average3 = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:2 OnDate:[entry entryDate]]];
+            NSNumber *time3 = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+            NSDictionary *plotPoint3 = [NSDictionary dictionaryWithObjectsAndKeys:time3, [NSNumber numberWithInt:CPTScatterPlotFieldX],average3, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+            [newData3 addObject: plotPoint3];
+            
+            NSNumber *average4 = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:3 OnDate:[entry entryDate]]];
+            NSNumber *time4 = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+            NSDictionary *plotPoint4 = [NSDictionary dictionaryWithObjectsAndKeys:time4, [NSNumber numberWithInt:CPTScatterPlotFieldX],average4, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+            [newData4 addObject: plotPoint4];
+            
+            NSNumber *average5 = [NSNumber numberWithInteger:[self.model averageFromMoodIndex:4 OnDate:[entry entryDate]]];
+            NSNumber *time5 = [NSNumber numberWithDouble:[[entry entryDate] timeIntervalSince1970]];
+            NSDictionary *plotPoint5 = [NSDictionary dictionaryWithObjectsAndKeys:time5, [NSNumber numberWithInt:CPTScatterPlotFieldX],average5, [NSNumber numberWithInt:CPTScatterPlotFieldY],nil];
+            [newData5 addObject: plotPoint5];
+            
             [handledDates addObject:[entry entryDate]];
         }
         
     }
     
-    self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData];
+    self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData andData2:newData2 andData3:newData3 andData4:newData4 andData5:newData5];
     [self.scatterPlot initialisePlot];
 }
 
