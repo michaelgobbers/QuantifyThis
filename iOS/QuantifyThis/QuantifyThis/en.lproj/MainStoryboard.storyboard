@@ -14,9 +14,8 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Du8-KP-7Hd">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="bpmLabel" text="90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-sm-lVV">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="bpmLabel" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-sm-lVV">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="139" id="3VG-iz-bow"/>
                                             <constraint firstAttribute="width" constant="236" id="RsE-e0-FRc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="140"/>
@@ -41,10 +40,11 @@
                                     <constraint firstItem="Zzt-sm-lVV" firstAttribute="leading" secondItem="Du8-KP-7Hd" secondAttribute="leading" constant="-20" id="nQ5-8I-P3j"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Hold your fingers to your neck and shake your phone to the rythm of your heartbeat. The phone will vibrate when you can stop." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-6M-4ty">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-6M-4ty">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="156" id="ECa-I8-agB"/>
                                 </constraints>
+                                <string key="text">Hold fingers in neck to feel pulse en start tapping the screen when you feel a beat. The counter will stop moving when a constant heartbeat is found.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

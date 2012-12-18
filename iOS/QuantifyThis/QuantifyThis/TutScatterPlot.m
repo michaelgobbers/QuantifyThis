@@ -162,35 +162,35 @@
     // could add multiple plots (data lines) to the same graph if necessary.
     CPTScatterPlot *plot = [[[CPTScatterPlot alloc] init] autorelease];
     plot.dataSource = self;
-    plot.identifier = @"mood1";
+    plot.identifier = @"energy";
     plot.dataLineStyle = lineStyle1;
     plot.plotSymbol = plotSymbol;
     [self.graph addPlot:plot];
     //mood2 plot
     CPTScatterPlot *plot2 = [[[CPTScatterPlot alloc] init] autorelease];
     plot2.dataSource = self;
-    plot2.identifier = @"mood2";
+    plot2.identifier = @"concentration";
     plot2.dataLineStyle = lineStyle2;
     plot2.plotSymbol = plotSymbol;
     [self.graph addPlot:plot2];
     //mood3 plot
     CPTScatterPlot *plot3 = [[[CPTScatterPlot alloc] init] autorelease];
     plot3.dataSource = self;
-    plot3.identifier = @"mood3";
+    plot3.identifier = @"loving";
     plot3.dataLineStyle = lineStyle3;
     plot3.plotSymbol = plotSymbol;
     [self.graph addPlot:plot3];
     //mood4 plot
     CPTScatterPlot *plot4 = [[[CPTScatterPlot alloc] init] autorelease];
     plot4.dataSource = self;
-    plot4.identifier = @"mood4";
+    plot4.identifier = @"happiness";
     plot4.dataLineStyle = lineStyle4;
     plot4.plotSymbol = plotSymbol;
     [self.graph addPlot:plot4];
     //mood5 plot
     CPTScatterPlot *plot5 = [[[CPTScatterPlot alloc] init] autorelease];
     plot5.dataSource = self;
-    plot5.identifier = @"mood5";
+    plot5.identifier = @"calmness";
     plot5.dataLineStyle = lineStyle5;
     plot5.plotSymbol = plotSymbol;
     [self.graph addPlot:plot5];
@@ -211,23 +211,23 @@
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
     NSLog(@"%@", plot.identifier);
-    if ( [plot.identifier isEqual:@"mood1"] )
+    if ( [plot.identifier isEqual:@"energy"] )
     {
         return [self.graphData count];
     }
-    if ( [plot.identifier isEqual:@"mood2"] )
+    if ( [plot.identifier isEqual:@"concentration"] )
     {
         return [self.graphData2 count];
     }
-    if ( [plot.identifier isEqual:@"mood3"] )
+    if ( [plot.identifier isEqual:@"loving"] )
     {
         return [self.graphData3 count];
     }
-    if ( [plot.identifier isEqual:@"mood4"] )
+    if ( [plot.identifier isEqual:@"happiness"] )
     {
         return [self.graphData4 count];
     }
-    if ( [plot.identifier isEqual:@"mood5"] )
+    if ( [plot.identifier isEqual:@"calmness"] )
     {
         return [self.graphData5 count];
     }
@@ -238,27 +238,27 @@
 // Delegate method that returns a single X or Y value for a given plot.
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
-    if ( [plot.identifier isEqual:@"mood1"])
+    if ( [plot.identifier isEqual:@"energy"])
     {
         NSDecimalNumber *num = [[self.graphData objectAtIndex:index] objectForKey:[NSNumber numberWithInt:fieldEnum]];
         return num;
     }
-    if ( [plot.identifier isEqual:@"mood2"])
+    if ( [plot.identifier isEqual:@"concentration"])
     {
         NSDecimalNumber *num = [[self.graphData2 objectAtIndex:index] objectForKey:[NSNumber numberWithInt:fieldEnum]];
         return num;
     }
-    if ( [plot.identifier isEqual:@"mood3"])
+    if ( [plot.identifier isEqual:@"loving"])
     {
         NSDecimalNumber *num = [[self.graphData3 objectAtIndex:index] objectForKey:[NSNumber numberWithInt:fieldEnum]];
         return num;
     }
-    if ( [plot.identifier isEqual:@"mood4"])
+    if ( [plot.identifier isEqual:@"happiness"])
     {
         NSDecimalNumber *num = [[self.graphData4 objectAtIndex:index] objectForKey:[NSNumber numberWithInt:fieldEnum]];
         return num;
     }
-    if ( [plot.identifier isEqual:@"mood5"])
+    if ( [plot.identifier isEqual:@"calmness"])
     {
         NSDecimalNumber *num = [[self.graphData5 objectAtIndex:index] objectForKey:[NSNumber numberWithInt:fieldEnum]];
         return num;

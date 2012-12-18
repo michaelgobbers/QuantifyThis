@@ -19,5 +19,10 @@
 
 @property (strong, atomic) IBOutlet UILabel *beatsPerMinute;
 @property (retain) id delegate;
+@property int taps;
+@property NSDate *lastTap;
+@property NSDate *startTime;
+@property NSTimeInterval totalTime;
+@property int nbOfSameBpmInARow;
 
 @end
