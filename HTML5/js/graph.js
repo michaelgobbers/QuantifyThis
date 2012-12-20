@@ -37,11 +37,11 @@
             mood5.push(item);
         }
 
-        mood1 = computeList(mood1);
-        mood2 = computeList(mood2);
-        mood3 = computeList(mood3);
-        mood4 = computeList(mood4);
-        mood5 = computeList(mood5);
+        mood1 = computeList(mood1).sort();
+        mood2 = computeList(mood2).sort();
+        mood3 = computeList(mood3).sort();
+        mood4 = computeList(mood4).sort();
+        mood5 = computeList(mood5).sort();
 
         var myData = [{label: "Energized", data:mood1},
             {label: "Focused", data: mood2},
@@ -69,16 +69,23 @@
             var entry = list[i];
             var date = new Date(entry[0]);
             var handled = false;
-            for(date1 in handled){
-                if(date1.getDay() === date.getDay()
-                    && date1.getYear() === date.getYear()
-                    && date1.getMonth() === date.getMonth()){
+            for( var j = 0; j< handledList.length;j++){
+                var date1 = handledList[j];
+                if(date1.getDay() == date.getDay()
+                    && date1.getYear() == date.getYear()
+                    && date1.getMonth() == date.getMonth()){
                     handled = true;
                 }
             }
-            if(handled)continue;
-            handledList.push(date)
-            averagedList.push([entry[0], getAverage(date, list)]);
+            if(!handled){
+                handledList.push(date);
+                var normalizedDate = new Date(entry[0]);
+                normalizedDate.setHours(0);
+                normalizedDate.setMinutes(0);
+                normalizedDate.setSeconds(0);
+
+                averagedList.push([normalizedDate.getTime(), getAverage(date, list)]);
+            }
         }
 
         return averagedList;
@@ -90,15 +97,15 @@
         for(var i = 0; i < entries.length; i++){
             var entry = entries[i];
             var date1 = new Date(entry[0]);
-            if(date1.getDay() === date.getDay()
-                && date1.getYear() === date.getYear()
-                && date1.getMonth() === date.getMonth()){
+            if(date1.getDay() == date.getDay()
+                && date1.getYear() == date.getYear()
+                && date1.getMonth() == date.getMonth()){
 
                 sum += entry[1];
                 count++;
             }
         }
-        return sum/count;
+        return sum / count;
     };
 
     getData();
