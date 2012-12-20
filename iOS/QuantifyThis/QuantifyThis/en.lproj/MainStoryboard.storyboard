@@ -570,19 +570,16 @@
             </objects>
             <point key="canvasLocation" x="-2694" y="1410"/>
         </scene>
-        <!--View Controller - Calendar view-->
+        <!--Calendar View Controller - Calendar view-->
         <scene sceneID="q39-BN-PEU">
             <objects>
-                <viewController id="G1m-Xo-pqT" sceneMemberID="viewController">
+                <viewController id="G1m-Xo-pqT" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yU-oq-pHy">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVT-wn-bf5">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="504" id="Gr2-gC-rsA"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="14w-ZI-Hvg">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -590,24 +587,40 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajX-rO-Xt4">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="ajX-rO-Xt4" firstAttribute="top" secondItem="14w-ZI-Hvg" secondAttribute="top" constant="11" id="ag6-AL-BiT"/>
+                                            <constraint firstItem="ajX-rO-Xt4" firstAttribute="leading" secondItem="14w-ZI-Hvg" secondAttribute="leading" constant="56" id="h7E-kU-4X0"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BVT-wn-bf5" firstAttribute="bottom" secondItem="6yU-oq-pHy" secondAttribute="bottom" type="default" id="2dE-Su-rQf"/>
                             <constraint firstItem="BVT-wn-bf5" firstAttribute="trailing" secondItem="6yU-oq-pHy" secondAttribute="trailing" type="default" id="F0D-sM-EVQ"/>
-                            <constraint firstItem="BVT-wn-bf5" firstAttribute="top" secondItem="6yU-oq-pHy" secondAttribute="top" constant="-1" id="kLi-0L-9a8"/>
+                            <constraint firstItem="BVT-wn-bf5" firstAttribute="top" secondItem="6yU-oq-pHy" secondAttribute="top" type="default" id="aMo-6I-s5y"/>
                             <constraint firstItem="BVT-wn-bf5" firstAttribute="leading" secondItem="6yU-oq-pHy" secondAttribute="leading" type="default" id="vk2-LG-qvQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar view" id="CPh-32-flv"/>
+                    <connections>
+                        <outlet property="myTableView" destination="BVT-wn-bf5" id="Tqh-Aj-OW2"/>
+                        <outlet property="view" destination="BVT-wn-bf5" id="Vpc-b5-jBF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMA-NK-F2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2152" y="701"/>
+            <point key="canvasLocation" x="-2126" y="702"/>
         </scene>
         <!--Statistics Contoller - Graph-->
         <scene sceneID="ede-Dt-i45">
@@ -652,10 +665,66 @@
         <image name="statistics.png" width="256" height="256"/>
     </resources>
     <classes>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="CalendarLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarLoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="CalendarViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="FirstResponder">
             <source key="sourceIdentifier" type="user"/>
             <relationships>
                 <relationship kind="action" name="action"/>
+            </relationships>
+        </class>
+        <class className="HeartBeatController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HeartBeatController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="beatsPerMinute" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RegisterMoodController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterMoodController.h"/>
+            <relationships>
+                <relationship kind="action" name="registerMood:"/>
+                <relationship kind="outlet" name="bar1" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar2" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar3" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar4" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="bar5" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="SleepController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepController.h"/>
+            <relationships>
+                <relationship kind="action" name="timeChanged:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="qualitySlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="StatisticsContoller" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticsContoller.h"/>
+            <relationships>
+                <relationship kind="outlet" name="graphHostingView" candidateClass="CPTGraphHostingView"/>
             </relationships>
         </class>
     </classes>

@@ -87,6 +87,7 @@
 		61CF04F91683236900DBE543 /* CalendarLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04F81683236900DBE543 /* CalendarLoginViewController.m */; };
 		61CF04FD168354AB00DBE543 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04FC168354AB00DBE543 /* CalendarModel.m */; };
 		61CF0500168354FB00DBE543 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04FF168354FB00DBE543 /* CalendarViewController.m */; };
+		61CF050316835D2700DBE543 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF050216835D2700DBE543 /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,8 @@
 		61CF04FC168354AB00DBE543 /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
 		61CF04FE168354FB00DBE543 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		61CF04FF168354FB00DBE543 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		61CF050116835D2700DBE543 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		61CF050216835D2700DBE543 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +491,8 @@
 				61CF04FC168354AB00DBE543 /* CalendarModel.m */,
 				61CF04FE168354FB00DBE543 /* CalendarViewController.h */,
 				61CF04FF168354FB00DBE543 /* CalendarViewController.m */,
+				61CF050116835D2700DBE543 /* Event.h */,
+				61CF050216835D2700DBE543 /* Event.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				61CF04F91683236900DBE543 /* CalendarLoginViewController.m in Sources */,
 				61CF04FD168354AB00DBE543 /* CalendarModel.m in Sources */,
 				61CF0500168354FB00DBE543 /* CalendarViewController.m in Sources */,
+				61CF050316835D2700DBE543 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

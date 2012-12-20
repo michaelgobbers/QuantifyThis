@@ -8,6 +8,7 @@
 
 #import "CalendarLoginViewController.h"
 #import "SBJson.h"
+#import "CalendarModel.h"
 
 @interface CalendarLoginViewController ()
 
@@ -15,8 +16,9 @@
 
 @implementation CalendarLoginViewController
 
-
 @synthesize webview = _webview;
+
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSLog(@"response recieved");
@@ -30,6 +32,8 @@
     NSDictionary *JSONResponse = [parser objectWithString:json_string error:nil];
     NSString *access_token = [JSONResponse objectForKey:@"access_token"];
     NSLog(@"access token: %@", access_token);
+    CalendarModel *model = [CalendarModel instance];
+    model.accessToken = access_token;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Success"
                                                     message:@"You have successfully logged in."
                                                    delegate:nil
@@ -90,7 +94,6 @@
 	NSURL *url = [NSURL URLWithString:@"https://accounts.google.com/o/oauth2/auth?scope=https://www.google.com/calendar/feeds/&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code&client_id=784611597419-v8473qpjnunb31sq4nqc63kdckbcnn87.apps.googleusercontent.com"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webview loadRequest:requestObj];
-    NSString *theTitle=[self.webview stringByEvaluatingJavaScriptFromString:@"document.title"];
     
     
     

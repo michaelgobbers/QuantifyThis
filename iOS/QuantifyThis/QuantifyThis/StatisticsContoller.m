@@ -174,24 +174,6 @@ NSMutableString *incompleteDataResponse;
 {
     [super viewWillAppear:animated];
     [self loadEntryDataIntoModel];
-    
-    /*NSTimeInterval oneDay = 24 * 60 * 60;
-    
-    NSMutableArray *newData = [NSMutableArray array];
-    NSUInteger i;
-    
-    for ( i = 0; i < 7; i++ ) {
-        NSTimeInterval x = oneDay*i;
-        id y = [NSDecimalNumber numberWithFloat:arc4random() % 100];
-        [newData addObject:
-         [NSDictionary dictionaryWithObjectsAndKeys:
-          [NSDecimalNumber numberWithFloat:x], [NSNumber numberWithInt:CPTScatterPlotFieldX],
-          y, [NSNumber numberWithInt:CPTScatterPlotFieldY],
-          nil]];
-    }
-    
-    self.scatterPlot = [[TutScatterPlot alloc] initWithHostingView:graphHostingView andData:newData];
-    [self.scatterPlot initialisePlot];*/
 }
 
 

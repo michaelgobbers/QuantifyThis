@@ -10,4 +10,10 @@
 
 @interface CalendarModel : NSObject
 
+@property (strong, atomic) NSMutableArray *eventList;
+@property (strong, atomic) NSString *accessToken;
+@property (strong, atomic) CalendarModel *instance;
+
++ (CalendarModel *)instance;
+
 @end
