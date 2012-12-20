@@ -49,6 +49,26 @@ body{
 	background: linear-gradient(to bottom,  #ff3019 0%,#cf0404 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 );
 }
+.notify{
+    text-align:center;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding:5px;
+    border: 1px solid #bbb;
+    margin:5px;
+
+    background: #f2f5f6;
+    background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f5f6), color-stop(37%,#e3eaed), color-stop(100%,#c8d7dc));
+    background: -webkit-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: -o-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: -ms-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+}
+
 #markevent{
     display: none;
 }
@@ -68,9 +88,9 @@ body{
     padding-bottom: 15px!important;
 }
 .slider_block{
-	height:30px;
-	margin-top:10px;
-	margin-bottom:10px;
+	height:40px;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 .slider_block .ui-block-a{
     width:25% !important;
@@ -83,8 +103,18 @@ body{
     width:25% !important;
     text-align: center;
 }
+
 .ui-slider-input{
 	display:none !important;
+}
+#lbl_hours_slider{
+    font-size:30px;
+    margin: 5px 0px;
+}
+.ui-slider-input{
+    width:0px !important;
+    margin:0px !important;
+    padding:0px !important;
 }
 a {
 	text-decoration:none;
@@ -94,11 +124,8 @@ a {
   background: url(../images/list-line.png) no-repeat;
   padding-top:5px;
 }
-#authorize-button-calendar{
+#authorize-button-calendar, #authorize-button-appengine{
     display: none;
-}
-#authorize-button-appengine{
-    display: block;
 }
 .ui-grid-solo .ui-slider{
     margin:10px 0px!important;
@@ -106,6 +133,16 @@ a {
 label, input{
     display:block;
 }
-#slider-many-hours .ui-slider-input{
-    display:inline !important;
+
+#heartrate_label{
+    font-size: 80px;
+    float:left;
+    display:block;
+}
+#bpmspan{
+    float:left;
+    color:darkred;
+    font-size: 30px;
+    display:block;
+    vertical-align: top;
 }

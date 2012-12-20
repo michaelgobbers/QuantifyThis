@@ -1,8 +1,5 @@
 
-
-
-(function( $ ) {
-    $(document).delegate('#statistics_page', 'pageshow', function( ) {
+    $(document).on('pageinit', function( ) {
         getData();
     });
 
@@ -98,6 +95,6 @@
     };
 
     getData();
-})( jQuery );
+
 
 

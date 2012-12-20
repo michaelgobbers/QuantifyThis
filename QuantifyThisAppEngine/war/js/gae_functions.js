@@ -1,8 +1,8 @@
 
 $.get("http://quantifythisapp.appspot.com/LoginService", {request: "loggedin"}, function(resp){
     var auth_button = $("#authorize-button-appengine");
-    if(resp.loggedin == true){
-        auth_button.display = "none";
+    if(resp.loggedin == false){
+        auth_button.display = "block";
     }
 
 }, "json");
@@ -28,8 +28,8 @@ function sendMood(){
     var temperature = $("#temperature").val();
     
     //heart rate
-    var heartrate = $("#heartrate").val();
-    
+    var heartrate = $("#heartrate_label").html();
+    alert(heartrate);
     if(eventId==''){
         if(temperature==null)
             if(heartrate=='')

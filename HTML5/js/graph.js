@@ -1,8 +1,6 @@
 
-
-
-(function( $ ) {
-    $(document).delegate('#statistics_page', 'pageshow', function( ) {
+    $(document).on('pageinit', function( ) {
+        $.mobile.loading( 'show', { theme: "c", text: "Graph is loading", textVisible:true });
         getData();
     });
 
@@ -25,7 +23,7 @@
 
         for (var i = 0; i<entries.entries.length; i++){
             var entry = entries.entries[i];
-            var date = entry.date * 1000;
+            var date = entry.date;
 
             item = [date, entry.mood.moodvalue[0]];
             mood1.push(item);
@@ -61,6 +59,7 @@
         $.plot($("#mood3_graph"), [{ data:mood3 }], Options);
         $.plot($("#mood4_graph"), [{ data:mood4 }], Options);
         $.plot($("#mood5_graph"), [{ data:mood5 }], Options);
+
     };
 
     var computeList = function(list){
@@ -68,17 +67,18 @@
         var averagedList = [];
         for(var i = 0; i < list.length; i++){
             var entry = list[i];
-            var date = entry[0];
+            var date = new Date(entry[0]);
             var handled = false;
             for(date1 in handled){
-                if(date1 == date){
+                if(date1.getDay() === date.getDay()
+                    && date1.getYear() === date.getYear()
+                    && date1.getMonth() === date.getMonth()){
                     handled = true;
-                    break;
                 }
             }
             if(handled)continue;
             handledList.push(date)
-            averagedList.push([date, getAverage(date, list)]);
+            averagedList.push([entry[0], getAverage(date, list)]);
         }
 
         return averagedList;
@@ -89,15 +89,19 @@
         var sum = 0;
         for(var i = 0; i < entries.length; i++){
             var entry = entries[i];
-            var date1 = entry[0];
-            if(date != date1)continue;
-            sum += entry[1];
-            count++;
+            var date1 = new Date(entry[0]);
+            if(date1.getDay() === date.getDay()
+                && date1.getYear() === date.getYear()
+                && date1.getMonth() === date.getMonth()){
+
+                sum += entry[1];
+                count++;
+            }
         }
         return sum/count;
     };
 
     getData();
-})( jQuery );
+
 
 

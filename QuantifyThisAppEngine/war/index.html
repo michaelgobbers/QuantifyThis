@@ -258,17 +258,10 @@
 			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
-		<div data-role="content">
+		<div data-role="content" id="tapme">
             <div class="wrap center ui-grid-solo">
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <label for="heartrate" class="ui-input-text">Heartrate:</label>
-                    <input type="number" name="heartrate" id="heartrate" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-                </div>
-
-                <div>
-                    <p id="acceleration"></p>
-                    <p id="acceleration-gravity"></p>
-                </div>
+                <label id="heartrate_label">0</label>
+                <span id="bpmspan">bpm</span>
             </div>
 		</div>
 	</div><!-- heart rate page -->
@@ -277,6 +270,15 @@
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript" src="js/excanvas.min.js"></script>
     <script type="text/javascript" src="js/jquery.flot.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/gae_functions.js"></script>
+    <script src="js/calendar_api.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
+    <script src="js/heart_rate.js"></script>
+</body>
+
+</html>t/javascript" src="js/jquery.flot.js"></script>
     <script src="js/graph.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/gae_functions.js"></script>

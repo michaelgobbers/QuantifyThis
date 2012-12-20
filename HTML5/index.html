@@ -170,11 +170,11 @@
                     <input type="number" name="eventsdays" id="eventsdays" value="1">
                 </div>
 
-                <div data-role="fieldcontain" id='categories-container' style="text-align: center;">
+                <div data-role="fieldcontain" data-theme="c" id='categories-container' style="text-align: center;">
                 </div>
 
                 <div id="events-container">
-                    <ul data-role="listview" id="events-list" data-theme="b"></ul>
+                    <ul data-role="listview"  data-theme="c" id="events-list"></ul>
                 </div>
             </div>
 		</div>
@@ -242,11 +242,24 @@
 		</div>
 
 		<div data-role="content">
-            <div class="wrap center ui-grid-solo">
-                <label for="slider-many-hours">How many hours did you sleep?</label>
-                <input type="range" name="slider-many-hours" id="slider-many-hours" value="8" min="1" max="22" data-highlight="true" />
-                <label for="slider-eff">How well did you sleep?</label>
-                <input type="range" name="slider-eff" id="slider-eff" value="7" min="1" max="10" data-highlight="true" />
+            <div class="wrap center">
+                <div class="ui-grid-solo">
+                    <label for="slider-many-hours">How many hours did you sleep?</label>
+
+                    <p class="center" id="lbl_hours_slider">8<span> Hours</span></p>
+                    <input type="range" name="slider-many-hours" id="slider-many-hours" value="8" min="1" max="22" data-highlight="true" />
+                    <br/>
+                    <label for="slider-eff">How well did you sleep?</label>
+                    <input type="range" name="slider-eff" id="slider-eff" value="7" min="1" max="10" data-highlight="true" />
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <label>Bad</label>
+                    </div>
+                    <div class="ui-block-b">
+                        <label>Good</label>
+                    </div>
+                </div>
             </div>
 		</div>
 	</div><!-- sleep page -->
@@ -258,16 +271,24 @@
 			<a href="#markmood_page" data-icon="arrow-l" rel="external" class="ui-btn-left"  data-transition="slidedown">Back</a>
 		</div>
 
-		<div data-role="content">
+		<div onclick="tap()" data-role="content" id="tapme">
             <div class="wrap center ui-grid-solo">
-                <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
-                    <label for="heartrate" class="ui-input-text">Heartrate:</label>
-                    <input type="number" name="heartrate" id="heartrate" value="" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
-                </div>
-
                 <div>
-                    <p id="acceleration"></p>
-                    <p id="acceleration-gravity"></p>
+                    <p>Hold your finger to your neck and tap/click this page on the rhythm of your pulse rate. You'll get notified when you can stop.</p>
+
+                    <div style="display: inline-block;">
+                        <div id="heartrate_label">
+                            <label>0</label>
+                        </div>
+                        <div id="bpmspan">
+                            <span>bpm</span>
+                        </div>
+                    </div>
+
+                    <br clear="all"/>
+                </div>
+                <div id="heartrate_notification" data-role="popup" data-theme="c" data-dismissible="false" >
+                    <p>You can stop tapping now!</p>
                 </div>
             </div>
 		</div>
@@ -277,12 +298,24 @@
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript" src="js/excanvas.min.js"></script>
     <script type="text/javascript" src="js/jquery.flot.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#slider-many-hours").change(function () {
+                var val = $("#slider-many-hours")[0].value;
+                if(val == 1){
+                    $("#lbl_hours_slider").html(val + '<span> Hour</span>');
+                }else{
+                    $("#lbl_hours_slider").html(val + '<span> Hours</span>');
+                }
+            });
+        });
+    </script>
     <script src="js/graph.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/gae_functions.js"></script>
     <script src="js/calendar_api.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=loadCalendar"></script>
-    <script src="js/heart_rate.js?onload=startAccelerometerOutput"></script>
+    <script src="js/heart_rate.js"></script>
 </body>
 
 </html>
