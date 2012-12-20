@@ -1,0 +1,11 @@
+<!-- Indices written at Sun, 28 Oct 2012 10:20:00 CET -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Dog" ancestor="true" source="auto">
+        <property name="percentage" direction="desc"/>
+        <property name="nbOfVotes" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>

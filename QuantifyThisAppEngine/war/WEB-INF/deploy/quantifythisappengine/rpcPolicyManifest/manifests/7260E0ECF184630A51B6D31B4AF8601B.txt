@@ -1,0 +1,2 @@
+serviceClass: be.mume.quantifythis.appengine.client.GreetingService
+path: 0BF4FDEF0CAF11C583E4F5CDBC552382.gwt.rpc

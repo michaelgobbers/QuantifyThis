@@ -382,8 +382,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp3-w0-Nqw">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="GEc-bm-nXT"/>
-                                    <constraint firstAttribute="height" constant="130" id="hDh-8M-jm9"/>
+                                    <constraint firstAttribute="width" constant="111" id="P1o-nE-Rkj"/>
+                                    <constraint firstAttribute="height" constant="111" id="yNo-sR-BiD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="statistics.png">
@@ -397,10 +397,7 @@
                                     <segue destination="Zy7-vO-8CP" kind="push" id="LxG-3s-iVN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tf-it-mq9">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="129" id="AJ6-Rb-1XA"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tf-it-mq9">
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="calendar_view.png">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -413,10 +410,10 @@
                                     <segue destination="G1m-Xo-pqT" kind="push" id="8UH-XH-VoB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcm-cw-HWp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcm-cw-HWp">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="DeS-Oz-2gk"/>
-                                    <constraint firstAttribute="height" constant="130" id="zT5-vT-Dne"/>
+                                    <constraint firstAttribute="height" constant="111" id="6TI-bE-Y3v"/>
+                                    <constraint firstAttribute="width" constant="111" id="Jg7-Qq-n9l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" image="mood.png">
@@ -429,13 +426,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YT-I1-fbh">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="TMw-Gb-gbF"/>
-                                    <constraint firstAttribute="width" constant="173" id="vk0-6I-TJD"/>
+                                    <constraint firstAttribute="height" constant="35" id="mhi-6k-DCa"/>
+                                    <constraint firstAttribute="width" constant="274" id="zWM-Ws-rvc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login" image="login-button.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="App Engine Login / Logout">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -468,24 +464,44 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-Ag-GJj">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="94d-Y3-Xua"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Calendar Login / Logout">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="p52-ML-PqO" kind="push" id="rsb-9H-XMH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8646894087" green="0.89441336270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Lcm-cw-HWp" firstAttribute="leading" secondItem="VaX-Zm-4QV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Ms-TO-Nto"/>
-                            <constraint firstItem="Pn0-Dv-qWw" firstAttribute="baseline" secondItem="b9D-dc-jqB" secondAttribute="baseline" type="default" id="4bT-sH-mNf"/>
-                            <constraint firstItem="ZbW-Ek-9UE" firstAttribute="centerX" secondItem="VaX-Zm-4QV" secondAttribute="centerX" type="default" id="9IK-Lo-1sa"/>
+                            <constraint firstItem="6YT-I1-fbh" firstAttribute="leading" secondItem="VaX-Zm-4QV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="249-fA-fZx"/>
+                            <constraint firstItem="fp3-w0-Nqw" firstAttribute="centerX" secondItem="iTJ-Ag-GJj" secondAttribute="centerX" type="default" id="5KE-dI-paW"/>
                             <constraint firstItem="Lcm-cw-HWp" firstAttribute="top" secondItem="VaX-Zm-4QV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="9QK-2l-if3"/>
+                            <constraint firstAttribute="bottom" secondItem="iTJ-Ag-GJj" secondAttribute="bottom" constant="15" id="Aj2-xb-0fZ"/>
                             <constraint firstItem="8tf-it-mq9" firstAttribute="top" secondItem="VaX-Zm-4QV" secondAttribute="top" constant="20" symbolic="YES" type="default" id="CPv-Mu-W3Z"/>
-                            <constraint firstItem="Pn0-Dv-qWw" firstAttribute="centerX" secondItem="8tf-it-mq9" secondAttribute="centerX" type="default" id="LxV-uI-CrV"/>
-                            <constraint firstAttribute="trailing" secondItem="6YT-I1-fbh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Mh1-mi-Ues"/>
-                            <constraint firstItem="fp3-w0-Nqw" firstAttribute="top" secondItem="b9D-dc-jqB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Uhv-01-L36"/>
-                            <constraint firstItem="b9D-dc-jqB" firstAttribute="top" secondItem="VaX-Zm-4QV" secondAttribute="top" constant="152" id="Xyl-6J-FVh"/>
-                            <constraint firstItem="ZbW-Ek-9UE" firstAttribute="top" secondItem="fp3-w0-Nqw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bvJ-4p-Jb5"/>
-                            <constraint firstAttribute="bottom" secondItem="6YT-I1-fbh" secondAttribute="bottom" constant="15" id="dh0-gt-GoF"/>
-                            <constraint firstItem="ZbW-Ek-9UE" firstAttribute="centerX" secondItem="fp3-w0-Nqw" secondAttribute="centerX" type="default" id="fa9-YZ-Nnx"/>
-                            <constraint firstAttribute="trailing" secondItem="Pn0-Dv-qWw" secondAttribute="trailing" constant="26" id="nDk-Pu-UYG"/>
-                            <constraint firstAttribute="trailing" secondItem="8tf-it-mq9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nFW-gK-Bpi"/>
-                            <constraint firstItem="b9D-dc-jqB" firstAttribute="centerX" secondItem="Lcm-cw-HWp" secondAttribute="centerX" type="default" id="pun-KJ-kNM"/>
+                            <constraint firstItem="ZbW-Ek-9UE" firstAttribute="top" secondItem="fp3-w0-Nqw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="HQs-Za-4QO"/>
+                            <constraint firstItem="b9D-dc-jqB" firstAttribute="centerX" secondItem="Lcm-cw-HWp" secondAttribute="centerX" type="default" id="IL5-IM-kVK"/>
+                            <constraint firstItem="fp3-w0-Nqw" firstAttribute="top" secondItem="b9D-dc-jqB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="P4D-VO-QnT"/>
+                            <constraint firstAttribute="trailing" secondItem="iTJ-Ag-GJj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Xe5-ac-ghc"/>
+                            <constraint firstItem="b9D-dc-jqB" firstAttribute="top" secondItem="VaX-Zm-4QV" secondAttribute="top" constant="137" id="c3M-Un-4vP"/>
+                            <constraint firstItem="Pn0-Dv-qWw" firstAttribute="leading" secondItem="8tf-it-mq9" secondAttribute="leading" type="default" id="d6w-fG-KZl"/>
+                            <constraint firstItem="Lcm-cw-HWp" firstAttribute="leading" secondItem="VaX-Zm-4QV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="e05-iP-WDG"/>
+                            <constraint firstItem="iTJ-Ag-GJj" firstAttribute="top" secondItem="6YT-I1-fbh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gXq-GX-udB"/>
+                            <constraint firstItem="fp3-w0-Nqw" firstAttribute="trailing" secondItem="ZbW-Ek-9UE" secondAttribute="trailing" type="default" id="lLM-bQ-eDH"/>
+                            <constraint firstAttribute="trailing" secondItem="8tf-it-mq9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lYg-ui-7PM"/>
+                            <constraint firstAttribute="trailing" secondItem="Pn0-Dv-qWw" secondAttribute="trailing" constant="14" id="lc4-cU-28V"/>
+                            <constraint firstItem="8tf-it-mq9" firstAttribute="bottom" secondItem="Lcm-cw-HWp" secondAttribute="bottom" type="default" id="liN-T9-Ftl"/>
+                            <constraint firstItem="b9D-dc-jqB" firstAttribute="baseline" secondItem="Pn0-Dv-qWw" secondAttribute="baseline" type="default" id="oe1-fA-ZNp"/>
+                            <constraint firstItem="iTJ-Ag-GJj" firstAttribute="leading" secondItem="VaX-Zm-4QV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="y0P-VQ-Y7X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="QuantifyThis" id="6a2-zr-fah">
@@ -496,7 +512,36 @@
             </objects>
             <point key="canvasLocation" x="-2694" y="702"/>
         </scene>
-        <!--Login View Controller - Login In-->
+        <!--Calendar Login View Controller - Calendar Login-->
+        <scene sceneID="xMg-QC-5t9">
+            <objects>
+                <viewController id="p52-ML-PqO" customClass="CalendarLoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s4w-SW-SyS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMg-fv-8G6">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HMg-fv-8G6" firstAttribute="top" secondItem="s4w-SW-SyS" secondAttribute="top" type="default" id="Bsr-od-1Dd"/>
+                            <constraint firstItem="HMg-fv-8G6" firstAttribute="trailing" secondItem="s4w-SW-SyS" secondAttribute="trailing" type="default" id="Ilr-Jx-Uup"/>
+                            <constraint firstItem="HMg-fv-8G6" firstAttribute="leading" secondItem="s4w-SW-SyS" secondAttribute="leading" type="default" id="JrI-Ie-3nk"/>
+                            <constraint firstItem="HMg-fv-8G6" firstAttribute="bottom" secondItem="s4w-SW-SyS" secondAttribute="bottom" type="default" id="gtZ-v5-Pz4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calendar Login" id="7CJ-Ch-cgT"/>
+                    <connections>
+                        <outlet property="webview" destination="HMg-fv-8G6" id="LDu-qx-Oz2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiq-Rh-8bK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3167" y="1410"/>
+        </scene>
+        <!--Login View Controller - App Engine Login-->
         <scene sceneID="DbK-s6-v55">
             <objects>
                 <viewController id="t1W-bD-1VB" customClass="LoginViewController" sceneMemberID="viewController">
@@ -516,7 +561,7 @@
                             <constraint firstItem="HKy-mj-mGR" firstAttribute="bottom" secondItem="SY2-le-ZOy" secondAttribute="bottom" type="default" id="t90-7u-GtU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Login In" id="c5F-46-rHe"/>
+                    <navigationItem key="navigationItem" title="App Engine Login" id="c5F-46-rHe"/>
                     <connections>
                         <outlet property="webView" destination="HKy-mj-mGR" id="jz2-js-JY8"/>
                     </connections>
@@ -535,6 +580,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BVT-wn-bf5">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="504" id="Gr2-gC-rsA"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="14w-ZI-Hvg">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -550,9 +598,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BVT-wn-bf5" firstAttribute="bottom" secondItem="6yU-oq-pHy" secondAttribute="bottom" type="default" id="6yL-hf-ti3"/>
                             <constraint firstItem="BVT-wn-bf5" firstAttribute="trailing" secondItem="6yU-oq-pHy" secondAttribute="trailing" type="default" id="F0D-sM-EVQ"/>
-                            <constraint firstItem="BVT-wn-bf5" firstAttribute="top" secondItem="6yU-oq-pHy" secondAttribute="top" type="default" id="i79-Jr-LFz"/>
+                            <constraint firstItem="BVT-wn-bf5" firstAttribute="top" secondItem="6yU-oq-pHy" secondAttribute="top" constant="-1" id="kLi-0L-9a8"/>
                             <constraint firstItem="BVT-wn-bf5" firstAttribute="leading" secondItem="6yU-oq-pHy" secondAttribute="leading" type="default" id="vk2-LG-qvQ"/>
                         </constraints>
                     </view>
@@ -561,36 +608,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMA-NK-F2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2152" y="701"/>
-        </scene>
-        <!--App Settings View Controller-->
-        <scene sceneID="0c7-fs-3bY">
-            <objects>
-                <tableViewController id="sDT-8b-mMc" customClass="IASKAppSettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="53B-Rf-XcB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RFs-UX-ECW">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sDT-8b-mMc" id="Qdv-4o-e2C"/>
-                            <outlet property="delegate" destination="sDT-8b-mMc" id="QG9-ec-5LX"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="X55-V9-eJW"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMw-Bb-16x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2152" y="2642"/>
         </scene>
         <!--Statistics Contoller - Graph-->
         <scene sceneID="ede-Dt-i45">
@@ -619,77 +636,26 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="WSt-ln-HeV" kind="relationship" relationship="rootViewController" id="dPt-Tn-AwH"/>
+                        <segue destination="WSt-ln-HeV" kind="relationship" relationship="rootViewController" id="6e7-cm-99K"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wck-Z7-Kew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3231" y="702"/>
+            <point key="canvasLocation" x="-3315" y="702"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar_view.png" width="256" height="246"/>
         <image name="heartrate.png" width="250" height="250"/>
-        <image name="login-button.png" width="216" height="42"/>
         <image name="mood.png" width="256" height="256"/>
         <image name="sleeptime.png" width="258" height="306"/>
         <image name="statistics.png" width="256" height="256"/>
     </resources>
     <classes>
-        <class className="CPTGraphHostingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
-        </class>
         <class className="FirstResponder">
             <source key="sourceIdentifier" type="user"/>
             <relationships>
                 <relationship kind="action" name="action"/>
-            </relationships>
-        </class>
-        <class className="HeartBeatController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HeartBeatController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="beatsPerMinute" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="IASKAppSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IASKAppSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RegisterMoodController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterMoodController.h"/>
-            <relationships>
-                <relationship kind="action" name="registerMood:"/>
-                <relationship kind="outlet" name="bar1" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="bar2" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="bar3" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="bar4" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="bar5" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="SleepController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepController.h"/>
-            <relationships>
-                <relationship kind="action" name="timeChanged:" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="qualitySlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="StatisticsContoller" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatisticsContoller.h"/>
-            <relationships>
-                <relationship kind="outlet" name="graphHostingView" candidateClass="CPTGraphHostingView"/>
             </relationships>
         </class>
     </classes>

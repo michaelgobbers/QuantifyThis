@@ -84,6 +84,9 @@
 		616D81A91678BDB20065556A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 616D81A41678BBDE0065556A /* libCorePlot-CocoaTouch.a */; };
 		61A1E3DA1677430F005060CC /* StatisticsContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A1E3D91677430F005060CC /* StatisticsContoller.m */; };
 		61A1E3DD16774E10005060CC /* TutScatterPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A1E3DC16774E10005060CC /* TutScatterPlot.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		61CF04F91683236900DBE543 /* CalendarLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04F81683236900DBE543 /* CalendarLoginViewController.m */; };
+		61CF04FD168354AB00DBE543 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04FC168354AB00DBE543 /* CalendarModel.m */; };
+		61CF0500168354FB00DBE543 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CF04FF168354FB00DBE543 /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +223,12 @@
 		61A1E3D91677430F005060CC /* StatisticsContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsContoller.m; sourceTree = "<group>"; };
 		61A1E3DB16774E10005060CC /* TutScatterPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutScatterPlot.h; sourceTree = "<group>"; };
 		61A1E3DC16774E10005060CC /* TutScatterPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutScatterPlot.m; sourceTree = "<group>"; };
+		61CF04F71683236900DBE543 /* CalendarLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLoginViewController.h; sourceTree = "<group>"; };
+		61CF04F81683236900DBE543 /* CalendarLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLoginViewController.m; sourceTree = "<group>"; };
+		61CF04FB168354AB00DBE543 /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarModel.h; sourceTree = "<group>"; };
+		61CF04FC168354AB00DBE543 /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
+		61CF04FE168354FB00DBE543 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		61CF04FF168354FB00DBE543 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +313,7 @@
 		2447FD741626D0D9004F6F66 /* QuantifyThis */ = {
 			isa = PBXGroup;
 			children = (
+				61CF04FA1683237A00DBE543 /* Calendar */,
 				61A1E3D4167741A3005060CC /* Statistics */,
 				3F566CAC165F7A6F0095094D /* LoginToGoogleWithOAuth */,
 				24DD9DD51637330500FB6928 /* RegisterMood */,
@@ -467,6 +477,19 @@
 				61667C2D1677739E009E05D3 /* MoodEntry.m */,
 			);
 			name = Statistics;
+			sourceTree = "<group>";
+		};
+		61CF04FA1683237A00DBE543 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				61CF04F71683236900DBE543 /* CalendarLoginViewController.h */,
+				61CF04F81683236900DBE543 /* CalendarLoginViewController.m */,
+				61CF04FB168354AB00DBE543 /* CalendarModel.h */,
+				61CF04FC168354AB00DBE543 /* CalendarModel.m */,
+				61CF04FE168354FB00DBE543 /* CalendarViewController.h */,
+				61CF04FF168354FB00DBE543 /* CalendarViewController.m */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -644,6 +667,9 @@
 				61A1E3DD16774E10005060CC /* TutScatterPlot.m in Sources */,
 				61667C2B16777359009E05D3 /* MoodEntryModel.m in Sources */,
 				61667C2E1677739E009E05D3 /* MoodEntry.m in Sources */,
+				61CF04F91683236900DBE543 /* CalendarLoginViewController.m in Sources */,
+				61CF04FD168354AB00DBE543 /* CalendarModel.m in Sources */,
+				61CF0500168354FB00DBE543 /* CalendarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
