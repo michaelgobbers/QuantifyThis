@@ -7,7 +7,6 @@ var calendarAmount = 0;
 var geteventListCallBack = function(calID) {
     return function(resp, textStatus) {
         var list = $("#events-list");
-        if(resp.items == null)return;
     for (var j = 0; j < resp.items.length; j++) {
 
         var html = '<li id="'+ resp.items[j].id +'"onclick="setEventDetailsInMarkMood(\''+resp.items[j].id+'\',\''+ resp.items[j].summary +'\',\''+ calID +'\')"><a href="#markmood_page"><h1>'+resp.items[j].summary+'</h1><p id="start"></p><p id="end"></p></a></li>';
@@ -121,7 +120,7 @@ function showCalendarsWithID(ids) {
     
 }
 function filterEvents(gaeEntries){
-    if(gaeEntries == null)return;
+    if(gaeEntries == null)return
     for(var i=0; i< gaeEntries.length; i++){
         var eventid = gaeEntries[i].mood.eventid;
         if(eventid!=null){
