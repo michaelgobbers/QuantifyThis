@@ -1,6 +1,5 @@
 
     $(document).on('pageinit', function( ) {
-        $.mobile.loading( 'show', { theme: "c", text: "Graph is loading", textVisible:true });
         getData();
     });
 

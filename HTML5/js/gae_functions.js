@@ -2,9 +2,8 @@
 $.get("http://quantifythisapp.appspot.com/LoginService", {request: "loggedin"}, function(resp){
     var auth_button = $("#authorize-button-appengine");
     if(resp.loggedin == false){
-        auth_button.display = "block";
+        auth_button.css("display","block");
     }
-
 }, "json");
 
 function sendMood(){
